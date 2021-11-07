@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class MakeService extends GeneratorCommand
+class MakeServiceCommand extends GeneratorCommand
 {
     protected $signature = 'make:service {name}';
     protected $description = 'Create a new service class';

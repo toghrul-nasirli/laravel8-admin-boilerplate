@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class MakeViewComposer extends GeneratorCommand
+class MakeViewComposerCommand extends GeneratorCommand
 {
     protected $signature = 'make:view-composer {name}';
     protected $description = 'Create a new view composer class';
