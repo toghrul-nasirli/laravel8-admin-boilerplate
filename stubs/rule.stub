@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Contracts\Validation\{{ ruleType }};
+
+class {{ class }} implements {{ ruleType }}
+{
+    public function __construct()
+    {
+        //
+    }
+
+    public function passes($attribute, $value)
+    {
+        //
+    }
+
+    public function message()
+    {
+        return 'The validation error message.';
+    }
+}
