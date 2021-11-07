@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Services\UserService;
 
 class UserController extends Controller
 {
@@ -22,10 +22,7 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        $data = $request->validated();
-        $data['password'] = Hash::make($request->password);
-
-        User::create($data);
+        UserService::create($request);
 
         return redirect()->route('admin.users.index')->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
     }
@@ -37,15 +34,7 @@ class UserController extends Controller
 
     public function update(User $user, UpdateUserRequest $request)
     {
-        $data = $request->validated();
-
-        if ($request->password) {
-            $data['password'] = Hash::make($request->password);
-        } else {
-            unset($data['password']);
-        }
-
-        $user->update($data);
+        UserService::update($user, $request);
 
         return redirect()->route('admin.users.index')->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
     }

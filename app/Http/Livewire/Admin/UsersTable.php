@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\User;
+use App\Services\UserService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -24,18 +24,9 @@ class UsersTable extends Component
 
     public function render()
     {
-        return view('livewire.admin.users-table', [
-            'users' => User::search([
-                'id',
-                'username',
-                'email',
-            ], $this->search)
-                ->where([['id', '!=', auth()->user()->id], ['id', '!=', 1]])
-                ->when($this->is_admin != 'all', function ($query) {
-                    $query->where('is_admin', $this->is_admin);
-                })->orderBy($this->orderBy, $this->orderDirection)
-                ->paginate($this->perPage)
-        ]);
+        $users = UserService::all($this->search, $this->is_admin, $this->orderBy, $this->orderDirection, $this->perPage);
+        
+        return view('livewire.admin.users-table', compact('users'));
     }
 
     public function updating()
@@ -54,7 +45,6 @@ class UsersTable extends Component
 
     public function delete($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
+        UserService::delete($id);
     }
 }
