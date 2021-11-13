@@ -6,6 +6,19 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
+            <div class="dropdown">
+                <div class="nav-link user-select-none dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="false">
+                    {{ app()->getLocale() }}
+                </div>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                    @foreach (config('app.all_locales') as $locale)
+                    @if (app()->getLocale() == $locale) @continue @endif
+                    <button class="dropdown-item" type="button">{{ $locale }}</button>
+                    @endforeach
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
             <a href="{{ route('admin.settings') }}" class="nav-link {{ currentRoute('admin.settings') ? 'bg-secondary rounded-lg' : '' }}">
                 <i class="fas fa-cog"></i>
             </a>
