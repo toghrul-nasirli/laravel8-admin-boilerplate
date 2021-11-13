@@ -6,7 +6,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a href="#" class="nav-link {{ currentRoute('admin.settings.edit') ? 'bg-secondary rounded-lg' : '' }}">
+            <a href="{{ route('admin.settings') }}" class="nav-link {{ currentRoute('admin.settings') ? 'bg-secondary rounded-lg' : '' }}">
                 <i class="fas fa-cog"></i>
             </a>
         </li>
