@@ -37,30 +37,45 @@
                                                 <option value="1">Admin</option>
                                                 <option value="0">İstifadəçi</option>
                                             </select>
+                                            @error('is_admin')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="username">İstifadəçi adı</label>
                                             <input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" placeholder="İstifadəçi adı">
+                                            @error('username')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="email">E-poçt ünvanı</label>
                                             <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="E-poçt ünvanı">
+                                            @error('email')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4 offset-md-4">
                                         <div class="form-group">
                                             <label for="password">Şifrə</label>
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Şifrə">
+                                            @error('password')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="password_confirmation">Təkrar şifrə</label>
                                             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Təkrar şifrə">
+                                            @error('password_confirmation')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

@@ -30,7 +30,7 @@ class UpdateUserRequest extends FormRequest
             'max' => ':attribute bölməsi maksimum :max simvol ola bilər!',
             'unique' => ':attribute bölməsi təkrarlanmamalıdır!',
             'confirmed' => ':attribute təkrar şifrə ilə uyğun deyil!',
-            'boolean' => ':attribute bölməsi admin və ya istifadəçi ola bilər!',
+            'boolean' => ':attribute bölməsi admin və ya istifadəçi olmalıdır!',
         ];
     }
 
