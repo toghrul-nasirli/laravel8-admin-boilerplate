@@ -8,12 +8,15 @@
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/psr7": "^1.7",
         "intervention/image": "^2.7",
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
-        "livewire/livewire": "^2.7"
+        "livewire/livewire": "^2.7",
+        "spatie/crawler": "^6.0",
+        "spatie/laravel-sitemap": "^5.9"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -32,7 +35,7 @@
     },
     "autoload-dev": {
         "files": [
-            "App/Utilities/helpers.php"
+            "app/utilities/helpers.php"
         ],
         "psr-4": {
             "Tests\\": "tests/"
