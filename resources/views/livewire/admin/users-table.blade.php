@@ -66,33 +66,33 @@
 @section('scripts')
 <script>
     window.addEventListener('Swal:confirm', event => {
-            Swal.fire({
-                icon: 'warning',
-                title: event.detail.title,
-                text: event.detail.text,
-                showCancelButton: true,
-                confirmButtonText: 'Bəli, silinsin!',
-                confirmButtonColor: '#3085d6',
-                cancelButtonText: 'İmtina',
-                cancelButtonColor: '#d33',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.livewire.emit('delete', event.detail.id);
-                    Swal.fire({
-                        toast: true,
-                        icon: 'success',
-                        title: 'Müvəffəqiyyətlə silindi!',
-                        position: 'top-right',
-                        showConfirmButton: false,
-                        timerProgressBar: true,
-                        timer: 2000,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    });
-                }
-            });
+        Swal.fire({
+            icon: 'warning',
+            title: event.detail.title,
+            text: event.detail.text,
+            showCancelButton: true,
+            confirmButtonText: 'Bəli, silinsin!',
+            confirmButtonColor: '#3085d6',
+            cancelButtonText: 'İmtina',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.livewire.emit('delete', event.detail.id);
+                Swal.fire({
+                    toast: true,
+                    icon: 'success',
+                    title: 'Müvəffəqiyyətlə silindi!',
+                    position: 'top-right',
+                    showConfirmButton: false,
+                    timerProgressBar: true,
+                    timer: 2000,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+            }
         });
+    });
 </script>
 @endsection

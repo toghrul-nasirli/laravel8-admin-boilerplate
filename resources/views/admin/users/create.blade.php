@@ -77,14 +77,3 @@
     </div>
 </section>
 @endsection
-
-@section('scripts')
-<script>
-    var cleave = new Cleave('#phone', {
-            prefix: '+994',
-            delimiter: ' ',
-            blocks: [4, 2, 3, 2, 2],
-            numericOnly: true,
-        });
-</script>
-@endsection
