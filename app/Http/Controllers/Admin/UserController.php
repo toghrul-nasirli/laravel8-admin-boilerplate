@@ -22,7 +22,7 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        UserService::create($request);
+        UserService::create($request->validated());
 
         return redirect()->route('admin.users.index')->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
     }
@@ -34,7 +34,7 @@ class UserController extends Controller
 
     public function update(User $user, UpdateUserRequest $request)
     {
-        UserService::update($user, $request);
+        UserService::update($user, $request->validated());
 
         return redirect()->route('admin.users.index')->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
     }

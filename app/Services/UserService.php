@@ -21,20 +21,17 @@ class UserService
             ->paginate($perPage);
     }
 
-    public static function create($request)
+    public static function create($data)
     {
-        $data = $request->validated();
-        $data['password'] = Hash::make($request->password);
+        $data['password'] = Hash::make($data['password']);
 
         User::create($data);
     }
 
-    public static function update($user, $request)
+    public static function update($user, $data)
     {
-        $data = $request->validated();
-
-        if ($request->password) {
-            $data['password'] = Hash::make($request->password);
+        if ($data['password']) {
+            $data['password'] = Hash::make($data['password']);
         } else {
             unset($data['password']);
         }
