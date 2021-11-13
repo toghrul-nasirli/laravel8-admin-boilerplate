@@ -21,19 +21,6 @@ class UpdateUserRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'required' => ':attribute bölməsi boş buraxıla bilməz!',
-            'email' => 'E-poçt ünvanı düzgün qeyd olunmayıb!',
-            'min' => ':attribute bölməsi minimum :min simvol ola bilər!',
-            'max' => ':attribute bölməsi maksimum :max simvol ola bilər!',
-            'unique' => ':attribute bölməsi təkrarlanmamalıdır!',
-            'confirmed' => ':attribute təkrar şifrə ilə uyğun deyil!',
-            'boolean' => ':attribute bölməsi admin və ya istifadəçi olmalıdır!',
-        ];
-    }
-
     public function attributes()
     {
         return [

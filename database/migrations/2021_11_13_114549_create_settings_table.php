@@ -12,7 +12,6 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->string('logo');
             $table->string('favicon');
-            $table->string('sitemap')->nullable();
             $table->string('title');
             $table->string('email');
             $table->text('about');
