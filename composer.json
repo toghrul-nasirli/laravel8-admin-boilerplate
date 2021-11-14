@@ -16,7 +16,8 @@
         "laravel/ui": "^3.3",
         "livewire/livewire": "^2.7",
         "spatie/crawler": "^6.0",
-        "spatie/laravel-sitemap": "^5.9"
+        "spatie/laravel-sitemap": "^5.9",
+        "spatie/laravel-translation-loader": "^2.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
