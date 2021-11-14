@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Http\Livewire\Admin;
+
+use App\Services\TranslationService;
+use Livewire\Component;
+use Livewire\WithPagination;
+
+class TranslationsTable extends Component
+{
+    use WithPagination;
+
+    protected $listeners = [
+        'delete'
+    ];
+
+    protected $paginationTheme = 'bootstrap';
+
+    public $search = '';
+    public $orderBy = 'id';
+    public $orderDirection = 'asc';
+    public $perPage = 10;
+    public $group;
+
+    public function mount($group)
+    {
+        $this->group = $group;
+    }
+
+    public function render()
+    {
+        $translations = TranslationService::all($this->search, $this->group, $this->orderBy, $this->orderDirection, $this->perPage);
+
+        return view('livewire.admin.translations-table', compact('translations'));
+    }
+
+    public function updating()
+    {
+        $this->gotoPage(1);
+    }
+    
+    public function deleteConfirm($id)
+    {
+        $this->dispatchBrowserEvent('Swal:confirm', [
+            'title' => 'Silmək istədiyinizdən əminsiniz?',
+            'text' => 'Bunu geri ala bilməyəcəksiniz!',
+            'id' => $id,
+        ]);
+    }
+
+    public function delete($id)
+    {
+        TranslationService::delete($id);
+    }
+}

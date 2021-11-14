@@ -4,12 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLanguageLinesTable extends Migration
+class CreateTranslationsTable extends Migration
 {
     public function up()
     {
-        Schema::create('language_lines', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('translations', function (Blueprint $table) {
+            $table->id();
             $table->string('group');
             $table->index('group');
             $table->string('key');
@@ -20,6 +20,6 @@ class CreateLanguageLinesTable extends Migration
 
     public function down()
     {
-        Schema::drop('language_lines');
+        Schema::dropIfExists('translations');
     }
 }

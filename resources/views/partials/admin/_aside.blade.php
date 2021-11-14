@@ -35,6 +35,39 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview {{ request()->is('admin/translations*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('admin/translations*') ? 'active' : '' }}">
+                        <i class="fas fa-language"></i>
+                        <p>
+                            Tərcümələr
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.translations.index', 'main') }}" class="nav-link {{ request()->is('admin/translations/main*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>Əsas səhifə</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.translations.index', 'about') }}" class="nav-link {{ request()->is('admin/translations/about*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Haqqımızda</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.translations.index', 'contact') }}" class="nav-link {{ request()->is('admin/translations/contact*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-paper-plane"></i>
+                                <p>Əlaqə</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 {{-- <li class="nav-item has-treeview {{ request()->is('admin/socials*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->is('admin/socials*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-share-square"></i>
