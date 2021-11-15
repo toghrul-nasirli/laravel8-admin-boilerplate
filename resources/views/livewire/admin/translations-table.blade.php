@@ -3,7 +3,7 @@
         <div class="col-md-5">
             <input wire:model.debounce.300ms="search" type="text" class="form-control" placeholder="Axtar...">
         </div>
-        <div class="col-md-2 offset-md-1 mt-2 mt-md-0">
+        <div class="col-md-2 offset-md-2 mt-2 mt-md-0">
             <select wire:model="orderBy" class="form-control">
                 <option value="id">ID</option>
                 <option value="key">Açar sözü</option>
@@ -24,9 +24,7 @@
                 <option>100</option>
             </select>
         </div>
-        <div class="col-md-1 mt-2 mt-md-0">
-            <a href="{{ route('admin.translations.create', $group) }}" class="btn btn-primary btn-block">+</a>
-        </div>
+        <a href="{{ route('admin.translations.create', $group) }}" class="btn btn-primary btn-lg position-fixed" style="right:60px;bottom:40px;"><i class="fas fa-plus fa-xs text-center" style="line-height:25px;"></i></a>
     </div>
     <table class="table table-bordered table-hover text-center">
         <thead>
