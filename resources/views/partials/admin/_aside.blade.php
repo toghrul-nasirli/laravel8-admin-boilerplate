@@ -37,7 +37,7 @@
                 </li>
                 <li class="nav-item has-treeview {{ request()->is('admin/translations*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->is('admin/translations*') ? 'active' : '' }}">
-                        <i class="fas fa-language"></i>
+                        <i class="nav-icon fas fa-language"></i>
                         <p>
                             Tərcümələr
                             <i class="right fas fa-angle-left"></i>
@@ -68,9 +68,9 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li class="nav-item has-treeview {{ request()->is('admin/socials*') ? 'menu-open' : '' }}">
+                <li class="nav-item has-treeview {{ request()->is('admin/socials*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->is('admin/socials*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-share-square"></i>
+                        <i class="nav-icon fas fa-share-alt"></i>
                         <p>
                             Sosial şəbəkələr
                             <i class="right fas fa-angle-left"></i>
@@ -79,7 +79,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.socials.index') }}" class="nav-link {{ currentRoute('admin.socials.index') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-share-square"></i>
+                                <i class="nav-icon fas fa-share-alt"></i>
                                 <p>Bütün sosial şəbəkələr</p>
                             </a>
                         </li>
@@ -92,7 +92,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
             </ul>
         </nav>
     </div>
