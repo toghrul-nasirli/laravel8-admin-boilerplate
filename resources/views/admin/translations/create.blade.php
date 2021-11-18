@@ -29,7 +29,7 @@
                         <div class="card-body">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="key">Açar sözü</label>
                                             <input type="text" class="form-control" id="key" name="key" value="{{ old('key') }}" placeholder="Tərcümə üçün açar söz daxil edin">

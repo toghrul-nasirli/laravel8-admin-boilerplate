@@ -7,15 +7,17 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <div class="dropdown">
+                @if(count($locales) > 1)
                 <div class="nav-link user-select-none dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="false">
                     {{ app()->getLocale() }}
                 </div>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                    @foreach (config('app.all_locales') as $locale)
-                    @if (app()->getLocale() == $locale) @continue @endif
-                    <button class="dropdown-item" type="button">{{ $locale }}</button>
+                    @foreach ($locales as $locale)
+                    @if (app()->getLocale() == $locale->key) @continue @endif
+                    <button class="dropdown-item" type="button">{{ $locale->key }}</button>
                     @endforeach
                 </div>
+                @endif
             </div>
         </li>
         <li class="nav-item">
