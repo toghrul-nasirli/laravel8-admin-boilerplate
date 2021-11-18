@@ -42,6 +42,9 @@
                                     <div class="form-group col-md-6">
                                         <label for="{{ $locale->key }}" class="text-uppercase">{{ $locale->key }}</label>
                                         <textarea class="form-control" id="{{ $locale->key }}" name="{{ $locale->key }}" placeholder="{{ $locale->lang }} dili üçün mətni daxil edin">{{ old($locale->key) }}</textarea>
+                                        @error($locale->key)
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     @endforeach
                                 </div>

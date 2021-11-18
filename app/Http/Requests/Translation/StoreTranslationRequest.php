@@ -29,9 +29,16 @@ class StoreTranslationRequest extends FormRequest
 
     public function attributes()
     {
-        return [
-            'group' => 'Qrup',
+        $locales = LocaleService::all();
+        
+        $attributes = [
             'key' => 'Açar sözü',
         ];
+        
+        foreach ($locales as $locale) {
+            $attributes += [$locale->key => strtoupper($locale->key)];
+        }
+
+        return $attributes;
     }
 }
