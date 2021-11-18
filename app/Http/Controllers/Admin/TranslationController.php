@@ -32,13 +32,15 @@ class TranslationController extends Controller
 
     public function edit(Translation $translation)
     {
-        return view('admin.translations.edit', compact('translation'));
+        $locales = LocaleService::all();
+
+        return view('admin.translations.edit', compact('translation', 'locales'));
     }
 
     public function update(Translation $translation, UpdateTranslationRequest $request)
     {
         TranslationService::update($translation, $request->validated());
 
-        return redirect()->route('admin.translations.index')->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
+        return redirect()->route('admin.translations.index', $translation->group)->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
     }
 }

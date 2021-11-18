@@ -11,17 +11,17 @@ class UpdateTranslationRequest extends FormRequest
     {
         return true;
     }
-    
+
     public function rules()
     {
         $locales = LocaleService::all();
-        
+
         $rules = [
             'key' => ['required', 'string', 'max:255', "unique:translations,key,{$this->translation->id}"],
         ];
-        
+
         foreach ($locales as $locale) {
-            $rules += [$locale->key => 'string'];
+            $rules += [$locale->key => ['nullable', 'string']];
         }
 
         return $rules;
@@ -30,11 +30,11 @@ class UpdateTranslationRequest extends FormRequest
     public function attributes()
     {
         $locales = LocaleService::all();
-        
+
         $attributes = [
             'key' => 'Açar sözü',
         ];
-        
+
         foreach ($locales as $locale) {
             $attributes += [$locale->key => strtoupper($locale->key)];
         }

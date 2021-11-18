@@ -15,13 +15,13 @@ class StoreTranslationRequest extends FormRequest
     public function rules()
     {
         $locales = LocaleService::all();
-        
+
         $rules = [
             'key' => ['required', 'string', 'max:255', 'unique:translations,key'],
         ];
-        
+
         foreach ($locales as $locale) {
-            $rules += [$locale->key => 'string'];
+            $rules += [$locale->key => ['nullable', 'string']];
         }
 
         return $rules;
@@ -30,11 +30,11 @@ class StoreTranslationRequest extends FormRequest
     public function attributes()
     {
         $locales = LocaleService::all();
-        
+
         $attributes = [
             'key' => 'Açar sözü',
         ];
-        
+
         foreach ($locales as $locale) {
             $attributes += [$locale->key => strtoupper($locale->key)];
         }

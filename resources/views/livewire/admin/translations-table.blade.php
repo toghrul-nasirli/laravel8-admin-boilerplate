@@ -40,7 +40,7 @@
             <tr>
                 <td>{{ $translation->id }}</td>
                 <td>{{ $translation->key }}</td>
-                <td>{{ $translation->text[app()->getLocale()] }}</td>
+                <td>@lang($translation->group . '.' . $translation->key)</td>
                 <td>
                     <a href="{{ route('admin.translations.edit', $translation) }}" class="px-1"><i class="fas fa-edit"></i></a>
                     <a wire:click="deleteConfirm({{ $translation->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>

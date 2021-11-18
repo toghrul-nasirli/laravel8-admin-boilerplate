@@ -12,7 +12,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Admin</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.translations.index') }}">Tərcümələr</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.translations.index', 'main') }}">Tərcümələr</a></li>
                     <li class="breadcrumb-item active">Redaktə</li>
                 </ol>
             </div>
@@ -31,42 +31,24 @@
                         <div class="card-body">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-12">
                                         <div class="form-group">
-                                            <label for="username">İstifadəçi adı</label>
-                                            <input type="text" class="form-control" id="username" name="username" value="{{ $translation->username }}" placeholder="İstifadəçi adı">
-                                            @error('username')
+                                            <label for="key">İstifadəçi adı</label>
+                                            <input type="text" class="form-control" id="key" name="key" value="{{ $translation->key }}" placeholder="Tərcümə üçün açar söz daxil edin">
+                                            @error('key')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="email">E-poçt ünvanı</label>
-                                            <input type="email" class="form-control" id="email" name="email" value="{{ $translation->email }}" placeholder="E-poçt ünvanı">
-                                            @error('email')
-                                            <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
+                                    @foreach ($locales as $locale)
+                                    <div class="form-group col-md-6">
+                                        <label for="{{ $locale->key }}" class="text-uppercase">{{ $locale->key }}</label>
+                                        <textarea class="form-control" id="{{ $locale->key }}" name="{{ $locale->key }}" placeholder="{{ $locale->lang }} dili üçün mətni daxil edin">{{ $translation->text[$locale->key] }}</textarea>
+                                        @error($locale->key)
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
-                                    <div class="col-md-4 offset-md-4">
-                                        <div class="form-group">
-                                            <label for="password">Şifrə</label>
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Şifrə">
-                                            @error('password')
-                                            <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="password_confirmation">Təkrar şifrə</label>
-                                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Təkrar şifrə">
-                                            @error('password_confirmation')
-                                            <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

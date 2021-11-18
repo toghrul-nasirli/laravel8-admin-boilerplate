@@ -23,17 +23,25 @@ class TranslationService
         $locales = LocaleService::all();
         
         foreach ($locales as $locale) {
-            $translation[$locale->key] = $data[$locale->key];
+            $text[$locale->key] = $data[$locale->key];
         }
         
         $data['group'] = $group;
-        $data['text'] = $translation;
+        $data['text'] = $text;
 
         Translation::create($data);
     }
 
     public static function update($translation, $data)
     {
+        $locales = LocaleService::all();
+        
+        foreach ($locales as $locale) {
+            $text[$locale->key] = $data[$locale->key];
+        }
+        
+        $data['text'] = $text;
+
         $translation->update($data);
     }
 
