@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SettingsSeeder::class,
             UserSeeder::class,
+            LocaleSeeder::class,
         ]);
     }
 }
