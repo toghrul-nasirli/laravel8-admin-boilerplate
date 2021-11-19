@@ -11,36 +11,36 @@ use App\Services\TranslationService;
 
 class TranslationController extends Controller
 {
-    public function index($group)
+    public function index($lang, $group)
     {
         return view('admin.translations.index', compact('group'));
     }
 
-    public function create($group)
+    public function create($lang, $group)
     {
         $locales = LocaleService::all();
 
         return view('admin.translations.create', compact('group', 'locales'));
     }
 
-    public function store($group, StoreTranslationRequest $request)
+    public function store($lang, $group, StoreTranslationRequest $request)
     {
         TranslationService::create($group, $request->validated());
 
-        return redirect()->route('admin.translations.index', $group)->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
+        return redirect()->route('admin.translations.index', ['lang' => lang(), 'group' => $group])->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
     }
 
-    public function edit(Translation $translation)
+    public function edit($lang, Translation $translation)
     {
         $locales = LocaleService::all();
 
         return view('admin.translations.edit', compact('translation', 'locales'));
     }
 
-    public function update(Translation $translation, UpdateTranslationRequest $request)
+    public function update($lang, Translation $translation, UpdateTranslationRequest $request)
     {
         TranslationService::update($translation, $request->validated());
 
-        return redirect()->route('admin.translations.index', $translation->group)->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
+        return redirect()->route('admin.translations.index', ['lang' => lang(), 'group' => $translation->group])->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
     }
 }

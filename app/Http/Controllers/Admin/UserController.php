@@ -27,12 +27,12 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
     }
 
-    public function edit(User $user)
+    public function edit($lang, User $user)
     {
         return view('admin.users.edit', compact('user'));
     }
 
-    public function update(User $user, UpdateUserRequest $request)
+    public function update($lang, User $user, UpdateUserRequest $request)
     {
         UserService::update($user, $request->validated());
 

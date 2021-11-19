@@ -28,20 +28,20 @@ class SocialController extends Controller
     {
         SocialService::create($request->validated());
 
-        return redirect()->route('admin.socials.index')->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
+        return redirect()->route('admin.socials.index', lang())->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
     }
 
-    public function edit(Social $social)
+    public function edit($lang, Social $social)
     {
         $icons = SocialService::ICONS;
 
         return view('admin.socials.edit', compact('social', 'icons'));
     }
 
-    public function update(Social $social, UpdateSocialRequest $request)
+    public function update($lang, Social $social, UpdateSocialRequest $request)
     {
         SocialService::update($social, $request->validated());
 
-        return redirect()->route('admin.socials.index')->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
+        return redirect()->route('admin.socials.index', lang())->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
     }
 }

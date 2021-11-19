@@ -21,15 +21,15 @@
             </div>
         </li>
         <li class="nav-item">
-            <a href="{{ route('admin.settings') }}" class="nav-link {{ currentRoute('admin.settings') ? 'bg-secondary rounded-lg' : '' }}">
+            <a href="{{ route('admin.settings', lang()) }}" class="nav-link {{ currentRoute('admin.settings') ? 'bg-secondary rounded-lg' : '' }}">
                 <i class="fas fa-cog"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <a href="{{ route('logout', lang()) }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt"></i>
             </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            <form id="logout-form" action="{{ route('logout', lang()) }}" method="POST" class="d-none">
                 @csrf
             </form>
         </li>

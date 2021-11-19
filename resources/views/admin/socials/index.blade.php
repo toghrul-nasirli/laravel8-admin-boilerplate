@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.socials.index') }}">Admin</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.socials.index', lang()) }}">Admin</a></li>
                         <li class="breadcrumb-item active">Sosial şəbəkələr</li>
                     </ol>
                 </div>

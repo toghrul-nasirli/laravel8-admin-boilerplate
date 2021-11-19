@@ -11,8 +11,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Admin</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.translations.index', 'main') }}">Tərcümələr</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index', lang()) }}">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.translations.index', ['lang' => lang(), 'group' => 'main']) }}">Tərcümələr</a></li>
                     <li class="breadcrumb-item active">Yeni</li>
                 </ol>
             </div>
@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('admin.translations.store', $group) }}" method="POST" autocomplete="off">
+                <form action="{{ route('admin.translations.store', ['lang' => lang(), 'group' => $group]) }}" method="POST" autocomplete="off">
                     @csrf
                     <div class="card">
                         <div class="card-body">

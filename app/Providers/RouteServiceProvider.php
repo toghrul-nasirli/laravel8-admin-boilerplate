@@ -29,13 +29,22 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware('admin')
+            Route::prefix('{lang}')
+                ->where(['lang' => '[a-zA-Z]{2}'])
+                ->middleware('front')
                 ->namespace($this->namespace)
-                ->prefix('admin')
+                ->group(base_path('routes/front.php'));
+
+            Route::prefix('{lang}/admin')
+                ->where(['lang' => '[a-zA-Z]{2}'])
+                ->middleware('admin')
+                ->namespace($this->namespace)
                 ->name('admin.')
                 ->group(base_path('routes/admin.php'));
 
-            Route::middleware('auth')
+            Route::prefix('{lang}')
+                ->where(['lang' => '[a-zA-Z]{2}'])
+                ->middleware('auth')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/auth.php'));
         });

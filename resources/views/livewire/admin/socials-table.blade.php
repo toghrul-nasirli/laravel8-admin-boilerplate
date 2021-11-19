@@ -40,12 +40,14 @@
                 <th>Link</th>
                 <th>Status</th>
                 <th><i class="fas fa-tools"></i></th>
-                <th><i class="fas fa-sort"></i></th>
+                @if (count($socials) > 1)
+                    <th><i class="fas fa-sort"></i></th>
+                @endif
             </tr>
         </thead>
         <tbody>
             @foreach ($socials as $social)
-                <tr style="line-height: 80px;">
+                <tr>
                     <td>{{ $social->position }}</td>
                     <td><i class="{{ $social->icon }} fa-2x"></i></td>
                     <td>
@@ -59,17 +61,19 @@
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.socials.edit', $social) }}" class="px-1"><i class="fas fa-edit"></i></a>
+                        <a href="{{ route('admin.socials.edit', ['lang' => lang(), 'social' => $social]) }}" class="px-1"><i class="fas fa-edit"></i></a>
                         <a wire:click="deleteConfirm({{ $social->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
                     </td>
-                    <td>
-                        @if ($social->position > 1)
-                            <a wire:click="up({{ $social->id }})" href="javascript:void(0)" class="px-1">&uarr;</a>
-                        @endif
-                        @if ($social->position < $maxPosition)
-                            <a wire:click="down({{ $social->id }})" href="javascript:void(0)" class="px-1">&darr;</a>
-                        @endif
-                    </td>
+                    @if (count($socials) > 1)
+                        <td>
+                            @if ($social->position > 1)
+                                <a wire:click="up({{ $social->id }})" href="javascript:void(0)" class="px-1">&uarr;</a>
+                            @endif
+                            @if ($social->position < $maxPosition)
+                                <a wire:click="down({{ $social->id }})" href="javascript:void(0)" class="px-1">&darr;</a>
+                            @endif
+                        </td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>

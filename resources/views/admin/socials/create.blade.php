@@ -11,8 +11,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Admin</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.socials.index') }}">Sosial şəbəkələr</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.users.index', lang()) }}">Admin</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.socials.index', lang()) }}">Sosial şəbəkələr</a></li>
                         <li class="breadcrumb-item active">Yeni</li>
                     </ol>
                 </div>
@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <form action="{{ route('admin.socials.store') }}" method="POST" autocomplete="off">
+                    <form action="{{ route('admin.socials.store', lang()) }}" method="POST" autocomplete="off">
                         @csrf
                         <div class="card">
                             <div class="card-body">
