@@ -9,19 +9,19 @@
             <div class="dropdown">
                 @if(count($locales) > 1)
                 <div class="nav-link user-select-none dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="false">
-                    {{ app()->getLocale() }}
+                    {{ lang() }}
                 </div>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu">
                     @foreach ($locales as $locale)
-                    @if (app()->getLocale() == $locale->key) @continue @endif
-                    <button class="dropdown-item" type="button">{{ $locale->key }}</button>
+                    @if (lang() == $locale->key) @continue @endif
+                    <a href="{{ route(currentRoute(), array_merge(currentRouteParameters(), ['lang' => $locale->key])) }}" class="dropdown-item">{{ $locale->key }}</a>
                     @endforeach
                 </div>
                 @endif
             </div>
         </li>
         <li class="nav-item">
-            <a href="{{ route('admin.settings', lang()) }}" class="nav-link {{ currentRoute('admin.settings') ? 'bg-secondary rounded-lg' : '' }}">
+            <a href="{{ route('admin.settings', lang()) }}" class="nav-link {{ isRoute('admin.settings') ? 'bg-secondary rounded-lg' : '' }}">
                 <i class="fas fa-cog"></i>
             </a>
         </li>

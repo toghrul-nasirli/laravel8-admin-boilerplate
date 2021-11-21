@@ -1,13 +1,35 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
-if (!function_exists('currentRoute')) {
-    function currentRoute($route)
+if (!function_exists('isRoute')) {
+    function isRoute($route)
     {
-        return $route == request()->route()->getName();
+        return $route === request()->route()->getName();
+    }
+}
+
+if (!function_exists('isRequest')) {
+    function isRequest($request)
+    {
+        return request()->is(lang() . '/' .  $request);
+    }
+}
+
+if (!function_exists('currentRoute')) {
+    function currentRoute()
+    {
+        return request()->route()->getName();
+    }
+}
+
+if (!function_exists('currentRouteParameters')) {
+    function currentRouteParameters()
+    {
+        return Route::current()->parameters();
     }
 }
 
