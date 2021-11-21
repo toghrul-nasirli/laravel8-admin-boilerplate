@@ -52,7 +52,7 @@
                     <td><i class="{{ $social->icon }} fa-2x"></i></td>
                     <td>
                         <a href="{{ $social->link }}" target="_blank">
-                            {{ str_limit($social->link, 70) }}
+                            {{ _strLimit($social->link, 70) }}
                         </a>
                     </td>
                     <td>
@@ -61,7 +61,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.socials.edit', ['lang' => lang(), 'social' => $social]) }}" class="px-1"><i class="fas fa-edit"></i></a>
+                        <a href="{{ route('admin.socials.edit', ['lang' => _lang(), 'social' => $social]) }}" class="px-1"><i class="fas fa-edit"></i></a>
                         <a wire:click="deleteConfirm({{ $social->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
                     </td>
                     @if (count($socials) > 1)

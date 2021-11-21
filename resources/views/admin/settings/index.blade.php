@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index', lang()) }}">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index', _lang()) }}">Admin</a></li>
                     <li class="breadcrumb-item active">Tənzimləmələr</li>
                 </ol>
             </div>
@@ -27,7 +27,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('admin.settings.update', lang()) }}" method="POST" enctype="multipart/form-data" autocomplete="off">
+                <form action="{{ route('admin.settings.update', _lang()) }}" method="POST" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     @method('PATCH')
                     <div class="card card-primary">
@@ -44,7 +44,7 @@
                                 <div class="row">
                                     <div class="col-md-2 mb-4">
                                         <div class="text-center">
-                                            <img id="previewLogo" src="{{ img('settings', $settings->logo) }}" class="profile-user-img img-fluid img-circle" style="height: 100px !important; width: 100px !important;">
+                                            <img id="previewLogo" src="{{ _asset('images/settings', $settings->logo) }}" class="profile-user-img img-fluid img-circle" height="100px" width="100px">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="text-center">
-                                            <img id="previewFavicon" src="{{ img('settings', $settings->favicon) }}" class="profile-user-img img-fluid img-circle" style="height: 100px !important; width: 100px !important;">
+                                            <img id="previewFavicon" src="{{ _asset('images/settings', $settings->favicon) }}" class="profile-user-img img-fluid img-circle" height="100px" width="100px">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </form>
-                <form action="{{ route('admin.settings.update-seo', lang()) }}" method="POST" autocomplete="off">
+                <form action="{{ route('admin.settings.update-seo', _lang()) }}" method="POST" autocomplete="off">
                     @csrf
                     @method('PATCH')
                     <div class="card card-dark">
@@ -150,7 +150,7 @@
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-success btn-sm">Dəyişiklikləri yadda saxla</button>
-                            <a href="{{ route('admin.settings.update-sitemap', lang()) }}" class="btn btn-dark btn-sm">XML Sitemap-i yenilə</a>
+                            <a href="{{ route('admin.settings.update-sitemap', _lang()) }}" class="btn btn-dark btn-sm">XML Sitemap-i yenilə</a>
                         </div>
                     </div>
                 </form>

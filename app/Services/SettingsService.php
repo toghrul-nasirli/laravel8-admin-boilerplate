@@ -26,13 +26,13 @@ class SettingsService
         $settings = Settings::first();
 
         if (request()->logo) {
-            deleteImage('settings', $settings->logo);
-            $data['logo'] = storeImage('settings', $data['logo']);
+            _deleteFile('images/settings', $settings->logo);
+            $data['logo'] = _storeImage('settings', $data['logo']);
         }
 
         if (request()->favicon) {
-            deleteImage('settings', $settings->favicon);
-            $data['favicon'] = storeImage('settings', $data['favicon']);
+            _deleteFile('settings', $settings->favicon);
+            $data['favicon'] = _storeImage('settings', $data['favicon']);
         }
 
         Settings::first()->update($data);

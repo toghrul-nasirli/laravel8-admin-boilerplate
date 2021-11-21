@@ -2,4 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', lang(), 301);
+Route::redirect('/', _lang(), 301);

@@ -51,7 +51,7 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->is_admin ? 'Admin' : 'İstifadəçi' }}</td>
                 <td>
-                    <a href="{{ route('admin.users.edit', ['lang' => lang(), 'user' => $user]) }}" class="px-1"><i class="fas fa-edit"></i></a>
+                    <a href="{{ route('admin.users.edit', ['lang' => _lang(), 'user' => $user]) }}" class="px-1"><i class="fas fa-edit"></i></a>
                     <a wire:click="deleteConfirm({{ $user->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
