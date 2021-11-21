@@ -9,12 +9,12 @@
     <div class="login-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="{{ route('index') }}" class="h1"><b>Admin</b>Panel</a>
+                <a href="{{ route('index', lang()) }}" class="h1"><b>Admin</b>Panel</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">İstifadəçi adı və şifrə daxil edərək admin panelə giriş et</p>
 
-                <form action="{{ route('login') }}" method="POST">
+                <form action="{{ route('login', lang()) }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="text" name="username" value="{{ old('username') }}" class="form-control @error('username') is-invalid @enderror" placeholder="İstifadəçi adı">
