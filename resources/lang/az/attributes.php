@@ -2,7 +2,7 @@
 
 return [
     'logo' => 'Loqo',
-    'favicon' => 'Favicon',
+    'favicon' => 'Favikon',
     'title' => 'Başlıq',
     'email' => 'E-poçt ünvanı',
     'about' => 'Haqqında',
