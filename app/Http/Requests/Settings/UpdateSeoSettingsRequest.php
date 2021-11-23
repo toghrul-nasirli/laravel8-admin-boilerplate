@@ -23,9 +23,9 @@ class UpdateSeoSettingsRequest extends FormRequest
     public function attributes()
     {
         return [
-            'description' => 'META Description',
-            'keywords' => 'META Keywords',
-            'robots.txt' => 'META Description',
+            'description' => __('attributes.description'),
+            'keywords' => __('attributes.description'),
+            'robots' => __('attributes.robots'),
         ];
     }
 }

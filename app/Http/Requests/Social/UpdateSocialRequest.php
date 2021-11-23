@@ -19,20 +19,11 @@ class UpdateSocialRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'required' => ':attribute bölməsi boş buraxıla bilməz!',
-            'max' => ':attribute bölməsi maksimum :max simvol ola bilər!',
-            'string' => ':attribute bölməsi ancaq simvol qəbul edir!',
-        ];
-    }
-
     public function attributes()
     {
         return [
-            'icon' => 'Icon',
-            'link' => 'Link',
+            'icon' => __('attributes.icon'),
+            'link' => __('attributes.link'),
         ];
     }
 }

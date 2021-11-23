@@ -24,10 +24,10 @@ class UpdateUserRequest extends FormRequest
     public function attributes()
     {
         return [
-            'is_admin' => 'Vəzifə',
-            'username' => 'İstifadəçi adı',
-            'email' => 'E-poçt ünvanı',
-            'password' => 'Şifrə',
+            'is_admin' => __('attributes.is_admin'),
+            'username' => __('attributes.username'),
+            'email' => __('attributes.email'),
+            'password' => __('attributes.password'),
         ];
     }
 }

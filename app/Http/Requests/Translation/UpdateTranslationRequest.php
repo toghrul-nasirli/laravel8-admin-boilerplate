@@ -32,7 +32,7 @@ class UpdateTranslationRequest extends FormRequest
         $locales = LocaleService::all();
 
         $attributes = [
-            'key' => 'Açar sözü',
+            'key' => __('attributes.key'),
         ];
 
         foreach ($locales as $locale) {

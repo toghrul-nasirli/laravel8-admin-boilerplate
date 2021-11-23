@@ -43,11 +43,19 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-1 text-center"><i id="selected-icon" class="{{ $social->icon }} fa-2x"></i></div>
+                                                    <div class="col-12">
+                                                        @error('icon')
+                                                            <small class="text-danger">{{ $message }}</small>
+                                                        @enderror
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="link">Link</label>
                                                 <input type="text" class="form-control" id="link" name="link" value="{{ $social->link }}" placeholder="Sosial şəbəkənin linki">
+                                                @error('link')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>

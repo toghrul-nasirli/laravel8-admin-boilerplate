@@ -25,11 +25,11 @@ class UpdateSettigsRequest extends FormRequest
     public function attributes()
     {
         return [
-            'logo' => 'Loqo',
-            'favicon' => 'Favicon',
-            'title' => 'Başlıq',
-            'email' => 'E-poçt ünvanı',
-            'about' => 'Haqqında',
+            'logo' => __('attributes.logo'),
+            'favicon' => __('attributes.favicon'),
+            'title' => __('attributes.title'),
+            'email' => __('attributes.email'),
+            'about' => __('attributes.about'),
         ];
     }
 }
