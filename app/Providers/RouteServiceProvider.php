@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
     public const FRONT = '/';
-    public const ADMIN = '/admin/users';
+    public const ADMIN = '/az/admin/users';
 
     // protected $namespace = 'App\\Http\\Controllers';
 

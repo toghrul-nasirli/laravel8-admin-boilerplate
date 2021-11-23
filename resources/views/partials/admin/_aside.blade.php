@@ -35,6 +35,31 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview {{ _isRequest('admin/socials*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ _isRequest('admin/socials*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-share-alt"></i>
+                        <p>
+                            Sosial şəbəkələr
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.socials.index', _lang()) }}" class="nav-link {{ _isRoute('admin.socials.index') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-share-alt"></i>
+                                <p>Bütün sosial şəbəkələr</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.socials.create', _lang()) }}" class="nav-link {{ _isRoute('admin.socials.create') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-plus"></i>
+                                <p>Əlavə et</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item has-treeview {{ _isRequest('admin/translations*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ _isRequest('admin/translations*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-language"></i>
@@ -64,31 +89,6 @@
                             <a href="{{ route('admin.translations.index', ['lang' => _lang(), 'group' => 'contact']) }}" class="nav-link {{ _isRequest('admin/translations/contact*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-paper-plane"></i>
                                 <p>Əlaqə</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item has-treeview {{ _isRequest('admin/socials*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ _isRequest('admin/socials*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-share-alt"></i>
-                        <p>
-                            Sosial şəbəkələr
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.socials.index', _lang()) }}" class="nav-link {{ _isRoute('admin.socials.index') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-share-alt"></i>
-                                <p>Bütün sosial şəbəkələr</p>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.socials.create', _lang()) }}" class="nav-link {{ _isRoute('admin.socials.create') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-plus"></i>
-                                <p>Əlavə et</p>
                             </a>
                         </li>
                     </ul>

@@ -31,6 +31,9 @@
                 <option>100</option>
             </select>
         </div>
+        <a href="{{ route('admin.socials.create', _lang()) }}" class="btn btn-primary btn-lg position-fixed" style="right:60px;bottom:40px;">
+            <i class="fas fa-plus fa-xs text-center" style="line-height:25px;"></i>
+        </a>
     </div>
     <table class="table table-bordered table-hover text-center">
         <thead>
