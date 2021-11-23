@@ -76,7 +76,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="email">E-poçt ünvanı</label>
                                             <input type="email" class="form-control" id="email" name="email" value="{{ $settings->email }}" placeholder="E-poçt ünvanı">
@@ -86,14 +86,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="title">Başlıq</label>
-                                            <input type="text" class="form-control" id="title" name="title" value="{{ $settings->title }}" placeholder="Xidmət adı daxil edin">
+                                            <input type="text" class="form-control" id="title" name="title" value="{{ $settings->title }}" placeholder="Sayt üçün başlıq daxil edin">
                                             @error('title')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="about">Haqqımızda</label>
-                                            <textarea class="form-control" rows="4" id="about" name="about">{{ $settings->about }}</textarea>
+                                            <textarea class="form-control" rows="4" id="about" name="about" placeholder="Haqqınızda məlumat daxil edin">{{ $settings->about }}</textarea>
                                             @error('about')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
@@ -122,7 +122,7 @@
                         <div class="card-body">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="description">META Description</label>
                                             <input type="text" class="form-control" id="description" name="description" value="{{ $settings->description }}" placeholder="META Description daxil edin">
