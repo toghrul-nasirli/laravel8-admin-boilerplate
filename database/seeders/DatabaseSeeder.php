@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             SettingsSeeder::class,
             UserSeeder::class,
             LocaleSeeder::class,
+            PostSeeder::class,
         ]);
     }
 }

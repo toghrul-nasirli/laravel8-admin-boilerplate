@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SocialController;
@@ -12,6 +13,7 @@ Route::patch('settings/update-seo', [SettingsController::class, 'updateSeo'])->n
 Route::get('settings/update-sitemap', [SettingsController::class, 'updateSitemap'])->name('settings.update-sitemap');
 
 Route::resource('users', UserController::class)->except('show', 'destroy');
+Route::resource('posts', PostController::class)->except('show', 'destroy');
 Route::resource('socials', SocialController::class)->except('show', 'destroy');
 
 Route::get('translations/{group}', [TranslationController::class, 'index'])->name('translations.index');

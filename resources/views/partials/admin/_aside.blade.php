@@ -35,6 +35,31 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview {{ _isRequest('admin/posts*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ _isRequest('admin/posts*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-clone"></i>
+                        <p>
+                            Postlar
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.posts.index', _lang()) }}" class="nav-link {{ _isRoute('admin.posts.index') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-clone"></i>
+                                <p>Bütün postlar</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.posts.create', _lang()) }}" class="nav-link {{ _isRoute('admin.posts.create') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-plus"></i>
+                                <p>Əlavə et</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item has-treeview {{ _isRequest('admin/socials*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ _isRequest('admin/socials*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-share-alt"></i>
