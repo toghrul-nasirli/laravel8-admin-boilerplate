@@ -5,7 +5,7 @@
                 <img src="{{ asset('backend/img/avatar.png') }}" class="img-circle elevation-2">
             </div>
             <div class="info">
-                <a href="{{ route('admin.users.index', _lang()) }}" class="d-block"><b>{{ auth()->user()->username }}</b></a>
+                <a href="{{ route('admin.users.index') }}" class="d-block"><b>{{ auth()->user()->username }}</b></a>
             </div>
         </div>
         <nav class="mt-2">
@@ -20,7 +20,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.users.index', _lang()) }}" class="nav-link {{ _isRoute('admin.users.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin.users.index') }}" class="nav-link {{ _isRoute('admin.users.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>Bütün istifadəçilər</p>
                             </a>
@@ -28,7 +28,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.users.create', _lang()) }}" class="nav-link {{ _isRoute('admin.users.create') ? 'active' : '' }}">
+                            <a href="{{ route('admin.users.create') }}" class="nav-link {{ _isRoute('admin.users.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user-plus"></i>
                                 <p>Əlavə et</p>
                             </a>
@@ -45,7 +45,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.posts.index', _lang()) }}" class="nav-link {{ _isRoute('admin.posts.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin.posts.index') }}" class="nav-link {{ _isRoute('admin.posts.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-clone"></i>
                                 <p>Bütün postlar</p>
                             </a>
@@ -53,7 +53,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.posts.create', _lang()) }}" class="nav-link {{ _isRoute('admin.posts.create') ? 'active' : '' }}">
+                            <a href="{{ route('admin.posts.create') }}" class="nav-link {{ _isRoute('admin.posts.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p>Əlavə et</p>
                             </a>
@@ -70,7 +70,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.socials.index', _lang()) }}" class="nav-link {{ _isRoute('admin.socials.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin.socials.index') }}" class="nav-link {{ _isRoute('admin.socials.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-share-alt"></i>
                                 <p>Bütün sosial şəbəkələr</p>
                             </a>
@@ -78,7 +78,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.socials.create', _lang()) }}" class="nav-link {{ _isRoute('admin.socials.create') ? 'active' : '' }}">
+                            <a href="{{ route('admin.socials.create') }}" class="nav-link {{ _isRoute('admin.socials.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p>Əlavə et</p>
                             </a>
@@ -95,7 +95,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.translations.index', ['lang' => _lang(), 'group' => 'main']) }}" class="nav-link {{ _isRequest('admin/translations/main*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.translations.index', 'main') }}" class="nav-link {{ _isRequest('admin/translations/main*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>Əsas səhifə</p>
                             </a>
@@ -103,7 +103,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.translations.index', ['lang' => _lang(), 'group' => 'about']) }}" class="nav-link {{ _isRequest('admin/translations/about*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.translations.index', 'about') }}" class="nav-link {{ _isRequest('admin/translations/about*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>Haqqımızda</p>
                             </a>
@@ -111,7 +111,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.translations.index', ['lang' => _lang(), 'group' => 'contact']) }}" class="nav-link {{ _isRequest('admin/translations/contact*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.translations.index', 'contact') }}" class="nav-link {{ _isRequest('admin/translations/contact*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-paper-plane"></i>
                                 <p>Əlaqə</p>
                             </a>

@@ -32,7 +32,7 @@
                 <option>100</option>
             </select>
         </div>
-        <a href="{{ route('admin.users.create', _lang()) }}" class="btn btn-primary btn-lg position-fixed" style="right:60px;bottom:40px;">
+        <a href="{{ route('admin.users.create') }}" class="btn btn-primary btn-lg position-fixed" style="right:60px;bottom:40px;">
             <i class="fas fa-plus fa-xs text-center" style="line-height:25px;"></i>
         </a>
     </div>
@@ -54,7 +54,7 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->is_admin ? 'Admin' : 'İstifadəçi' }}</td>
                 <td>
-                    <a href="{{ route('admin.users.edit', ['lang' => _lang(), 'user' => $user]) }}" class="px-1"><i class="fas fa-edit"></i></a>
+                    <a href="{{ route('admin.users.edit', $user) }}" class="px-1"><i class="fas fa-edit"></i></a>
                     <a wire:click="deleteConfirm({{ $user->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>

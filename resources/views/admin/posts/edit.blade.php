@@ -11,8 +11,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index', _lang()) }}">Admin</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.posts.index', _lang()) }}">Postlar</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.posts.index') }}">Postlar</a></li>
                     <li class="breadcrumb-item active">Redaktə</li>
                 </ol>
             </div>
@@ -24,7 +24,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('admin.posts.update', ['lang' => _lang(), 'post' => $post]) }}" method="POST" autocomplete="off">
+                <form action="{{ route('admin.posts.update', $post) }}" method="POST" autocomplete="off">
                     @csrf
                     @method('PATCH')
                     <div class="card">

@@ -11,8 +11,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index', _lang()) }}">Admin</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.posts.index', _lang()) }}">Postlar</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.posts.index') }}">Postlar</a></li>
                     <li class="breadcrumb-item active">Yeni</li>
                 </ol>
             </div>
@@ -46,7 +46,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="title">Başlıq</label>
                                             <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Post üçün başlıq daxil edin">
