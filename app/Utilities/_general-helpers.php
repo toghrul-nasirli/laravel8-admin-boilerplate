@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 if (!function_exists('_lang')) {
-    function _lang(): string
+    function _lang()
     {
         return app()->getLocale();
     }

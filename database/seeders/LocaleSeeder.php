@@ -13,5 +13,13 @@ class LocaleSeeder extends Seeder
             'key' => 'az',
             'lang' => 'Azərbaycan',
         ]);
+        Locale::create([
+            'key' => 'en',
+            'lang' => 'English',
+        ]);
+        Locale::create([
+            'key' => 'ru',
+            'lang' => 'Русский',
+        ]);
     }
 }
