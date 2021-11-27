@@ -17,6 +17,7 @@
         "livewire/livewire": "^2.7",
         "spatie/crawler": "^6.0",
         "spatie/laravel-sitemap": "^5.9",
+        "spatie/laravel-translatable": "^4.6",
         "spatie/laravel-translation-loader": "^2.7"
     },
     "require-dev": {
