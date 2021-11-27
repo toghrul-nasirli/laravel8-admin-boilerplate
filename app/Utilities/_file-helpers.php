@@ -6,7 +6,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 if (!function_exists('_asset')) {
     function _asset($url, $data = null): string
     {
-        return $data ? asset('uploads/' . $url . '/' . $data) : $url;
+        return asset($data ?  'uploads/' . $url . '/' . $data : $url);
     }
 }
 
