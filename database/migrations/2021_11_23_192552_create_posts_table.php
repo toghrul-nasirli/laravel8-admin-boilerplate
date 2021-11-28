@@ -10,6 +10,8 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('position');
+            $table->boolean('status')->default(true);
             $table->string('image')->unique();
             $table->string('title')->unique();
             $table->text('text');

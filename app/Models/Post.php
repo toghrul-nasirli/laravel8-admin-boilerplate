@@ -11,6 +11,7 @@ class Post extends Model
     use HasFactory, HasTranslations;
 
     protected $fillable = [
+        'position',
         'image',
         'title',
         'text',

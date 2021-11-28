@@ -6,13 +6,16 @@ use App\Models\Post;
 
 class PostService
 {
-    public static function all($search, $orderBy, $orderDirection, $perPage)
+    public static function all($search, $orderBy, $orderDirection, $perPage, $status)
     {
         return Post::search([
-            'id',
+            'position',
             'title',
             'text',
-        ], $search)->orderBy($orderBy, $orderDirection)
+        ], $search)
+            ->when($status != 'all', function ($query) use ($status) {
+                $query->where('status', $status);
+            })->orderBy($orderBy, $orderDirection)
             ->paginate($perPage);
     }
 
@@ -39,5 +42,35 @@ class PostService
 
         _deleteFile('images/posts', $post->image);
         $post->delete();
+    }
+
+    public static function changeStatus($id)
+    {
+        $post = Post::find($id);
+        $post->status ? $post->status = false : $post->status = true;
+        $post->save();
+    }
+
+    public static function changePosition($id, $direction)
+    {
+        $post = Post::find($id);
+
+        if ($post) {
+            if ($direction === 'up') {
+                Post::where('position', $post->position - 1)->update([
+                    'position' => $post->position,
+                ]);
+                $post->update([
+                    'position' => $post->position - 1,
+                ]);
+            } else if ($direction === 'down') {
+                Post::where('position', $post->position + 1)->update([
+                    'position' => $post->position,
+                ]);
+                $post->update([
+                    'position' => $post->position + 1,
+                ]);
+            }
+        }
     }
 }
