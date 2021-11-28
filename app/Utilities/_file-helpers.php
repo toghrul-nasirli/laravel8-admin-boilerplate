@@ -26,30 +26,22 @@ if (!function_exists('_storeFile')) {
 }
 
 if (!function_exists('_storeImage')) {
-    function _storeImage($path, $request, $width = null, $height = null, $thumbWidth = null, $thumbHeight = null): string
+    function _storeImage($path, $data, $width = null, $height = null): string
     {
-        $file = $request->getClientOriginalName();
+        $file = $data->getClientOriginalName();
         $filename = pathinfo($file, PATHINFO_FILENAME);
 
         $fileNameToStore = $filename . '-' . uniqid() . '.webp';
         $filePathToStore = storage_path('app/public/images/') . $path . '/' . $fileNameToStore;
-        $thumbnailFilePathToStore = storage_path('app/public/images/thumbs/') . $path . '/' . $fileNameToStore;
 
         if (!is_dir(storage_path('app/public/images/') . $path)) {
             mkdir(storage_path('app/public/images/') . $path, 755, true);
         }
-        if (!is_dir(storage_path('app/public/images/thumbs/') . $path)) {
-            mkdir(storage_path('app/public/images/thumbs/') . $path, 755, true);
-        }
 
         if ($width) {
-            Image::make($request)->encode('webp', 80)->fit($width, $height)->save($filePathToStore);
+            Image::make($data)->encode('webp', 80)->fit($width, $height)->save($filePathToStore);
         } else {
-            Image::make($request)->encode('webp', 80)->save($filePathToStore);
-        }
-
-        if ($thumbWidth) {
-            Image::make($request)->encode('webp', 80)->fit($thumbWidth, $thumbHeight)->save($thumbnailFilePathToStore);
+            Image::make($data)->encode('webp', 80)->save($filePathToStore);
         }
 
         return $fileNameToStore;
