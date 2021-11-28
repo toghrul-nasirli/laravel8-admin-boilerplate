@@ -15,7 +15,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'image' => ['required', 'image', 'max:2048'],
-            'title' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255', 'unique:posts,title'],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],
             'keywords' => ['nullable', 'string', 'max:255'],

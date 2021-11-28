@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('admin.posts.store', _lang()) }}" method="POST" autocomplete="off">
+                <form action="{{ route('admin.posts.store', _lang()) }}" method="POST" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     <div class="card">
                         <div class="card-body">
@@ -31,7 +31,7 @@
                                 <div class="row">
                                     <div class="col-md-2 mb-4">
                                         <div class="text-center">
-                                            <img id="previewLogo" src="#" class="profile-user-img img-fluid img-circle" height="100px" width="100px">
+                                            <img id="previewImage" src="{{ _asset('backend/img/no-img.jpg') }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -46,7 +46,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="title">Başlıq</label>
                                             <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Post üçün başlıq daxil edin">
@@ -54,6 +54,8 @@
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
+                                    </div>
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="text">Haqqımızda</label>
                                             <textarea class="form-control" rows="4" id="text" name="text" placeholder="Post üçün mətn daxil edin">{{ old('text') }}</textarea>
@@ -97,7 +99,7 @@
         image.onchange = evt => {
             const [file] = image.files;
             if (file) {
-                previewLogo.src = URL.createObjectURL(file);
+                previewImage.src = URL.createObjectURL(file);
             }
         }
 

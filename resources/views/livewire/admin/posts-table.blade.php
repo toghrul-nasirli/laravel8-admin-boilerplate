@@ -25,7 +25,7 @@
                 <option>100</option>
             </select>
         </div>
-        <a href="{{ route('admin.posts.create') }}" class="btn btn-primary btn-lg position-fixed" style="right:60px;bottom:40px;">
+        <a href="{{ route('admin.posts.create', _lang()) }}" class="btn btn-primary btn-lg position-fixed" style="right:60px;bottom:40px;">
             <i class="fas fa-plus fa-xs text-center" style="line-height:25px;"></i>
         </a>
     </div>
@@ -43,7 +43,7 @@
                 <td>{{ $post->id }}</td>
                 <td>{{ $post->title }}</td>
                 <td>
-                    <a href="{{ route('admin.posts.edit', $post) }}" class="px-1"><i class="fas fa-edit"></i></a>
+                    <a href="{{ route('admin.posts.edit', ['lang' => _lang(), 'post' => $post]) }}" class="px-1"><i class="fas fa-edit"></i></a>
                     <a wire:click="deleteConfirm({{ $post->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>

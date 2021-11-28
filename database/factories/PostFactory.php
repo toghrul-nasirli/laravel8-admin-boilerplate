@@ -8,13 +8,10 @@ class PostFactory extends Factory
 {
     public function definition()
     {
-        $title = $this->faker->word;
-
         return [
             'image' => $this->faker->imageUrl,
-            'title' => $title,
+            'title' => $this->faker->unique()->word,
             'text' => $this->faker->paragraph,
-            'slug' => _slugify($title),
         ];
     }
 }

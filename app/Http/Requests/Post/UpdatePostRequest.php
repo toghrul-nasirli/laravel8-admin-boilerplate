@@ -15,7 +15,7 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'image' => ['nullable', 'image', 'max:2048'],
-            'title' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255', "unique:posts,title,{$this->post->id}"],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],
             'keywords' => ['nullable', 'string', 'max:255'],

@@ -24,7 +24,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('admin.posts.update', $post) }}" method="POST" autocomplete="off">
+                <form action="{{ route('admin.posts.update', $post) }}" method="POST" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     @method('PATCH')
                     <div class="card">
@@ -33,7 +33,7 @@
                                 <div class="row">
                                     <div class="col-md-2 mb-4">
                                         <div class="text-center">
-                                            <img id="previewLogo" src="{{ _asset('images/settings', $settings->logo) }}" class="profile-user-img img-fluid img-circle" height="100px" width="100px">
+                                            <img id="previewImage" src="{{ _asset('images/posts', $post->image) }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -48,31 +48,33 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-6">
                                         <div class="form-group">
                                             <label for="title">Başlıq</label>
-                                            <input type="text" class="form-control" id="title" name="title" value="{{ $settings->title }}" placeholder="Post üçün başlıq daxil edin">
+                                            <input type="text" class="form-control" id="title" name="title" value="{{ $post->title }}" placeholder="Post üçün başlıq daxil edin">
                                             @error('title')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
+                                    </div>
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="text">Haqqımızda</label>
-                                            <textarea class="form-control" rows="4" id="text" name="text" placeholder="Post üçün mətn daxil edin">{{ $settings->text }}</textarea>
+                                            <textarea class="form-control" rows="4" id="text" name="text" placeholder="Post üçün mətn daxil edin">{{ $post->text }}</textarea>
                                             @error('text')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="description">META Description</label>
-                                            <input type="text" class="form-control" id="description" name="description" value="{{ $settings->description }}" placeholder="META Description daxil edin">
+                                            <input type="text" class="form-control" id="description" name="description" value="{{ $post->description }}" placeholder="META Description daxil edin">
                                             @error('description')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="keywords">META Keywords</label>
-                                            <input type="text" class="form-control" id="keywords" name="keywords" value="{{ $settings->keywords }}" placeholder="META Keywords daxil edin">
+                                            <input type="text" class="form-control" id="keywords" name="keywords" value="{{ $post->keywords }}" placeholder="META Keywords daxil edin">
                                             @error('keywords')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
@@ -99,7 +101,7 @@
         image.onchange = evt => {
             const [file] = image.files;
             if (file) {
-                previewLogo.src = URL.createObjectURL(file);
+                previewImage.src = URL.createObjectURL(file);
             }
         }
 

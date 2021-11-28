@@ -37,7 +37,7 @@
                 </li>
                 <li class="nav-item has-treeview {{ _isRequest('admin/posts*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ _isRequest('admin/posts*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-clone"></i>
+                        <i class="nav-icon fas fa-th-list"></i>
                         <p>
                             Postlar
                             <i class="right fas fa-angle-left"></i>
@@ -46,7 +46,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.posts.index') }}" class="nav-link {{ _isRoute('admin.posts.index') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-clone"></i>
+                                <i class="nav-icon fas fa-th-list"></i>
                                 <p>Bütün postlar</p>
                             </a>
                         </li>
