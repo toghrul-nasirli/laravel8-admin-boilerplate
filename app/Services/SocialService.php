@@ -26,16 +26,24 @@ class SocialService
         'Pinterest 2' => 'fab fa-pinterest-p',
         'Pinterest 3' => 'fab fa-pinterest-square',
     ];
-    
-    public static function all()
+
+    public static function all($search, $orderBy, $orderDirection, $perPage, $status)
     {
-        return Social::orderBy('position')->get();
+        return Social::search([
+            'position',
+            'icon',
+            'link',
+        ], $search)
+            ->when($status != 'all', function ($query) use ($status) {
+                $query->where('status', $status);
+            })->orderBy($orderBy, $orderDirection)
+            ->paginate($perPage);
     }
 
     public static function create($data)
     {
         $data['position'] = Social::max('position') + 1;
-        
+
         Social::create($data);
     }
 
@@ -44,12 +52,44 @@ class SocialService
         $social->update($data);
     }
 
-    public static function delete($social)
+    public static function delete($id)
     {
+        $social = Social::findOrFail($id);
+
         Social::where('position', '>', $social->position)->update([
             'position' => DB::raw('position - 1'),
         ]);
 
         $social->delete();
+    }
+
+    public static function changeStatus($id)
+    {
+        $social = Social::find($id);
+        $social->status ? $social->status = false : $social->status = true;
+        $social->save();
+    }
+
+    public static function changePosition($id, $direction)
+    {
+        $social = Social::find($id);
+
+        if ($social) {
+            if ($direction === 'up') {
+                Social::where('position', $social->position - 1)->update([
+                    'position' => $social->position,
+                ]);
+                $social->update([
+                    'position' => $social->position - 1,
+                ]);
+            } else if ($direction === 'down') {
+                Social::where('position', $social->position + 1)->update([
+                    'position' => $social->position,
+                ]);
+                $social->update([
+                    'position' => $social->position + 1,
+                ]);
+            }
+        }
     }
 }

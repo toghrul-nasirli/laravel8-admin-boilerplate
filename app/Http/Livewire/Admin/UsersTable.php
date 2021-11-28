@@ -24,8 +24,8 @@ class UsersTable extends Component
 
     public function render()
     {
-        $users = UserService::all($this->search, $this->is_admin, $this->orderBy, $this->orderDirection, $this->perPage);
-        
+        $users = UserService::all($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->is_admin);
+
         return view('livewire.admin.users-table', compact('users'));
     }
 
@@ -33,7 +33,7 @@ class UsersTable extends Component
     {
         $this->gotoPage(1);
     }
-    
+
     public function deleteConfirm($id)
     {
         $this->dispatchBrowserEvent('Swal:confirm', [

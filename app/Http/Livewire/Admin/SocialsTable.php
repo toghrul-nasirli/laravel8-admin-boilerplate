@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Social;
-use Illuminate\Support\Facades\DB;
+use App\Services\SocialService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -25,18 +25,10 @@ class SocialsTable extends Component
 
     public function render()
     {
-        return view('livewire.admin.socials-table', [
-            'socials' => Social::search([
-                'position',
-                'icon',
-                'link',
-            ], $this->search)
-                ->when($this->status != 'all', function ($query) {
-                    $query->where('status', $this->status);
-                })->orderBy($this->orderBy, $this->orderDirection)
-                ->paginate($this->perPage),
-            'maxPosition' => Social::max('position'),
-        ]);
+        $socials = SocialService::all($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
+        $maxPosition = Social::max('position');
+
+        return view('livewire.admin.socials-table', compact('socials', 'maxPosition'));
     }
 
     public function updating()
@@ -55,45 +47,21 @@ class SocialsTable extends Component
 
     public function delete($id)
     {
-        $social = Social::findOrFail($id);
-        Social::where('position', '>', $social->position)->update([
-            'position' => DB::raw('position - 1'),
-        ]);
-        $social->delete();
+        SocialService::delete($id);
     }
 
-    public function changeStatus($social_id)
+    public function changeStatus($id)
     {
-        $social = Social::find($social_id);
-        $social->status ? $social->status = false : $social->status = true;
-        $social->save();
+        SocialService::changeStatus($id);
     }
 
-    public function up($social_id)
+    public function up($id)
     {
-        $social = Social::find($social_id);
-
-        if ($social) {
-            Social::where('position', $social->position - 1)->update([
-                'position' => $social->position,
-            ]);
-            $social->update([
-                'position' => $social->position - 1,
-            ]);
-        }
+        SocialService::changePosition($id, 'up');
     }
 
-    public function down($social_id)
+    public function down($id)
     {
-        $social = Social::find($social_id);
-
-        if ($social) {
-            Social::where('position', $social->position + 1)->update([
-                'position' => $social->position,
-            ]);
-            $social->update([
-                'position' => $social->position + 1,
-            ]);
-        }
+        SocialService::changePosition($id, 'down');
     }
 }

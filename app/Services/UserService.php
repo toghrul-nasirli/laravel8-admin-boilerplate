@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
-    public static function all($search, $is_admin, $orderBy, $orderDirection, $perPage)
+    public static function all($search, $orderBy, $orderDirection, $perPage, $is_admin)
     {
         return User::search([
             'id',
@@ -15,8 +15,8 @@ class UserService
             'email',
         ], $search)
             ->where([['id', '!=', auth()->user()->id], ['id', '!=', 1]])
-            ->when($is_admin != 'all', function ($query) {
-                $query->where('is_admin', $this->is_admin);
+            ->when($is_admin != 'all', function ($query) use($is_admin) {
+                $query->where('is_admin', $is_admin);
             })->orderBy($orderBy, $orderDirection)
             ->paginate($perPage);
     }

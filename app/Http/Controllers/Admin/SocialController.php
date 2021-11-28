@@ -12,9 +12,7 @@ class SocialController extends Controller
 {   
     public function index()
     {
-        $socials = SocialService::all();
-
-        return view('admin.socials.index', compact('socials'));
+        return view('admin.socials.index');
     }
 
     public function create()

@@ -44,7 +44,7 @@
                                 <div class="row">
                                     <div class="col-md-2 mb-4">
                                         <div class="text-center">
-                                            <img id="previewLogo" src="{{ _asset('images/settings', $settings->logo) }}" class="profile-user-img img-fluid img-circle" height="100px" width="100px">
+                                            <img id="previewLogo" src="{{ _asset('images/settings', $settings->logo) }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="text-center">
-                                            <img id="previewFavicon" src="{{ _asset('images/settings', $settings->favicon) }}" class="profile-user-img img-fluid img-circle" height="100px" width="100px">
+                                            <img id="previewFavicon" src="{{ _asset('images/settings', $settings->favicon) }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
                                         </div>
                                     </div>
                                     <div class="col-md-4">

@@ -24,7 +24,7 @@
                 <option>100</option>
             </select>
         </div>
-        <a href="{{ route('admin.translations.create', ['lang' => _lang(), 'group' => $group]) }}" class="btn btn-primary btn-lg position-fixed" style="right:60px;bottom:40px;">
+        <a href="{{ route('admin.translations.create', ['lang' => _lang(), 'group' => $group]) }}" class="btn btn-primary btn-lg position-fixed" style="right: 40px; bottom: 40px;">
             <i class="fas fa-plus fa-xs text-center" style="line-height:25px;"></i>
         </a>
     </div>

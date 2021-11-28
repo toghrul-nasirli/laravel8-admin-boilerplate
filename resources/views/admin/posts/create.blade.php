@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('admin.posts.store', _lang()) }}" method="POST" enctype="multipart/form-data" autocomplete="off">
+                <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     <div class="card">
                         <div class="card-body">
@@ -31,7 +31,7 @@
                                 <div class="row">
                                     <div class="col-md-2 mb-4">
                                         <div class="text-center">
-                                            <img id="previewImage" src="{{ _asset('backend/img/no-img.jpg') }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
+                                            <img id="previewImage" src="{{ _asset() }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
                                         </div>
                                     </div>
                                     <div class="col-md-4">

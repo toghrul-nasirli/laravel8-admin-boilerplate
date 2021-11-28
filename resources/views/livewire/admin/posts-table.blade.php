@@ -6,9 +6,7 @@
         <div class="col-md-2 offset-md-2 mt-2 mt-md-0">
             <select wire:model="orderBy" class="form-control">
                 <option value="id">ID</option>
-                <option value="firstname">Ad</option>
-                <option value="lastname">Soyad</option>
-                <option value="email">E-poçt ünvanı</option>
+                <option value="title">Başlıq</option>
             </select>
         </div>
         <div class="col-md-2 mt-2 mt-md-0">
@@ -25,7 +23,7 @@
                 <option>100</option>
             </select>
         </div>
-        <a href="{{ route('admin.posts.create', _lang()) }}" class="btn btn-primary btn-lg position-fixed" style="right:60px;bottom:40px;">
+        <a href="{{ route('admin.posts.create', _lang()) }}" class="btn btn-primary btn-lg position-fixed" style="right: 40px; bottom: 40px;">
             <i class="fas fa-plus fa-xs text-center" style="line-height:25px;"></i>
         </a>
     </div>
