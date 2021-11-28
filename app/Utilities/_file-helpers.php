@@ -4,9 +4,17 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
 if (!function_exists('_asset')) {
-    function _asset($url, $data = null): string
+    function _asset($path = null, $data = null): string
     {
-        return asset($data ?  'uploads/' . $url . '/' . $data : $url);
+        return asset(
+            $path === null
+                ? 'backend/img/no-img.png'
+                : ($data === null
+                    ? $path
+                    : (file_exists('uploads/' . $path . '/' . $data)
+                        ? 'uploads/' . $path . '/' . $data
+                        : 'backend/img/no-img.png'))
+        );
     }
 }
 
