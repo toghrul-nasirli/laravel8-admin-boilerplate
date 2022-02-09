@@ -24,7 +24,7 @@ class PostController extends Controller
     {
         PostService::create($request->validated());
 
-        return redirect()->route('admin.posts.index', _lang())->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
+        return redirect()->route('admin.posts.index', _lang())->with('success', __('admin.added'));
     }
 
     public function edit($lang, Post $post)
@@ -36,6 +36,6 @@ class PostController extends Controller
     {
         PostService::update($post, $request->validated());
 
-        return redirect()->route('admin.posts.index', _lang())->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
+        return redirect()->route('admin.posts.index', _lang())->with('success', __('admin.saved'));
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostService
 {
@@ -21,6 +22,7 @@ class PostService
 
     public static function create($data)
     {
+        $data['position'] = Post::max('position') + 1;
         $data['image'] = _storeImage('posts', $data['image']);
 
         Post::create($data);
@@ -41,6 +43,11 @@ class PostService
         $post = Post::findOrFail($id);
 
         _deleteFile('images/posts', $post->image);
+        
+        Post::where('position', '>', $post->position)->update([
+            'position' => DB::raw('position - 1'),
+        ]);
+
         $post->delete();
     }
 

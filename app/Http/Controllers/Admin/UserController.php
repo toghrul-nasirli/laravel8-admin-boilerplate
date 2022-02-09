@@ -24,11 +24,13 @@ class UserController extends Controller
     {
         UserService::create($request->validated());
 
-        return redirect()->route('admin.users.index', _lang())->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
+        return redirect()->route('admin.users.index', _lang())->with('success', __('admin.added'));
     }
 
     public function edit($lang, User $user)
     {
+        abort_if($user->id === 1, 401);
+
         return view('admin.users.edit', compact('user'));
     }
 
@@ -36,6 +38,6 @@ class UserController extends Controller
     {
         UserService::update($user, $request->validated());
 
-        return redirect()->route('admin.users.index', _lang())->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
+        return redirect()->route('admin.users.index', _lang())->with('success', __('admin.saved'));
     }
 }

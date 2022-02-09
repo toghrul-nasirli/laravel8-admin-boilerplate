@@ -1,25 +1,24 @@
 @extends('layouts.admin')
 
-@section('title', 'İstifadəçilər - Redaktə |')
+@section('title', __('admin.users') . ' - ' . __('admin.edit') . ' |')
 
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>İstifadəçilər - Redaktə</h1>
+                <h1>@lang('admin.users') - @lang('admin.edit')</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Admin</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">İstifadəçilər</a></li>
-                    <li class="breadcrumb-item active">Redaktə</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">@lang('admin.admin')</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">@lang('admin.users')</a></li>
+                    <li class="breadcrumb-item active">@lang('admin.edit')</li>
                 </ol>
             </div>
         </div>
     </div>
 </section>
-
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -33,50 +32,60 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="is_admin">Vəzifə</label>
+                                            <label for="is_admin">@lang('admin.role')</label>
                                             <select class="form-control" id="is_admin" name="is_admin">
-                                                <option>Vəzifə seçin</option>
-                                                <option value="1" {{ $user->is_admin ? 'selected' : '' }}>Admin</option>
-                                                <option value="0" {{ !$user->is_admin ? 'selected' : '' }}>İstifadəçi</option>
+                                                <option>@lang('admin.choose')</option>
+                                                <option value="1" {{ $user->is_admin ? 'selected' : '' }}>@lang('admin.admin')</option>
+                                                <option value="0" {{ !$user->is_admin ? 'selected' : '' }}>@lang('admin.users')</option>
                                             </select>
                                             @error('is_admin')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="username">İstifadəçi adı</label>
-                                            <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}" placeholder="İstifadəçi adı">
+                                            <label for="username">@lang('admin.username')</label>
+                                            <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}" placeholder="@lang('admin.username')">
                                             @error('username')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="email">E-poçt ünvanı</label>
-                                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" placeholder="E-poçt ünvanı">
+                                            <label for="email">@lang('admin.email')</label>
+                                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" placeholder="@lang('admin.email')">
                                             @error('email')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4 offset-md-4">
                                         <div class="form-group">
-                                            <label for="password">Şifrə</label>
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Şifrə">
+                                            <label for="password">@lang('admin.password')</label>
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="@lang('admin.password')">
                                             @error('password')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="password_confirmation">Təkrar şifrə</label>
-                                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Təkrar şifrə">
+                                            <label for="password_confirmation">@lang('admin.password_confirmation')</label>
+                                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="@lang('admin.password_confirmation')">
                                             @error('password_confirmation')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                     </div>
@@ -84,8 +93,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-success btn-sm">Dəyişiklikləri yadda saxla</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">Geri</a>
+                            <button type="submit" class="btn btn-success btn-sm">@lang('admin.save')</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">@lang('admin.back')</a>
                         </div>
                     </div>
                 </form>

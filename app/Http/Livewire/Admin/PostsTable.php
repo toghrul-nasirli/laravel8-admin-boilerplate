@@ -39,8 +39,8 @@ class PostsTable extends Component
     public function deleteConfirm($id)
     {
         $this->dispatchBrowserEvent('Swal:confirm', [
-            'title' => 'Silmək istədiyinizdən əminsiniz?',
-            'text' => 'Bunu geri ala bilməyəcəksiniz!',
+            'title' => __('admin.swal-title'),
+            'text' => __('admin.swal-text'),
             'id' => $id,
         ]);
     }

@@ -17,7 +17,7 @@ class StoreTranslationRequest extends FormRequest
         $locales = LocaleService::all();
 
         $rules = [
-            'key' => ['required', 'string', 'max:255', 'unique:translations,key'],
+            'key' => ['required', 'string', 'max:255'],
         ];
 
         foreach ($locales as $locale) {

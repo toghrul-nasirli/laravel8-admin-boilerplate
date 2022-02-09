@@ -21,20 +21,20 @@ class SettingsController extends Controller
     {
         SettingsService::update($request->validated());
 
-        return back()->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
+        return back()->with('success', __('admin.saved'));
     }
 
     public function updateSeo(UpdateSeoSettingsRequest $request)
     {
         SettingsService::updateSeo($request->validated());
 
-        return back()->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
+        return back()->with('success', __('admin.saved'));
     }
 
     public function updateSitemap()
     {
         SettingsService::updateSitemap();
 
-        return back()->with('success', 'XML Sitemap yeniləndi!');
+        return back()->with('sitemap-success', __('admin.sitemap-updated'));
     }
 }

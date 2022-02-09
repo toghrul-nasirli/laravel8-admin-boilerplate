@@ -17,7 +17,7 @@ class UpdateTranslationRequest extends FormRequest
         $locales = LocaleService::all();
 
         $rules = [
-            'key' => ['required', 'string', 'max:255', "unique:translations,key,{$this->translation->id}"],
+            'key' => ['required', 'string', 'max:255'],
         ];
 
         foreach ($locales as $locale) {

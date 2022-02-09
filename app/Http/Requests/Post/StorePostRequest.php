@@ -29,7 +29,7 @@ class StorePostRequest extends FormRequest
             'title' => __('attributes.title'),
             'text' => __('attributes.text'),
             'description' => __('attributes.description'),
-            'keywords' => __('attributes.description'),
+            'keywords' => __('attributes.keywords'),
         ];
     }
 }

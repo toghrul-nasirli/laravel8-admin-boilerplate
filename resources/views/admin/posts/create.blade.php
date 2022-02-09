@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 
-@section('image', 'Postlar - Yeni |')
+@section('title', __('admin.posts') . ' - ' . __('admin.new') . ' |')
 
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Postlar - Yeni</h1>
+                <h1>@lang('admin.posts') - @lang('admin.new')</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Admin</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.posts.index') }}">Postlar</a></li>
-                    <li class="breadcrumb-item active">Yeni</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">@lang('admin.admin')</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.posts.index') }}">@lang('admin.posts')</a></li>
+                    <li class="breadcrumb-item active">@lang('admin.add')</li>
                 </ol>
             </div>
         </div>
@@ -36,45 +36,55 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="image">Şəkil</label>
+                                            <label for="image">@lang('admin.image')</label>
                                             <div class="custom-file">
                                                 <input type="file" accept="image/*" class="custom-file-input" id="image" name="image">
-                                                <label class="custom-file-label">Fayl seçin</label>
+                                                <label class="custom-file-label">@lang('admin.choose-file')</label>
                                             </div>
                                             @error('image')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="title">Başlıq</label>
-                                            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Post üçün başlıq daxil edin">
+                                            <label for="title">@lang('admin.title')</label>
+                                            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="@lang('admin.posts-placeholder-name')">
                                             @error('title')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="text">Haqqımızda</label>
-                                            <textarea class="form-control" rows="4" id="text" name="text" placeholder="Post üçün mətn daxil edin">{{ old('text') }}</textarea>
+                                            <label for="text">@lang('admin.text')</label>
+                                            <textarea class="form-control editor" rows="4" id="text" name="text" placeholder="@lang('admin.posts-placeholder-text')">{{ old('text') }}</textarea>
                                             @error('text')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="description">META Description</label>
-                                            <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}" placeholder="META Description daxil edin">
+                                            <label for="description">@lang('admin.meta-description')</label>
+                                            <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}" placeholder="@lang('admin.meta-description-placeholder')">
                                             @error('description')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="keywords">META Keywords</label>
-                                            <input type="text" class="form-control" id="keywords" name="keywords" value="{{ old('keywords') }}" placeholder="META Keywords daxil edin">
+                                            <label for="keywords">@lang('admin.meta-keywords')</label>
+                                            <input type="text" class="form-control" id="keywords" name="keywords" value="{{ old('keywords') }}" placeholder="@lang('admin.meta-keywords-placeholder')">
                                             @error('keywords')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
                                             @enderror
                                         </div>
                                     </div>
@@ -82,8 +92,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary btn-sm">Əlavə et</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">Geri</a>
+                            <button type="submit" class="btn btn-primary btn-sm">@lang('admin.add')</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">@lang('admin.back')</a>
                         </div>
                     </div>
                 </form>

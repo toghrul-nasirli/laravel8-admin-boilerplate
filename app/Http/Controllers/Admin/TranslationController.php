@@ -27,7 +27,7 @@ class TranslationController extends Controller
     {
         TranslationService::create($group, $request->validated());
 
-        return redirect()->route('admin.translations.index', ['lang' => _lang(), 'group' => $group])->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
+        return redirect()->route('admin.translations.index', ['lang' => _lang(), 'group' => $group])->with('success', __('admin.added'));
     }
 
     public function edit($lang, Translation $translation)
@@ -41,6 +41,6 @@ class TranslationController extends Controller
     {
         TranslationService::update($translation, $request->validated());
 
-        return redirect()->route('admin.translations.index', ['lang' => _lang(), 'group' => $translation->group])->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
+        return redirect()->route('admin.translations.index', ['lang' => _lang(), 'group' => $translation->group])->with('success', __('admin.saved'));
     }
 }

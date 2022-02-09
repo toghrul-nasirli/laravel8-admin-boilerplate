@@ -10,7 +10,9 @@ if (!function_exists('_asset')) {
             $path === null
                 ? 'backend/img/no-img.png'
                 : ($data === null
-                    ? $path
+                    ? (file_exists($path)
+                        ? $path
+                        : 'backend/img/no-img.png')
                     : (file_exists('uploads/' . $path . '/' . $data)
                         ? 'uploads/' . $path . '/' . $data
                         : 'backend/img/no-img.png'))
@@ -26,30 +28,30 @@ if (!function_exists('_storeFile')) {
         $filename = pathinfo($file, PATHINFO_FILENAME);
         $extension = pathinfo($file, PATHINFO_EXTENSION);
 
-        $fileNameToStore = $filename . '-' . uniqid() . '.' . $extension;
-        $request->storeAs('public/files/' . $path, $fileNameToStore);
+        $fileNameToStore = substr(_slugify($filename), 0, 6) . '-' . time() . '.' . $extension;
+        $request->storeAs('files/' . $path, $fileNameToStore);
 
         return $fileNameToStore;
     }
 }
 
 if (!function_exists('_storeImage')) {
-    function _storeImage($path, $data, $width = null, $height = null): string
+    function _storeImage($path, $request, $width = null, $height = null): string
     {
-        $file = $data->getClientOriginalName();
+        $file = $request->getClientOriginalName();
         $filename = pathinfo($file, PATHINFO_FILENAME);
 
-        $fileNameToStore = $filename . '-' . uniqid() . '.webp';
-        $filePathToStore = storage_path('app/public/images/') . $path . '/' . $fileNameToStore;
-
-        if (!is_dir(storage_path('app/public/images/') . $path)) {
-            mkdir(storage_path('app/public/images/') . $path, 755, true);
-        }
+        $fileNameToStore = substr(_slugify($filename), 0, 6) . '-' . time() . '.webp';
+        $filePathToStore = 'images/' . $path . '/' . $fileNameToStore;
 
         if ($width) {
-            Image::make($data)->encode('webp', 80)->fit($width, $height)->save($filePathToStore);
+            $image = Image::make($request)->fit($width, $height)->encode('webp', 75);
+
+            Storage::put($filePathToStore, $image);
         } else {
-            Image::make($data)->encode('webp', 80)->save($filePathToStore);
+            $image = Image::make($request)->encode('webp', 75);
+
+            Storage::put($filePathToStore, $image);
         }
 
         return $fileNameToStore;

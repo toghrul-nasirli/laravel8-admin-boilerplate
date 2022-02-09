@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Admin\TranslationController;

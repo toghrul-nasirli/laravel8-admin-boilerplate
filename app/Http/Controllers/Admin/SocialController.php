@@ -26,7 +26,7 @@ class SocialController extends Controller
     {
         SocialService::create($request->validated());
 
-        return redirect()->route('admin.socials.index', _lang())->with('success', 'Müvəffəqiyyətlə əlavə olundu!');
+        return redirect()->route('admin.socials.index', _lang())->with('success', __('admin.added'));
     }
 
     public function edit($lang, Social $social)
@@ -40,6 +40,6 @@ class SocialController extends Controller
     {
         SocialService::update($social, $request->validated());
 
-        return redirect()->route('admin.socials.index', _lang())->with('success', 'Dəyişikliklər müvəffəqiyyətlə yadda saxlanıldı!');
+        return redirect()->route('admin.socials.index', _lang())->with('success', __('admin.saved'));
     }
 }
