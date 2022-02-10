@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\SliderElementController;
 use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Admin\TranslationController;
 use App\Http\Controllers\Admin\UserController;
@@ -13,6 +14,7 @@ Route::patch('settings/update-seo', [SettingsController::class, 'updateSeo'])->n
 Route::get('settings/update-sitemap', [SettingsController::class, 'updateSitemap'])->name('settings.update-sitemap');
 
 Route::resource('users', UserController::class)->except('show', 'destroy');
+Route::resource('slider-elements', SliderElementController::class)->except('show', 'destroy');
 Route::resource('posts', PostController::class)->except('show', 'destroy');
 Route::resource('socials', SocialController::class)->except('show', 'destroy');
 

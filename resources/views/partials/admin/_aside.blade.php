@@ -14,7 +14,7 @@
                     <a href="#" class="nav-link {{ _isRequest('admin/users*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            İstifadəçilər
+                            @lang('admin.users')
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -22,7 +22,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.users.index') }}" class="nav-link {{ _isRoute('admin.users.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
-                                <p>Bütün istifadəçilər</p>
+                                <p>@lang('admin.all-users')</p>
                             </a>
                         </li>
                     </ul>
@@ -30,7 +30,32 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.users.create') }}" class="nav-link {{ _isRoute('admin.users.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user-plus"></i>
-                                <p>Əlavə et</p>
+                                <p>@lang('admin.add')</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview {{ _isRequest('admin/slider-elements*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ _isRequest('admin/slider-elements*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-desktop"></i>
+                        <p>
+                            @lang('admin.slider-elements')
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.slider-elements.index') }}" class="nav-link {{ _isRoute('admin.slider-elements.index') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-desktop"></i>
+                                <p>@lang('admin.all-slider-elements')</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.slider-elements.create') }}" class="nav-link {{ _isRoute('admin.slider-elements.create') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-plus"></i>
+                                <p>@lang('admin.add')</p>
                             </a>
                         </li>
                     </ul>
@@ -55,7 +80,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.posts.create') }}" class="nav-link {{ _isRoute('admin.posts.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-plus"></i>
-                                <p>Əlavə et</p>
+                                <p>@lang('admin.add')</p>
                             </a>
                         </li>
                     </ul>
@@ -64,7 +89,7 @@
                     <a href="#" class="nav-link {{ _isRequest('admin/socials*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-share-alt"></i>
                         <p>
-                            Sosial şəbəkələr
+                            @lang('admin.socials')
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -72,7 +97,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.socials.index') }}" class="nav-link {{ _isRoute('admin.socials.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-share-alt"></i>
-                                <p>Bütün sosial şəbəkələr</p>
+                                <p>@lang('admin.all-socials')</p>
                             </a>
                         </li>
                     </ul>
@@ -80,7 +105,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.socials.create') }}" class="nav-link {{ _isRoute('admin.socials.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-plus"></i>
-                                <p>Əlavə et</p>
+                                <p>@lang('admin.add')</p>
                             </a>
                         </li>
                     </ul>
@@ -89,7 +114,7 @@
                     <a href="#" class="nav-link {{ _isRequest('admin/translations*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-language"></i>
                         <p>
-                            Tərcümələr
+                            @lang('admin.translates')
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -97,7 +122,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.translations.index', 'main') }}" class="nav-link {{ _isRequest('admin/translations/main*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-home"></i>
-                                <p>Əsas səhifə</p>
+                                <p>@lang('admin.homepage')</p>
                             </a>
                         </li>
                     </ul>
@@ -105,7 +130,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.translations.index', 'about') }}" class="nav-link {{ _isRequest('admin/translations/about*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
-                                <p>Haqqımızda</p>
+                                <p>@lang('admin.about')</p>
                             </a>
                         </li>
                     </ul>
@@ -113,7 +138,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.translations.index', 'contact') }}" class="nav-link {{ _isRequest('admin/translations/contact*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-paper-plane"></i>
-                                <p>Əlaqə</p>
+                                <p>@lang('admin.contact')</p>
                             </a>
                         </li>
                     </ul>
