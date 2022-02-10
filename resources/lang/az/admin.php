@@ -57,7 +57,7 @@ return [
     'slider-elements' => 'Slayder elementləri',
     'all-slider-elements' => 'Bütün elementlər',
     'posts' => 'Postlar',
-    'all-posts' => 'All posts',
+    'all-posts' => 'Bütün postlar',
     'news' => 'Xəbərlər',
     'all-news' => 'Bütün xəbərlər',
     'socials' => 'Sosial şəbəkələr',

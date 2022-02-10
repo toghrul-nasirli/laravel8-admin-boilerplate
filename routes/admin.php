@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingsController;
@@ -15,6 +16,7 @@ Route::get('settings/update-sitemap', [SettingsController::class, 'updateSitemap
 
 Route::resource('users', UserController::class)->except('show', 'destroy');
 Route::resource('slider-elements', SliderElementController::class)->except('show', 'destroy');
+Route::resource('news', NewsController::class)->except('show', 'destroy');
 Route::resource('posts', PostController::class)->except('show', 'destroy');
 Route::resource('socials', SocialController::class)->except('show', 'destroy');
 

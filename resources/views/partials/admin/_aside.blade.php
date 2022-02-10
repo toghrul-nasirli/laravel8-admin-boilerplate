@@ -60,11 +60,36 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview {{ _isRequest('admin/news*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ _isRequest('admin/news*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>
+                            @lang('admin.news')
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.news.index') }}" class="nav-link {{ _isRoute('admin.news.index') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-newspaper"></i>
+                                <p>@lang('admin.all-news')</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.news.create') }}" class="nav-link {{ _isRoute('admin.news.create') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-plus"></i>
+                                <p>@lang('admin.add')</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item has-treeview {{ _isRequest('admin/posts*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ _isRequest('admin/posts*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                            Postlar
+                            @lang('admin.posts')
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -72,7 +97,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.posts.index') }}" class="nav-link {{ _isRoute('admin.posts.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-th-list"></i>
-                                <p>Bütün postlar</p>
+                                <p>@lang('admin.all-posts')</p>
                             </a>
                         </li>
                     </ul>

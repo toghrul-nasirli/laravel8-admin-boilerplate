@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             LocaleSeeder::class,
             PostSeeder::class,
+            SliderElementSeeder::class,
+            NewsSeeder::class,
         ]);
     }
 }
