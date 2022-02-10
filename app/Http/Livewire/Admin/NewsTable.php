@@ -57,11 +57,15 @@ class NewsTable extends Component
 
     public function up($id)
     {
+        $this->orderBy = 'position';
+
         NewsService::changePosition($id, 'up');
     }
 
     public function down($id)
     {
+        $this->orderBy = 'position';
+        
         NewsService::changePosition($id, 'down');
     }
 }

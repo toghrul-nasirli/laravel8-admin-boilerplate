@@ -57,11 +57,15 @@ class PostsTable extends Component
 
     public function up($id)
     {
+        $this->orderBy = 'position';
+     
         PostService::changePosition($id, 'up');
     }
 
     public function down($id)
     {
+        $this->orderBy = 'position';
+     
         PostService::changePosition($id, 'down');
     }
 }

@@ -57,11 +57,15 @@ class SliderElementsTable extends Component
 
     public function up($id)
     {
+        $this->orderBy = 'position';
+      
         SliderElementService::changePosition($id, 'up');
     }
 
     public function down($id)
     {
+        $this->orderBy = 'position';
+      
         SliderElementService::changePosition($id, 'down');
     }
 }

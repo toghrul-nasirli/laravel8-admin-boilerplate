@@ -57,11 +57,15 @@ class SocialsTable extends Component
 
     public function up($id)
     {
+        $this->orderBy = 'position';
+        
         SocialService::changePosition($id, 'up');
     }
 
     public function down($id)
     {
+        $this->orderBy = 'position';
+        
         SocialService::changePosition($id, 'down');
     }
 }
