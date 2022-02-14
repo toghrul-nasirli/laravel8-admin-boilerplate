@@ -58,7 +58,7 @@ return [
     'all-slider-elements' => 'Все элементы слайдера',
     'posts' => 'Сообщения',
     'all-posts' => 'Все сообщения',
-    'news' => 'News',
+    'news' => 'Новости',
     'all-news' => 'Все новости',
     'socials' => 'Социальные сети',
     'all-socials' => 'Все социальные сети',
