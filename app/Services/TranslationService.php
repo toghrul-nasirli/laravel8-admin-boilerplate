@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\Translation;
 
-class TranslationService
+class TranslationService extends BaseService
 {
     public static function all($search, $group, $orderBy, $orderDirection, $perPage)
     {
@@ -45,7 +45,7 @@ class TranslationService
         $translation->update($data);
     }
 
-    public static function delete($id)
+    public static function delete($id, $model, $path = null)
     {
         $translation = Translation::findOrFail($id);
         $translation->delete();

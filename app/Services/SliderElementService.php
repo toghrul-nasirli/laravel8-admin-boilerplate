@@ -3,9 +3,8 @@
 namespace App\Services;
 
 use App\Models\SliderElement;
-use Illuminate\Support\Facades\DB;
 
-class SliderElementService
+class SliderElementService extends BaseService
 {
     public static function all($search, $orderBy, $orderDirection, $perPage, $status)
     {
@@ -37,48 +36,5 @@ class SliderElementService
         }
 
         $sliderItem->update($data);
-    }
-
-    public static function delete($id)
-    {
-        $sliderItem = SliderElement::findOrFail($id);
-
-        _deleteFile('images/slider-elements', $sliderItem->image);
-
-        SliderElement::where('position', '>', $sliderItem->position)->update([
-            'position' => DB::raw('position - 1'),
-        ]);
-
-        $sliderItem->delete();
-    }
-
-    public static function changeStatus($id)
-    {
-        $sliderItem = SliderElement::find($id);
-        $sliderItem->status ? $sliderItem->status = false : $sliderItem->status = true;
-        $sliderItem->save();
-    }
-
-    public static function changePosition($id, $direction)
-    {
-        $sliderItem = SliderElement::find($id);
-
-        if ($sliderItem) {
-            if ($direction === 'up') {
-                SliderElement::where('position', $sliderItem->position - 1)->update([
-                    'position' => $sliderItem->position,
-                ]);
-                $sliderItem->update([
-                    'position' => $sliderItem->position - 1,
-                ]);
-            } else if ($direction === 'down') {
-                SliderElement::where('position', $sliderItem->position + 1)->update([
-                    'position' => $sliderItem->position,
-                ]);
-                $sliderItem->update([
-                    'position' => $sliderItem->position + 1,
-                ]);
-            }
-        }
     }
 }

@@ -48,7 +48,7 @@
                     <td><img src="{{ _asset('images/slider-elements', $sliderElement->image) }}" height="60px" width="80px" style="object-fit: contain;"></td>
                     <td>{{ $sliderElement->title }}</td>
                     <td>
-                        <a wire:click="changeStatus({{ $sliderElement->id }})" href="javascript:void(0)" class="px-1">
+                        <a wire:click="changeColumn({{ $sliderElement->id }}, 'slider-items')" href="javascript:void(0)" class="px-1">
                             <i class="fas fa-eye{{ !$sliderElement->status ? '-slash' : '' }}"></i>
                         </a>
                     </td>

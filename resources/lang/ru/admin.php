@@ -127,4 +127,5 @@ return [
     'additional-services-placeholder-text' => 'Введите текст для дополнительной услуги',
     'certificates-placeholder-name' => 'Введите имя для сертификата',
     'categories-placeholder-name' => 'Введите название для категории',
+    'socials-placeholder-link' => 'Введите ссылку для социальных сетей',
 ];

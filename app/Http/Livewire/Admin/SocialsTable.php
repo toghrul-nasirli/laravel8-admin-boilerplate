@@ -47,25 +47,25 @@ class SocialsTable extends Component
 
     public function delete($id)
     {
-        SocialService::delete($id);
+        SocialService::delete($id, Social::class, 'images/socials');
     }
 
-    public function changeStatus($id)
+    public function changeColumn($id, $column)
     {
-        SocialService::changeStatus($id);
+        SocialService::changeColumn($id, Social::class, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
         
-        SocialService::changePosition($id, 'up');
+        SocialService::changePosition($id, Social::class, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
         
-        SocialService::changePosition($id, 'down');
+        SocialService::changePosition($id, Social::class, 'down');
     }
 }

@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class UserService
+class UserService extends BaseService
 {
     public static function all($search, $orderBy, $orderDirection, $perPage, $is_admin)
     {
@@ -39,7 +39,7 @@ class UserService
         $user->update($data);
     }
 
-    public static function delete($id)
+    public static function delete($id, $model, $path = null)
     {
         $user = User::findOrFail($id);
         $user->delete();

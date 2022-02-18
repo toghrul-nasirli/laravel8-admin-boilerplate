@@ -127,4 +127,5 @@ return [
     'additional-services-placeholder-text' => 'Enter text for additional service',
     'certificates-placeholder-name' => 'Enter name for certificate',
     'categories-placeholder-name' => 'Enter name for category',
+    'socials-placeholder-link' => 'Enter link for social media',
 ];

@@ -48,7 +48,7 @@
                     <td><img src="{{ _asset('images/news', $news->image) }}" height="60px" width="80px" style="object-fit: contain;"></td>
                     <td>{{ $news->title }}</td>
                     <td>
-                        <a wire:click="changeStatus({{ $news->id }})" href="javascript:void(0)" class="px-1">
+                        <a wire:click="changeColumn({{ $news->id }}, 'status')" href="javascript:void(0)" class="px-1">
                             <i class="fas fa-eye{{ !$news->status ? '-slash' : '' }}"></i>
                         </a>
                     </td>

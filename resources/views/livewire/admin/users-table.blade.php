@@ -5,23 +5,23 @@
         </div>
         <div class="col-md-2 mt-2 mt-md-0">
             <select wire:model="is_admin" class="form-control">
-                <option value="all">Vəzifə</option>
-                <option value="1">Admin</option>
-                <option value="0">İstifadəçi</option>
+                <option value="all">@lang('admin.role')</option>
+                <option value="1">@lang('admin.admin')</option>
+                <option value="0">@lang('admin.user')</option>
             </select>
         </div>
         <div class="col-md-2 mt-2 mt-md-0">
             <select wire:model="orderBy" class="form-control">
                 <option value="id">ID</option>
-                <option value="firstname">Ad</option>
-                <option value="lastname">Soyad</option>
-                <option value="email">E-poçt ünvanı</option>
+                <option value="firstname">@lang('admin.name')</option>
+                <option value="lastname">@lang('admin.surname')</option>
+                <option value="email">@lang('admin.email')</option>
             </select>
         </div>
         <div class="col-md-2 mt-2 mt-md-0">
             <select wire:model="orderDirection" class="form-control">
-                <option value="asc">Artan</option>
-                <option value="desc">Azalan</option>
+                <option value="asc">@lang('admin.ascending')</option>
+                <option value="desc">@lang('admin.descending')</option>
             </select>
         </div>
         <div class="col-md-1 mt-2 mt-md-0">
@@ -40,9 +40,9 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>İstifadəçi adı</th>
-                <th>E-poçt ünvanı</th>
-                <th>Vəzifə</th>
+                <th>@lang('admin.username')</th>
+                <th>@lang('admin.email')</th>
+                <th>@lang('admin.role')</th>
                 <th><i class="fas fa-tools"></i></th>
             </tr>
         </thead>
@@ -67,35 +67,35 @@
 </div>
 
 @section('scripts')
-<script>
-    window.addEventListener('Swal:confirm', event => {
-        Swal.fire({
-            icon: 'warning',
-            title: event.detail.title,
-            text: event.detail.text,
-            showCancelButton: true,
-            confirmButtonText: 'Bəli, silinsin!',
-            confirmButtonColor: '#3085d6',
-            cancelButtonText: 'İmtina',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.livewire.emit('delete', event.detail.id);
-                Swal.fire({
-                    toast: true,
-                    icon: 'success',
-                    title: 'Müvəffəqiyyətlə silindi!',
-                    position: 'top-right',
-                    showConfirmButton: false,
-                    timerProgressBar: true,
-                    timer: 2000,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                });
-            }
+    <script>
+        window.addEventListener('Swal:confirm', event => {
+            Swal.fire({
+                icon: 'warning',
+                title: event.detail.title,
+                text: event.detail.text,
+                showCancelButton: true,
+                confirmButtonText: '@lang('admin.yes-delete-it')',
+                confirmButtonColor: '#3085d6',
+                cancelButtonText: '@lang('admin.cancel')',
+                cancelButtonColor: '#d33',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.livewire.emit('delete', event.detail.id);
+                    Swal.fire({
+                        toast: true,
+                        icon: 'success',
+                        title: '@lang('admin.deleted')',
+                        position: 'top-right',
+                        showConfirmButton: false,
+                        timerProgressBar: true,
+                        timer: 2000,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    });
+                }
+            });
         });
-    });
-</script>
+    </script>
 @endsection

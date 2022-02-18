@@ -6,14 +6,14 @@
         <div class="col-md-2 offset-md-2 mt-2 mt-md-0">
             <select wire:model="orderBy" class="form-control">
                 <option value="id">ID</option>
-                <option value="key">Açar sözü</option>
-                <option value="text">Mətn</option>
+                <option value="key">@lang('admin.key')</option>
+                <option value="text">@lang('admin.text')</option>
             </select>
         </div>
         <div class="col-md-2 mt-2 mt-md-0">
             <select wire:model="orderDirection" class="form-control">
-                <option value="asc">Artan</option>
-                <option value="desc">Azalan</option>
+                <option value="asc">@lang('admin.ascending')</option>
+                <option value="desc">@lang('admin.descending')</option>
             </select>
         </div>
         <div class="col-md-1 mt-2 mt-md-0">
@@ -32,8 +32,8 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Açar sözü</th>
-                <th>Mətn</th>
+                <th>@lang('admin.key')</th>
+                <th>@lang('admin.text')</th>
                 <th><i class="fas fa-tools"></i></th>
             </tr>
         </thead>
@@ -57,35 +57,35 @@
 </div>
 
 @section('scripts')
-<script>
-    window.addEventListener('Swal:confirm', event => {
-        Swal.fire({
-            icon: 'warning',
-            title: event.detail.title,
-            text: event.detail.text,
-            showCancelButton: true,
-            confirmButtonText: 'Bəli, silinsin!',
-            confirmButtonColor: '#3085d6',
-            cancelButtonText: 'İmtina',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.livewire.emit('delete', event.detail.id);
-                Swal.fire({
-                    toast: true,
-                    icon: 'success',
-                    title: 'Müvəffəqiyyətlə silindi!',
-                    position: 'top-right',
-                    showConfirmButton: false,
-                    timerProgressBar: true,
-                    timer: 2000,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                });
-            }
+    <script>
+        window.addEventListener('Swal:confirm', event => {
+            Swal.fire({
+                icon: 'warning',
+                title: event.detail.title,
+                text: event.detail.text,
+                showCancelButton: true,
+                confirmButtonText: '@lang('admin.yes-delete-it')',
+                confirmButtonColor: '#3085d6',
+                cancelButtonText: '@lang('admin.cancel')',
+                cancelButtonColor: '#d33',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.livewire.emit('delete', event.detail.id);
+                    Swal.fire({
+                        toast: true,
+                        icon: 'success',
+                        title: '@lang('admin.deleted')',
+                        position: 'top-right',
+                        showConfirmButton: false,
+                        timerProgressBar: true,
+                        timer: 2000,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    });
+                }
+            });
         });
-    });
-</script>
+    </script>
 @endsection

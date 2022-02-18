@@ -45,6 +45,6 @@ class UsersTable extends Component
 
     public function delete($id)
     {
-        UserService::delete($id);
+        UserService::delete($id, User::class);
     }
 }

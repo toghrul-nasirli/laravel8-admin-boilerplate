@@ -47,25 +47,25 @@ class PostsTable extends Component
 
     public function delete($id)
     {
-        PostService::delete($id);
+        PostService::delete($id, Post::class, 'images/posts');
     }
 
-    public function changeStatus($id)
+    public function changeColumn($id, $column)
     {
-        PostService::changeStatus($id);
+        PostService::changeColumn($id, Post::class, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
      
-        PostService::changePosition($id, 'up');
+        PostService::changePosition($id, News::class, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
      
-        PostService::changePosition($id, 'down');
+        PostService::changePosition($id, News::class, 'down');
     }
 }

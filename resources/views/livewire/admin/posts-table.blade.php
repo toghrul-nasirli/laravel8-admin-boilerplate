@@ -5,15 +5,15 @@
         </div>
         <div class="col-md-2 offset-md-2 mt-2 mt-md-0">
             <select wire:model="orderBy" class="form-control">
-                <option value="position">Sıra</option>
+                <option value="position">@lang('admin.order')</option>
                 <option value="id">ID</option>
-                <option value="title">Başlıq</option>
+                <option value="title">@lang('admin.title')</option>
             </select>
         </div>
         <div class="col-md-2 mt-2 mt-md-0">
             <select wire:model="orderDirection" class="form-control">
-                <option value="asc">Artan</option>
-                <option value="desc">Azalan</option>
+                <option value="asc">@lang('admin.ascending')</option>
+                <option value="desc">@lang('admin.descending')</option>
             </select>
         </div>
         <div class="col-md-1 mt-2 mt-md-0">
@@ -32,8 +32,8 @@
         <thead>
             <tr>
                 <th>№</th>
-                <th>Başlıq</th>
-                <th>Status</th>
+                <th>@lang('admin.title')</th>
+                <th>@lang('admin.status')</th>
                 <th><i class="fas fa-tools"></i></th>
                 @if (count($posts) > 1)
                     <th><i class="fas fa-sort"></i></th>
@@ -46,7 +46,7 @@
                     <td>{{ $post->position }}</td>
                     <td>{{ $post->title }}</td>
                     <td>
-                        <a wire:click="changeStatus({{ $post->id }})" href="javascript:void(0)" class="px-1">
+                        <a wire:click="changeColumn({{ $post->id }}, 'status')" href="javascript:void(0)" class="px-1">
                             <i class="fas fa-eye{{ !$post->status ? '-slash' : '' }}"></i>
                         </a>
                     </td>
@@ -81,9 +81,9 @@
                 title: event.detail.title,
                 text: event.detail.text,
                 showCancelButton: true,
-                confirmButtonText: 'Bəli, silinsin!',
+                confirmButtonText: '@lang('admin.yes-delete-it')',
                 confirmButtonColor: '#3085d6',
-                cancelButtonText: 'İmtina',
+                cancelButtonText: '@lang('admin.cancel')',
                 cancelButtonColor: '#d33',
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -91,7 +91,7 @@
                     Swal.fire({
                         toast: true,
                         icon: 'success',
-                        title: 'Müvəffəqiyyətlə silindi!',
+                        title: '@lang('admin.deleted')',
                         position: 'top-right',
                         showConfirmButton: false,
                         timerProgressBar: true,

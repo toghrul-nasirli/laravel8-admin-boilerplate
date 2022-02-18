@@ -127,4 +127,5 @@ return [
     'additional-services-placeholder-text' => 'Xidmət üçün mətn daxil edin',
     'certificates-placeholder-name' => 'Sertifikat üçün ad daxil edin',
     'categories-placeholder-name' => 'Kateqoriya üçün ad daxil edin',
+    'socials-placeholder-link' => 'Sosial şəbəkə üçün link daxil edin',
 ];

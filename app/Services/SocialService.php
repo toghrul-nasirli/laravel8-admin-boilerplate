@@ -3,9 +3,8 @@
 namespace App\Services;
 
 use App\Models\Social;
-use Illuminate\Support\Facades\DB;
 
-class SocialService
+class SocialService extends BaseService
 {
     public const ICONS = [
         'Facebook 1' => 'fab fa-facebook',
@@ -50,46 +49,5 @@ class SocialService
     public static function update($social, $data)
     {
         $social->update($data);
-    }
-
-    public static function delete($id)
-    {
-        $social = Social::findOrFail($id);
-
-        Social::where('position', '>', $social->position)->update([
-            'position' => DB::raw('position - 1'),
-        ]);
-
-        $social->delete();
-    }
-
-    public static function changeStatus($id)
-    {
-        $social = Social::find($id);
-        $social->status ? $social->status = false : $social->status = true;
-        $social->save();
-    }
-
-    public static function changePosition($id, $direction)
-    {
-        $social = Social::find($id);
-
-        if ($social) {
-            if ($direction === 'up') {
-                Social::where('position', $social->position - 1)->update([
-                    'position' => $social->position,
-                ]);
-                $social->update([
-                    'position' => $social->position - 1,
-                ]);
-            } else if ($direction === 'down') {
-                Social::where('position', $social->position + 1)->update([
-                    'position' => $social->position,
-                ]);
-                $social->update([
-                    'position' => $social->position + 1,
-                ]);
-            }
-        }
     }
 }

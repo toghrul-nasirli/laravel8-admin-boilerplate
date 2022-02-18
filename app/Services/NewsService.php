@@ -3,9 +3,8 @@
 namespace App\Services;
 
 use App\Models\News;
-use Illuminate\Support\Facades\DB;
 
-class NewsService
+class NewsService extends BaseService
 {
     public static function all($search, $orderBy, $orderDirection, $perPage, $status)
     {
@@ -37,48 +36,5 @@ class NewsService
         }
 
         $news->update($data);
-    }
-
-    public static function delete($id)
-    {
-        $news = News::findOrFail($id);
-
-        _deleteFile('images/news', $news->image);
-
-        News::where('position', '>', $news->position)->update([
-            'position' => DB::raw('position - 1'),
-        ]);
-
-        $news->delete();
-    }
-
-    public static function changeStatus($id)
-    {
-        $news = News::find($id);
-        $news->status ? $news->status = false : $news->status = true;
-        $news->save();
-    }
-
-    public static function changePosition($id, $direction)
-    {
-        $news = News::find($id);
-
-        if ($news) {
-            if ($direction === 'up') {
-                News::where('position', $news->position - 1)->update([
-                    'position' => $news->position,
-                ]);
-                $news->update([
-                    'position' => $news->position - 1,
-                ]);
-            } else if ($direction === 'down') {
-                News::where('position', $news->position + 1)->update([
-                    'position' => $news->position,
-                ]);
-                $news->update([
-                    'position' => $news->position + 1,
-                ]);
-            }
-        }
     }
 }
