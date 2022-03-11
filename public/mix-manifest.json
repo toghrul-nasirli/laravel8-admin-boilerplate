@@ -2,5 +2,14 @@
     "/js/admin.js": "/js/admin.js",
     "/js/front.js": "/js/front.js",
     "/css/front.css": "/css/front.css",
-    "/css/admin.css": "/css/admin.css"
+    "/css/admin.css": "/css/admin.css",
+    "/js/CHANGELOG.md": "/js/CHANGELOG.md",
+    "/js/README.md": "/js/README.md",
+    "/js/bower.json": "/js/bower.json",
+    "/js/composer.json": "/js/composer.json",
+    "/js/license.txt": "/js/license.txt",
+    "/js/package.json": "/js/package.json",
+    "/js/tinymce.d.ts": "/js/tinymce.d.ts",
+    "/js/tinymce.js": "/js/tinymce.js",
+    "/js/tinymce.min.js": "/js/tinymce.min.js"
 }
