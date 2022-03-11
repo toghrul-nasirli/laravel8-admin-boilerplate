@@ -6,16 +6,18 @@ use Intervention\Image\ImageManagerStatic as Image;
 if (!function_exists('_asset')) {
     function _asset($path = null, $data = null): string
     {
+        $placeholderImg = 'backend/img/no-img.png';
+
         return asset(
             $path === null
-                ? 'backend/img/no-img.png'
-                : ($data === null
+                ? $placeholderImg
+                : ($data === null || $data == ''
                     ? (file_exists($path)
                         ? $path
-                        : 'backend/img/no-img.png')
+                        : $placeholderImg)
                     : (file_exists('uploads/' . $path . '/' . $data)
                         ? 'uploads/' . $path . '/' . $data
-                        : 'backend/img/no-img.png'))
+                        : $placeholderImg))
         );
     }
 }

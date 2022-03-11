@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Locale as Locale;
+use App\Models\Locale;
 
 class LocaleService
 {

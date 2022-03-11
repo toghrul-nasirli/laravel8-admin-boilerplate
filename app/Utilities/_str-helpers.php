@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 if (!function_exists('_strLimit')) {
-    function _strLimit($string, $limit, $end = ''): string
+    function _strLimit($string, $limit = 80, $end = ''): string
     {
         return Str::limit(strip_tags(html_entity_decode($string)), $limit, $end);
     }
