@@ -20,8 +20,8 @@ class ApplyMail extends Mailable
     public function build()
     {
         return $this->subject(config('app.name') . ' - ' . __('mail.apply-form'))
-                    ->from($this->data['email'])
+                    ->from('info@example.com')
                     ->to('info@example.com')
-                    ->markdown('front.emails.apply-mail');
+                    ->markdown('emails.front.apply-mail');
     }
 }
