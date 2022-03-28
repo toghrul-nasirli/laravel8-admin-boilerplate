@@ -18,4 +18,7 @@ return [
     'icon' => 'icon',
     'link' => 'link',
     'key' => 'key',
+    'position' => 'position',
+    'category' => 'category',
+    'map' => 'address on the map',
 ];

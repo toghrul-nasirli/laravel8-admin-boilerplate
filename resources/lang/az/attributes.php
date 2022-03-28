@@ -18,4 +18,7 @@ return [
     'icon' => 'İkon',
     'link' => 'Link',
     'key' => 'Açar sözü',
+    'position' => 'Mövqe',
+    'category' => 'Kateqoriya',
+    'map' => 'Xəritədə ünvan',
 ];
