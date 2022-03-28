@@ -57,7 +57,7 @@ return [
     'all-pages' => 'All pages',
     'slider-elements' => 'Slider elements',
     'all-slider-elements' => 'All slider elements',
-    'posts' => 'E-publication',
+    'posts' => 'Blog',
     'all-posts' => 'All posts',
     'employees' => 'Team',
     'all-employees' => 'All members',

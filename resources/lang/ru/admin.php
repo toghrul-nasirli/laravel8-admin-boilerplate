@@ -57,7 +57,7 @@ return [
     'all-pages' => 'Все страницы',
     'slider-elements' => 'Элементы слайдера',
     'all-slider-elements' => 'Все элементы слайдера',
-    'posts' => 'Электронная публикация',
+    'posts' => 'Blog',
     'all-posts' => 'Все сообщения',
     'employees' => 'Команда',
     'all-employees' => 'Все члены',

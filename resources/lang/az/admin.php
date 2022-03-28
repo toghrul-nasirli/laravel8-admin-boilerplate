@@ -57,7 +57,7 @@ return [
     'all-pages' => 'Bütün səhifələr',
     'slider-elements' => 'Slayder elementləri',
     'all-slider-elements' => 'Bütün elementlər',
-    'posts' => 'E-nəşr',
+    'posts' => 'Blog',
     'all-posts' => 'Bütün postlar',
     'employees' => 'Komanda',
     'all-employees' => 'Bütün üzvlər',
