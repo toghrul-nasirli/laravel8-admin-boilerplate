@@ -13,6 +13,7 @@ class PostService extends BaseService
             'title',
             'text',
         ], $search)
+            ->with('category')
             ->when($status != 'all', function ($query) use ($status) {
                 $query->where('status', $status);
             })->orderBy($orderBy, $orderDirection)

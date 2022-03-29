@@ -33,6 +33,7 @@
             <tr>
                 <th>№</th>
                 <th>@lang('admin.title')</th>
+                <th>@lang('admin.category')</th>
                 <th>@lang('admin.status')</th>
                 <th><i class="fas fa-tools"></i></th>
                 @if (count($posts) > 1)
@@ -45,6 +46,7 @@
                 <tr>
                     <td>{{ $post->position }}</td>
                     <td>{{ $post->title }}</td>
+                    <td>{{ $post->category->name }}</td>
                     <td>
                         <a wire:click="changeColumn({{ $post->id }}, 'status')" href="javascript:void(0)" class="px-1">
                             <i class="fas fa-eye{{ !$post->status ? '-slash' : '' }}"></i>
