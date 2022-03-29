@@ -10,7 +10,7 @@
                 <h1>@lang('admin.posts') - @lang('admin.new')</h1>
             </div>
             <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
+                <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">@lang('admin.admin')</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('admin.posts.index') }}">@lang('admin.posts')</a></li>
                     <li class="breadcrumb-item active">@lang('admin.add')</li>
@@ -59,6 +59,7 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    @livewire('admin.create-post-category')
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="text">@lang('admin.text')</label>

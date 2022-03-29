@@ -61,6 +61,7 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    @livewire('admin.create-post-category', ['post' => $post])
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="text">@lang('admin.text')</label>

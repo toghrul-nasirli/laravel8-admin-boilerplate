@@ -85,8 +85,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview {{ _isRequest('admin/posts*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ _isRequest('admin/posts*') ? 'active' : '' }}">
+                <li class="nav-item has-treeview {{ _isRequest('admin/post*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ _isRequest('admin/post*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
                             @lang('admin.posts')
@@ -98,6 +98,12 @@
                             <a href="{{ route('admin.posts.index') }}" class="nav-link {{ _isRoute('admin.posts.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-th-list"></i>
                                 <p>@lang('admin.all-posts')</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.post-categories.index') }}" class="nav-link {{ _isRoute('admin.post-categories.index') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-tags"></i>
+                                <p>@lang('admin.categories')</p>
                             </a>
                         </li>
                     </ul>

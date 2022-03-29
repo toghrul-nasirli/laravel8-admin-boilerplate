@@ -14,6 +14,7 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
+            'category_id' => ['required', 'integer'],
             'image' => ['required', 'image', 'max:2048'],
             'title' => ['required', 'string', 'max:255', 'unique:posts,title'],
             'text' => ['required', 'string'],
@@ -25,6 +26,7 @@ class StorePostRequest extends FormRequest
     public function attributes()
     {
         return [
+            'category_id' => __('attributes.category'),
             'image' => __('attributes.image'),
             'title' => __('attributes.title'),
             'text' => __('attributes.text'),

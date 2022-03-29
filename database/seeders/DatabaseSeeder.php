@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             SettingsSeeder::class,
             UserSeeder::class,
             LocaleSeeder::class,
+            PostCategorySeeder::class,
             PostSeeder::class,
             SliderElementSeeder::class,
             NewsSeeder::class,

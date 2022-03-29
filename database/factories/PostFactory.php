@@ -21,7 +21,9 @@ class PostFactory extends Factory
         return [
             'position' => $this->num,
             'status' => $this->faker->boolean,
-            'image' => $this->faker->image(storage_path('app/public/' . $this->imagePath), $this->imageWidth, $this->imageHeight, null, false),
+            'slug' => $this->faker->unique()->word,
+            'category_id' => 1,
+            'image' => $this->faker->unique()->image(storage_path('app/public/' . $this->imagePath), $this->imageWidth, $this->imageHeight, null, false),
             'title' => $this->faker->unique()->word,
             'text' => $this->faker->paragraph,
         ];

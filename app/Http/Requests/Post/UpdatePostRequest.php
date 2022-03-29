@@ -14,8 +14,9 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
+            'category_id' => ['required', 'integer'],
             'image' => ['nullable', 'image', 'max:2048'],
-            'title' => ['required', 'string', 'max:255', "unique:posts,title,{$this->post->id}"],
+            'title' => ['required', 'string', 'max:255', "unique:posts,title->{_lang()},{$this->post->id}"],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],
             'keywords' => ['nullable', 'string', 'max:255'],
@@ -25,6 +26,7 @@ class UpdatePostRequest extends FormRequest
     public function attributes()
     {
         return [
+            'category_id' => __('attributes.category'),
             'image' => __('attributes.image'),
             'title' => __('attributes.title'),
             'text' => __('attributes.text'),

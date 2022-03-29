@@ -135,4 +135,5 @@ return [
     'employees-placeholder-twitter' => 'Enter twitter link',
     'employees-placeholder-linkedin' => 'Enter linkedin link',
     'clients-placeholder-link' => 'Enter link for the client',
+    'post-category-placeholder-name' => 'Enter name for blog category',
 ];

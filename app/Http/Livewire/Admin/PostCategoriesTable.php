@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Post;
-use App\Services\PostService;
+use App\Models\PostCategory;
+use App\Services\PostCategoryService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class PostsTable extends Component
+class PostCategoriesTable extends Component
 {
     use WithPagination;
 
@@ -25,10 +25,10 @@ class PostsTable extends Component
 
     public function render()
     {
-        $posts = PostService::all($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
-        $maxPosition = Post::max('position');
+        $postCategories = PostCategoryService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
+        $maxPosition = PostCategory::max('position');
         
-        return view('livewire.admin.posts-table', compact('posts', 'maxPosition'));
+        return view('livewire.admin.post-categories-table', compact('postCategories', 'maxPosition'));
     }
 
     public function updating()
@@ -47,25 +47,25 @@ class PostsTable extends Component
 
     public function delete($id)
     {
-        PostService::delete($id, Post::class, 'images/posts');
+        PostCategoryService::delete($id, PostCategory::class, 'images/posts');
     }
 
     public function changeColumn($id, $column)
     {
-        PostService::changeColumn($id, Post::class, $column);
+        PostCategoryService::changeColumn($id, PostCategory::class, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
      
-        PostService::changePosition($id, Post::class, 'up');
+        PostCategoryService::changePosition($id, PostCategory::class, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
      
-        PostService::changePosition($id, Post::class, 'down');
+        PostCategoryService::changePosition($id, PostCategory::class, 'down');
     }
 }
