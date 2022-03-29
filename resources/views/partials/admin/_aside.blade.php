@@ -25,8 +25,6 @@
                                 <p>@lang('admin.all-users')</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.users.create') }}" class="nav-link {{ _isRoute('admin.users.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user-plus"></i>
@@ -50,8 +48,6 @@
                                 <p>@lang('admin.all-slider-elements')</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.slider-elements.create') }}" class="nav-link {{ _isRoute('admin.slider-elements.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-plus"></i>
@@ -75,8 +71,6 @@
                                 <p>@lang('admin.all-news')</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.news.create') }}" class="nav-link {{ _isRoute('admin.news.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-plus"></i>
@@ -131,8 +125,6 @@
                                 <p>@lang('admin.all-socials')</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.socials.create') }}" class="nav-link {{ _isRoute('admin.socials.create') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-plus"></i>
@@ -156,8 +148,6 @@
                                 <p>@lang('admin.homepage')</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.translations.index', 'about') }}" class="nav-link {{ _isRequest('admin/translations/about*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
