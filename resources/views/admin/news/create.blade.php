@@ -10,7 +10,7 @@
                 <h1>@lang('admin.news') - @lang('admin.new')</h1>
             </div>
             <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
+                <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">@lang('admin.admin')</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('admin.news.index') }}">@lang('admin.news')</a></li>
                     <li class="breadcrumb-item active">@lang('admin.new')</li>
