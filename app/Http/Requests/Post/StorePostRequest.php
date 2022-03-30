@@ -16,7 +16,7 @@ class StorePostRequest extends FormRequest
         return [
             'category_id' => ['required', 'integer'],
             'image' => ['required', 'image', 'max:2048'],
-            'title' => ['required', 'string', 'max:255', 'unique:posts,title'],
+            'title' => ['required', 'string', 'max:255', 'unique:posts,title->' . _lang()],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],
             'keywords' => ['nullable', 'string', 'max:255'],

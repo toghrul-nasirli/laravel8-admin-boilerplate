@@ -15,7 +15,7 @@ class StoreSliderElementRequest extends FormRequest
     {
         return [
             'image' => ['required', 'image', 'max:2048'],
-            'title' => ['required', 'string', 'max:255', 'unique:slider_elements,title'],
+            'title' => ['required', 'string', 'max:255', 'unique:slider_elements,title->' . _lang()],
             'minitext' => ['nullable', 'string', 'max:255'],
             'link' => ['nullable', 'string', 'max:255'],
         ];
