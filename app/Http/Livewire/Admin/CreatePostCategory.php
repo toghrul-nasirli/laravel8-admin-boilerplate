@@ -12,7 +12,7 @@ class CreatePostCategory extends Component
         'delete'
     ];
 
-    public $post, $name, $is_edit;
+    public $post, $name;
 
     public function render()
     {
