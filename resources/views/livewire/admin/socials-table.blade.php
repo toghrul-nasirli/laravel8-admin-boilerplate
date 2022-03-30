@@ -43,7 +43,7 @@
                 <th>@lang('admin.link')</th>
                 <th>@lang('admin.status')</th>
                 <th><i class="fas fa-tools"></i></th>
-                @if (count($socials) > 1)
+                @if ($maxPosition > 1)
                     <th><i class="fas fa-sort"></i></th>
                 @endif
             </tr>
@@ -67,7 +67,7 @@
                         <a href="{{ route('admin.socials.edit', ['lang' => _lang(), 'social' => $social]) }}" class="px-1"><i class="fas fa-edit"></i></a>
                         <a wire:click="deleteConfirm({{ $social->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
                     </td>
-                    @if (count($socials) > 1)
+                    @if ($maxPosition > 1)
                         <td>
                             @if ($social->position > 1)
                                 <a wire:click="up({{ $social->id }})" href="javascript:void(0)" class="px-1">&uarr;</a>

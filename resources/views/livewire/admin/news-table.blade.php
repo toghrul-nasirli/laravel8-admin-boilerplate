@@ -36,7 +36,7 @@
                 <th>@lang('admin.title')</th>
                 <th>@lang('admin.status')</th>
                 <th><i class="fas fa-tools"></i></th>
-                @if (count($allNews) > 1)
+                @if ($maxPosition > 1)
                     <th><i class="fas fa-sort"></i></th>
                 @endif
             </tr>
@@ -56,7 +56,7 @@
                         <a href="{{ route('admin.news.edit', ['lang' => _lang(), 'news' => $news]) }}" class="px-1"><i class="fas fa-edit"></i></a>
                         <a wire:click="deleteConfirm({{ $news->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
                     </td>
-                    @if (count($allNews) > 1)
+                    @if ($maxPosition > 1)
                         <td>
                             @if ($news->position > 1)
                                 <a wire:click="up({{ $news->id }})" href="javascript:void(0)" class="px-1">&uarr;</a>

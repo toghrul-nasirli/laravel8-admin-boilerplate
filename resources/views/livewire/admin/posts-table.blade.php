@@ -36,7 +36,7 @@
                 <th>@lang('admin.category')</th>
                 <th>@lang('admin.status')</th>
                 <th><i class="fas fa-tools"></i></th>
-                @if (count($posts) > 1)
+                @if ($maxPosition > 1)
                     <th><i class="fas fa-sort"></i></th>
                 @endif
             </tr>
@@ -56,7 +56,7 @@
                         <a href="{{ route('admin.posts.edit', ['lang' => _lang(), 'post' => $post]) }}" class="px-1"><i class="fas fa-edit"></i></a>
                         <a wire:click="deleteConfirm({{ $post->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
                     </td>
-                    @if (count($posts) > 1)
+                    @if ($maxPosition > 1)
                         <td>
                             @if ($post->position > 1)
                                 <a wire:click="up({{ $post->id }})" href="javascript:void(0)" class="px-1">&uarr;</a>
