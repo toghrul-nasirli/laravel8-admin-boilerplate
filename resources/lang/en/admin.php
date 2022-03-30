@@ -117,7 +117,7 @@ return [
     'products-placeholder-text' => 'Enter text for product',
     'posts-placeholder-title' => 'Enter title for post',
     'posts-placeholder-text' => 'Enter text for post',
-    'post-categories-placeholder-name' => 'Enter name for category',
+    'post-categories-placeholder-name' => 'Enter name for blog category',
     'pages-placeholder-name' => 'Enter name for page',
     'pages-placeholder-title' => 'Enter title for page',
     'pages-placeholder-minitext' => 'Enter mini text for page',

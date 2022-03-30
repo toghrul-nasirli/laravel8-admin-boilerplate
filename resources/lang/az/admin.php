@@ -117,7 +117,7 @@ return [
     'products-placeholder-text' => 'Məhsul üçün məlumat mətni daxil edin',
     'posts-placeholder-title' => 'Post üçün başlıq daxil edin',
     'posts-placeholder-text' => 'Post üçün mətn daxil edin',
-    'post-categories-placeholder-name' => 'Kateqoriya üçün ad daxil edin',
+    'post-categories-placeholder-name' => 'Blog kateqoriyası üçün ad daxil edin',
     'pages-placeholder-name' => 'Səhifə üçün ad daxil edin',
     'pages-placeholder-title' => 'Səhifə üçün başlıq daxil edin',
     'pages-placeholder-minitext' => 'Səhifə üçün kiçik mətn daxil edin',

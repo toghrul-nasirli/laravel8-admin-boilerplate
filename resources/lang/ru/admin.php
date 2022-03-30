@@ -117,7 +117,7 @@ return [
     'products-placeholder-text' => 'Введите текст для продукта',
     'posts-placeholder-title' => 'Введите заголовок для поста',
     'posts-placeholder-text' => 'Введите текст для сообщения',
-    'post-categories-placeholder-name' => 'Введите название для категории',
+    'post-categories-placeholder-name' => 'Введите название категории блога',
     'pages-placeholder-name' => 'Введите имя для страницы',
     'pages-placeholder-title' => 'Введите название для страницы',
     'pages-placeholder-minitext' => 'Введите мини-текст для страницы',
