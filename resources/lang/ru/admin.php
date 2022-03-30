@@ -135,5 +135,4 @@ return [
     'employees-placeholder-twitter' => 'Введите ссылку на твиттер',
     'employees-placeholder-linkedin' => 'Введите связанную ссылку',
     'clients-placeholder-link' => 'Введите ссылку для клиента',
-    'post-category-placeholder-name' => 'Введите название категории блога',
 ];

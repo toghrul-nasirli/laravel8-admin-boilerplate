@@ -135,5 +135,4 @@ return [
     'employees-placeholder-twitter' => 'Twitter linki daxil edin',
     'employees-placeholder-linkedin' => 'LinkedIn linki daxil edin',
     'clients-placeholder-link' => 'Müştəri üçün link daxil edin',
-    'post-category-placeholder-name' => 'Blog kateqoriyası üçün ad daxil edin',
 ];
