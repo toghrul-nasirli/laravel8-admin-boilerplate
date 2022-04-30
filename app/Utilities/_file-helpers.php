@@ -1,12 +1,14 @@
 <?php
 
+use App\Models\Settings;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
 if (!function_exists('_asset')) {
     function _asset($path = null, $data = null): string
     {
-        $placeholderImg = 'backend/img/no-img.png';
+        $darkmode = Settings::select('darkmode')->firstOrFail()->darkmode;
+        $placeholderImg = $darkmode ? 'backend/img/no-img-dark.png' : 'backend/img/no-img.png' ;
 
         return asset(
             $path === null
