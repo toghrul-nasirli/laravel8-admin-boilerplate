@@ -37,4 +37,11 @@ class SettingsController extends Controller
 
         return back()->with('sitemap-success', __('admin.sitemap-updated'));
     }
+
+    public function changeTheme()
+    {
+        SettingsService::changeTheme();
+
+        return back();
+    }
 }

@@ -67,4 +67,11 @@ class SettingsService
             ->add(Url::create('/ru'))
             ->writeToDisk('public', $path . $fileName);
     }
+
+    public static function changeTheme()
+    {
+        $settings = Settings::firstOrFail();
+        $settings->darkmode ? $settings->darkmode = false : $settings->darkmode = true;
+        $settings->save();
+    }
 }

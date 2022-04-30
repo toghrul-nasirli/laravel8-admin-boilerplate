@@ -24,5 +24,6 @@ class Settings extends Model
         'terms_and_conditions',
         'description',
         'keywords',
+        'theme'
     ];
 }
