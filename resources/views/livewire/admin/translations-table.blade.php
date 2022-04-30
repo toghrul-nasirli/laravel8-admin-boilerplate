@@ -31,7 +31,6 @@
     <table class="table table-bordered table-hover text-center">
         <thead>
             <tr>
-                <th>#</th>
                 <th>@lang('admin.key')</th>
                 <th>@lang('admin.text')</th>
                 <th><i class="fas fa-tools"></i></th>
@@ -40,7 +39,6 @@
         <tbody>
             @foreach ($translations as $translation)
             <tr>
-                <td>{{ $translation->id }}</td>
                 <td>{{ $translation->key }}</td>
                 <td>@lang($translation->group . '.' . $translation->key)</td>
                 <td>

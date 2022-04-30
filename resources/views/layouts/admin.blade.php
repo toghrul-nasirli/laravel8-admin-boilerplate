@@ -5,7 +5,7 @@
     @include('partials.admin._head')
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed {{ $darkmode ? 'dark-mode' : '' }}">
     <div class="preloader flex-column justify-content-center align-items-center">
         <img class="animation__shake" src="{{ asset('backend/img/avatar.png') }}" height="60" width="60">
     </div>

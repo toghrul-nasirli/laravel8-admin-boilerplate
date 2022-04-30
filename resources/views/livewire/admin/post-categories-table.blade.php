@@ -42,7 +42,7 @@
         </thead>
         <tbody>
             @foreach ($postCategories as $postCategory)
-                <tr style="line-height: 60px;">
+                <tr>
                     <td>{{ $postCategory->position }}</td>
                     <td>{{ $postCategory->name }}</td>
                     <td>

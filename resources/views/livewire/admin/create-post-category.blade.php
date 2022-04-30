@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="form-group">
-                    <input wire:model="name" type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="@lang('admin.post-category-placeholder-name')">
+                    <input wire:model="name" type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="@lang('admin.post-categories-placeholder-name')">
                     @error('name')
                         <small class="text-danger">
                             <b>{{ $message }}</b>

@@ -33,6 +33,7 @@
             <tr>
                 <th>№</th>
                 <th>@lang('admin.title')</th>
+                <th>@lang('admin.image')</th>
                 <th>@lang('admin.category')</th>
                 <th>@lang('admin.status')</th>
                 <th><i class="fas fa-tools"></i></th>
@@ -43,8 +44,9 @@
         </thead>
         <tbody>
             @foreach ($posts as $post)
-                <tr>
+                <tr style="line-height: 60px;">
                     <td>{{ $post->position }}</td>
+                    <td><img src="{{ _asset('images/posts', $post->image) }}" height="60px" width="80px" style="object-fit: contain;"></td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->category->name }}</td>
                     <td>
