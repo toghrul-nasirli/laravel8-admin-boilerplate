@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\News;
 
+use App\Models\News;
+use App\Rules\UniqueSlug;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreNewsRequest extends FormRequest
@@ -15,7 +17,7 @@ class StoreNewsRequest extends FormRequest
     {
         return [
             'image' => ['required', 'image', 'max:2048'],
-            'title' => ['required', 'string', 'max:255', 'unique:news,title->' . _lang()],
+            'title' => ['required', 'string', 'max:255', new UniqueSlug(News::class)],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],
             'keywords' => ['nullable', 'string', 'max:255'],

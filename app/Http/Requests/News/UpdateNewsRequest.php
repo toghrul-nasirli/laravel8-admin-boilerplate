@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\News;
 
+use App\Models\News;
+use App\Rules\UniqueSlug;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateNewsRequest extends FormRequest
@@ -15,7 +17,7 @@ class UpdateNewsRequest extends FormRequest
     {
         return [
             'image' => ['nullable', 'image', 'max:2048'],
-            'title' => ['required', 'string', 'max:255', 'unique:news,title->' . _lang() . ',' . $this->news->id],
+            'title' => ['required', 'string', 'max:255', new UniqueSlug(News::class, $this->news->id)],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],
             'keywords' => ['nullable', 'string', 'max:255'],

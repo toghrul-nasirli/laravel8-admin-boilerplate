@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Post;
 
+use App\Models\Post;
+use App\Rules\UniqueSlug;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePostRequest extends FormRequest
@@ -16,7 +18,7 @@ class StorePostRequest extends FormRequest
         return [
             'category_id' => ['required', 'integer'],
             'image' => ['required', 'image', 'max:2048'],
-            'title' => ['required', 'string', 'max:255', 'unique:posts,title->' . _lang()],
+            'title' => ['required', 'string', 'max:255', new UniqueSlug(Post::class)],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],
             'keywords' => ['nullable', 'string', 'max:255'],
