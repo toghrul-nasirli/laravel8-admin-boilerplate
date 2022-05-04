@@ -167,7 +167,7 @@
             Swal.fire({
                 toast: true,
                 icon: 'success',
-                name: event.detail.name,
+                title: event.detail.title,
                 position: 'top-right',
                 showConfirmButton: false,
                 timerProgressBar: true,
@@ -182,7 +182,7 @@
         window.addEventListener('Swal:confirm', event => {
             Swal.fire({
                 icon: 'warning',
-                name: event.detail.name,
+                title: event.detail.title,
                 text: event.detail.text,
                 showCancelButton: true,
                 confirmButtonText: '@lang('admin.yes-delete-it')',
@@ -195,7 +195,7 @@
                     Swal.fire({
                         toast: true,
                         icon: 'success',
-                        name: '@lang('admin.deleted')',
+                        title: '@lang('admin.deleted')',
                         position: 'top-right',
                         showConfirmButton: false,
                         timerProgressBar: true,
