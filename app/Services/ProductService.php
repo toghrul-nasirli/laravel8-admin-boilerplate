@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Services;
+
+use App\Models\Product;
+
+class ProductService extends BaseService
+{
+    public static function all()
+    {
+        return Product::whereNull('parent_id')
+            ->with('children', function ($query) {
+                return $query->with('children')
+                    ->withCount('children');
+            })
+            ->withCount('children')
+            ->orderBy('position')
+            ->get();
+    }
+}
