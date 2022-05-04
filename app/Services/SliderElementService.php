@@ -6,7 +6,7 @@ use App\Models\SliderElement;
 
 class SliderElementService extends BaseService
 {
-    public static function all($search, $orderBy, $orderDirection, $perPage, $status)
+    public static function withFilter($search, $orderBy, $orderDirection, $perPage, $status)
     {
         return SliderElement::search([
             'position',

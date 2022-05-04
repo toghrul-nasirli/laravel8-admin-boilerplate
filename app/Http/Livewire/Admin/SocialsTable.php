@@ -25,7 +25,7 @@ class SocialsTable extends Component
 
     public function render()
     {
-        $socials = SocialService::all($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
+        $socials = SocialService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = Social::max('position');
 
         return view('livewire.admin.socials-table', compact('socials', 'maxPosition'));

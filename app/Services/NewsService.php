@@ -6,7 +6,7 @@ use App\Models\News;
 
 class NewsService extends BaseService
 {
-    public static function all($search, $orderBy, $orderDirection, $perPage, $status)
+    public static function withFilter($search, $orderBy, $orderDirection, $perPage, $status)
     {
         return News::search([
             'position',

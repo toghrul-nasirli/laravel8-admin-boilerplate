@@ -6,7 +6,7 @@ use App\Models\Post;
 
 class PostService extends BaseService
 {
-    public static function all($search, $orderBy, $orderDirection, $perPage, $status)
+    public static function withFilter($search, $orderBy, $orderDirection, $perPage, $status)
     {
         return Post::search([
             'position',

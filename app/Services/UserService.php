@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserService extends BaseService
 {
-    public static function all($search, $orderBy, $orderDirection, $perPage, $is_admin)
+    public static function withFilter($search, $orderBy, $orderDirection, $perPage, $is_admin)
     {
         return User::search([
             'id',

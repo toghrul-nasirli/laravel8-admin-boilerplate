@@ -26,7 +26,7 @@ class SocialService extends BaseService
         'Pinterest 3' => 'fab fa-pinterest-square',
     ];
 
-    public static function all($search, $orderBy, $orderDirection, $perPage, $status)
+    public static function withFilter($search, $orderBy, $orderDirection, $perPage, $status)
     {
         return Social::search([
             'position',

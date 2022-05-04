@@ -6,7 +6,7 @@ use App\Models\Translation;
 
 class TranslationService extends BaseService
 {
-    public static function all($search, $group, $orderBy, $orderDirection, $perPage)
+    public static function withFilter($search, $group, $orderBy, $orderDirection, $perPage)
     {
         return Translation::search([
             'id',

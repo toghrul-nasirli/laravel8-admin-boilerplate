@@ -25,7 +25,7 @@ class PostsTable extends Component
 
     public function render()
     {
-        $posts = PostService::all($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
+        $posts = PostService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = Post::max('position');
         
         return view('livewire.admin.posts-table', compact('posts', 'maxPosition'));

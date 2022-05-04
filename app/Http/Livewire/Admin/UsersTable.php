@@ -24,7 +24,7 @@ class UsersTable extends Component
 
     public function render()
     {
-        $users = UserService::all($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->is_admin);
+        $users = UserService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->is_admin);
 
         return view('livewire.admin.users-table', compact('users'));
     }

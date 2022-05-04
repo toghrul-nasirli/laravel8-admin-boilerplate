@@ -25,7 +25,7 @@ class SliderElementsTable extends Component
 
     public function render()
     {
-        $sliderElements = SliderElementService::all($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
+        $sliderElements = SliderElementService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = SliderElement::max('position');
         
         return view('livewire.admin.slider-elements-table', compact('sliderElements', 'maxPosition'));

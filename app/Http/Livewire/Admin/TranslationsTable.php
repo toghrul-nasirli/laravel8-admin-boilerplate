@@ -30,7 +30,7 @@ class TranslationsTable extends Component
 
     public function render()
     {
-        $translations = TranslationService::all($this->search, $this->group, $this->orderBy, $this->orderDirection, $this->perPage);
+        $translations = TranslationService::withFilter($this->search, $this->group, $this->orderBy, $this->orderDirection, $this->perPage);
 
         return view('livewire.admin.translations-table', compact('translations'));
     }

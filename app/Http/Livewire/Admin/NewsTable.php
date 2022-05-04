@@ -25,7 +25,7 @@ class NewsTable extends Component
 
     public function render()
     {
-        $allNews = NewsService::all($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
+        $allNews = NewsService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = News::max('position');
         
         return view('livewire.admin.news-table', compact('allNews', 'maxPosition'));
