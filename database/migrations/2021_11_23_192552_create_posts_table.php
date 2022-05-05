@@ -14,6 +14,7 @@ class CreatePostsTable extends Migration
             $table->boolean('status')->default(true);
             $table->string('slug')->unique();
             $table->foreignId('category_id')->constrained('post_categories')->onDelete('cascade');
+            $table->boolean('mainpage')->default(false);
             $table->string('image')->unique();
             $table->string('title')->unique();
             $table->text('text');

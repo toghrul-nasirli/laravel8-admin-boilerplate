@@ -15,6 +15,7 @@ return [
     'choose-file' => 'Fayl Seçin',
     'save' => 'Dəyişiklikləri yadda saxla',
     'back' => 'Geri',
+    'mainpage' => 'Əsas səhifə',
     'image' => 'Şəkil',
     'file' => 'Fayl',
     'link' => 'Link',

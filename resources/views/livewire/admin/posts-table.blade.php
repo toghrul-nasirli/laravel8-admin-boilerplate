@@ -35,6 +35,7 @@
                 <th>@lang('admin.title')</th>
                 <th>@lang('admin.image')</th>
                 <th>@lang('admin.category')</th>
+                <th>@lang('admin.mainpage')</th>
                 <th>@lang('admin.status')</th>
                 <th><i class="fas fa-tools"></i></th>
                 @if ($maxPosition > 1)
@@ -49,6 +50,11 @@
                     <td><img src="{{ _asset('images/posts', $post->image) }}" height="60px" width="80px"></td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->category->name }}</td>
+                    <td>
+                        <a wire:click="changeColumn({{ $post->id }}, 'mainpage')" href="javascript:void(0)" class="px-1">
+                            <i class="fas fa-{{ $post->mainpage ? 'check' : 'times' }}"></i>
+                        </a>
+                    </td>
                     <td>
                         <a wire:click="changeColumn({{ $post->id }}, 'status')" href="javascript:void(0)" class="px-1">
                             <i class="fas fa-eye{{ !$post->status ? '-slash' : '' }}"></i>

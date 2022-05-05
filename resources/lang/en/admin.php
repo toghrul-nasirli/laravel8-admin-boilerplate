@@ -15,6 +15,7 @@ return [
     'choose-file' => 'Choose file',
     'save' => 'Save',
     'back' => 'Back',
+    'mainpage' => 'Main page',
     'image' => 'Image',
     'file' => 'File',
     'link' => 'Link',

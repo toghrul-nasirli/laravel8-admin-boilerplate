@@ -10,6 +10,7 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->boolean('darkmode')->default(false);
             $table->string('logo');
             $table->string('favicon');
             $table->string('title');
@@ -17,7 +18,6 @@ class CreateSettingsTable extends Migration
             $table->text('about');
             $table->string('description')->nullable();
             $table->string('keywords')->nullable();
-            $table->boolean('darkmode')->default(false);
             $table->timestamps();
         });
     }
