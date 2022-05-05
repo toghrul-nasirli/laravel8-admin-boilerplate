@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 // Variables
 @import "variables";
@@ -15,3 +15,21 @@
 
 // Sweet Alert2
 @import "~sweetalert2/src/sweetalert2";
+
+img {
+    object-fit: contain;
+}
+.plus-btn {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+}
+.ln-60 {
+    line-height: 60px;
+}
+.cursor-default {
+    cursor: default;
+}
+#swal2-title {
+    color: #212529 !important;
+}

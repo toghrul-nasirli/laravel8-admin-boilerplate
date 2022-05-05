@@ -8,7 +8,7 @@
                 @if (!$loop->last)
                     <button wire:click.prevent="down({{ $product->id }})" class="btn btn-secondary btn-sm">&darr;</button>
                 @endif
-                <button class="btn btn-secondary btn-sm px-5" style="cursor: default;">{{ $product->name }}</button>
+                <button class="btn btn-secondary btn-sm px-5 cursor-default">{{ $product->name }}</button>
                 <button wire:click="changeColumn({{ $product->id }}, 'status')" class="btn btn-secondary btn-sm">
                     <i class="fas fa-eye{{ !$product->status ? '-slash' : '' }}"></i>
                 </button>
@@ -27,7 +27,7 @@
                             @if (!$loop->last)
                                 <button wire:click="down({{ $child->id }})" class="btn btn-secondary btn-sm">&darr;</button>
                             @endif
-                            <button class="btn btn-secondary btn-sm px-5" style="cursor: default;">{{ $child->name }}</button>
+                            <button class="btn btn-secondary btn-sm px-5 cursor-default">{{ $child->name }}</button>
                             <button wire:click="changeColumn({{ $child->id }}, 'status')" class="btn btn-secondary btn-sm">
                                 <i class="fas fa-eye{{ !$child->status ? '-slash' : '' }}"></i>
                             </button>
@@ -46,7 +46,7 @@
                                         @if (!$loop->last)
                                             <button wire:click="down({{ $subChild->id }})" class="btn btn-secondary btn-sm">&darr;</button>
                                         @endif
-                                        <button class="btn btn-secondary btn-sm px-5" style="cursor: default;">{{ $subChild->name }}</button>
+                                        <button class="btn btn-secondary btn-sm px-5 cursor-default">{{ $subChild->name }}</button>
                                         <button wire:click="changeColumn({{ $subChild->id }}, 'status')" class="btn btn-secondary btn-sm">
                                             <i class="fas fa-eye{{ !$subChild->status ? '-slash' : '' }}"></i>
                                         </button>
@@ -61,7 +61,7 @@
             </div>
         @endforeach
     </div>
-    <button wire:click="create(null)" class="btn btn-primary btn-lg position-fixed" data-toggle="modal" data-target="#modal" style="right: 40px; bottom: 40px;">
+    <button wire:click="create(null)" class="btn btn-primary btn-lg plus-btn" data-toggle="modal" data-target="#modal">
         <i class="fas fa-plus fa-xs text-center"></i>
     </button>
     <div wire:ignore.self class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -81,11 +81,11 @@
                                 <div class="col-md-2 mb-4">
                                     <div class="text-center">
                                         @if ($is_uploaded)
-                                            <img id="previewImage" src="{{ $image->temporaryUrl() }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
+                                            <img id="previewImage" src="{{ $image->temporaryUrl() }}" class="profile-user-img img-circle" height="100px" width="100px">
                                         @elseif ($product_id)
-                                            <img id="previewImage" src="{{ _asset('images/products', $image) }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
+                                            <img id="previewImage" src="{{ _asset('images/products', $image) }}" class="profile-user-img img-circle" height="100px" width="100px">
                                         @else
-                                            <img id="previewImage" src="{{ _asset() }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
+                                            <img id="previewImage" src="{{ _asset() }}" class="profile-user-img img-circle" height="100px" width="100px">
                                         @endif
                                     </div>
                                 </div>
@@ -162,78 +162,80 @@
 </div>
 
 @section('scripts')
-    <script>
-        window.addEventListener('Swal:success', event => {
-            Swal.fire({
-                toast: true,
-                icon: 'success',
-                title: event.detail.title,
-                position: 'top-right',
-                showConfirmButton: false,
-                timerProgressBar: true,
-                timer: 2000,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            });
+<script>
+    window.addEventListener('Swal:success', event => {
+        Swal.fire({
+            toast: true,
+            icon: 'success',
+            title: event.detail.title,
+            position: 'top-right',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 2000,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
         });
+    });
 
-        window.addEventListener('Swal:confirm', event => {
-            Swal.fire({
-                icon: 'warning',
-                title: event.detail.title,
-                text: event.detail.text,
-                showCancelButton: true,
-                confirmButtonText: '@lang('admin.yes-delete-it')',
-                confirmButtonColor: '#3085d6',
-                cancelButtonText: '@lang('admin.cancel')',
-                cancelButtonColor: '#d33',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.livewire.emit('delete', event.detail.id);
-                    Swal.fire({
-                        toast: true,
-                        icon: 'success',
-                        title: '@lang('admin.deleted')',
-                        position: 'top-right',
-                        showConfirmButton: false,
-                        timerProgressBar: true,
-                        timer: 2000,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    });
-                }
-            });
-        });
-
-        window.livewire.on('stored', () => {
-            $('#modal').modal('hide');
-        });
-
-        tinymce.init({
-            selector: '.editor',
-            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak code lists',
-            toolbar: 'undo redo | styleselect | forecolor | bold italic | numlist bullist | alignleft aligncenter alignright alignjustify | outdent indent | link image | code', 
-            toolbar_mode: 'floating',
-            force_br_newlines : false,
-            forced_root_block : '',
-            setup: (editor) => {
-                window.livewire.on('reset-text', () => {
-                    editor.setContent('');
-                });
-                editor.on('init change', (e) => {
-                    window.addEventListener('update-text', event => {
-                        editor.setContent(@this.text);
-                    });
-                    editor.save();
-                });
-                editor.on('change', (e) => {
-                    @this.set('text', editor.getContent());
+    window.addEventListener('Swal:confirm', event => {
+        Swal.fire({
+            icon: 'warning',
+            title: event.detail.title,
+            text: event.detail.text,
+            showCancelButton: true,
+            confirmButtonText: '{{ __("admin.yes-delete-it") }}',
+            confirmButtonColor: '#3085d6',
+            cancelButtonText: '@lang('admin.cancel')',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.livewire.emit('delete', event.detail.id);
+                Swal.fire({
+                    toast: true,
+                    icon: 'success',
+                    title: '{{ __("admin.deleted") }}',
+                    position: 'top-right',
+                    showConfirmButton: false,
+                    timerProgressBar: true,
+                    timer: 2000,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
                 });
             }
         });
-    </script>
+    });
+
+    window.livewire.on('stored', () => {
+        $('#modal').modal('hide');
+    });
+
+    tinymce.init({
+        selector: '.editor',
+        plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak code lists',
+        toolbar: 'undo redo | styleselect | forecolor | bold italic | numlist bullist | alignleft aligncenter alignright alignjustify | outdent indent | link image | code', 
+        toolbar_mode: 'floating',
+        force_br_newlines : false,
+        forced_root_block : '',
+        skin: 'oxide{{ $darkmode ? "-dark" : "" }}',
+        content_css: '{{ $darkmode ? "dark" : "" }}',
+        setup: (editor) => {
+            window.livewire.on('reset-text', () => {
+                editor.setContent('');
+            });
+            editor.on('init change', (e) => {
+                window.addEventListener('update-text', event => {
+                    editor.setContent(@this.text);
+                });
+                editor.save();
+            });
+            editor.on('change', (e) => {
+                @this.set('text', editor.getContent());
+            });
+        }
+    });
+</script>
 @endsection

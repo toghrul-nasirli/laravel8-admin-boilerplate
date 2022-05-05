@@ -1,7 +1,7 @@
 <div>
     <div class="row mb-3">
         <div class="col-md-5">
-            <input wire:model.debounce.300ms="search" type="text" class="form-control" placeholder="Axtar...">
+            <input wire:model.debounce.300ms="search" type="text" class="form-control" placeholder="@lang('admin.search')">
         </div>
         <div class="col-md-2 offset-md-2 mt-2 mt-md-0">
             <select wire:model="orderBy" class="form-control">
@@ -24,8 +24,8 @@
                 <option>100</option>
             </select>
         </div>
-        <a href="{{ route('admin.posts.create', _lang()) }}" class="btn btn-primary btn-lg position-fixed" style="right: 40px; bottom: 40px;">
-            <i class="fas fa-plus fa-xs text-center" style="line-height:25px;"></i>
+        <a href="{{ route('admin.posts.create', _lang()) }}" class="btn btn-primary btn-lg plus-btn">
+            <i class="fas fa-plus fa-xs text-center"></i>
         </a>
     </div>
     <table class="table table-bordered table-hover text-center">
@@ -44,9 +44,9 @@
         </thead>
         <tbody>
             @foreach ($posts as $post)
-                <tr style="line-height: 60px;">
+                <tr class="ln-60">
                     <td>{{ $post->position }}</td>
-                    <td><img src="{{ _asset('images/posts', $post->image) }}" height="60px" width="80px" style="object-fit: contain;"></td>
+                    <td><img src="{{ _asset('images/posts', $post->image) }}" height="60px" width="80px"></td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->category->name }}</td>
                     <td>

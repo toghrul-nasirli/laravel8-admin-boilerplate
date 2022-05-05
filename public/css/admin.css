@@ -17460,3 +17460,26 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   bottom: 0;
   left: auto;
 }
+
+img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.plus-btn {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+}
+
+.ln-60 {
+  line-height: 60px;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+#swal2-title {
+  color: #212529 !important;
+}

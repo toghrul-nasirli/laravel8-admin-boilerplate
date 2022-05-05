@@ -1,7 +1,7 @@
 <div>
     <div class="row mb-3">
         <div class="col-md-5">
-            <input wire:model.debounce.300ms="search" type="text" class="form-control" placeholder="Axtar...">
+            <input wire:model.debounce.300ms="search" type="text" class="form-control" placeholder="@lang('admin.search')">
         </div>
         <div class="col-md-2 mt-2 mt-md-0">
             <select wire:model="is_admin" class="form-control">
@@ -32,8 +32,8 @@
                 <option>100</option>
             </select>
         </div>
-        <a href="{{ route('admin.users.create', _lang()) }}" class="btn btn-primary btn-lg position-fixed" style="right: 40px; bottom: 40px;">
-            <i class="fas fa-plus fa-xs text-center" style="line-height:25px;"></i>
+        <a href="{{ route('admin.users.create', _lang()) }}" class="btn btn-primary btn-lg plus-btn">
+            <i class="fas fa-plus fa-xs text-center"></i>
         </a>
     </div>
     <table class="table table-bordered table-hover text-center">
@@ -48,16 +48,16 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-            <tr>
-                <td>{{ $user->id }}</td>
-                <td>{{ $user->username }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->is_admin ? 'Admin' : 'İstifadəçi' }}</td>
-                <td>
-                    <a href="{{ route('admin.users.edit', ['lang' => _lang(), 'user' => $user]) }}" class="px-1"><i class="fas fa-edit"></i></a>
-                    <a wire:click="deleteConfirm({{ $user->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
+                <tr>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->username }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->is_admin ? 'Admin' : 'İstifadəçi' }}</td>
+                    <td>
+                        <a href="{{ route('admin.users.edit', ['lang' => _lang(), 'user' => $user]) }}" class="px-1"><i class="fas fa-edit"></i></a>
+                        <a wire:click="deleteConfirm({{ $user->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>

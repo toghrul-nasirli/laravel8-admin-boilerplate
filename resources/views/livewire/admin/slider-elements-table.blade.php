@@ -24,7 +24,7 @@
                 <option>100</option>
             </select>
         </div>
-        <a href="{{ route('admin.slider-elements.create', _lang()) }}" class="btn btn-primary btn-lg position-fixed" style="right: 40px; bottom: 40px;">
+        <a href="{{ route('admin.slider-elements.create', _lang()) }}" class="btn btn-primary btn-lg plus-btn">
             <i class="fas fa-plus fa-xs text-center"></i>
         </a>
     </div>
@@ -43,9 +43,9 @@
         </thead>
         <tbody>
             @foreach ($sliderElements as $sliderElement)
-                <tr style="line-height: 60px;">
+                <tr class="ln-60">
                     <td>{{ $sliderElement->position }}</td>
-                    <td><img src="{{ _asset('images/slider-elements', $sliderElement->image) }}" height="60px" width="80px" style="object-fit: contain;"></td>
+                    <td><img src="{{ _asset('images/slider-elements', $sliderElement->image) }}" height="60px" width="80px"></td>
                     <td>{{ $sliderElement->title }}</td>
                     <td>
                         <a wire:click="changeColumn({{ $sliderElement->id }}, 'status')" href="javascript:void(0)" class="px-1">
