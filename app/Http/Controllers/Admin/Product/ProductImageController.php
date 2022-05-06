@@ -21,7 +21,7 @@ class ProductImageController extends Controller
         return view('admin.products.images.create', compact('product'));
     }
 
-    public function store($lang, StoreImageRequest $request, Product $product)
+    public function store($lang, Product $product, StoreImageRequest $request)
     {
         ImageService::create($product, $request->validated());
 
@@ -35,7 +35,7 @@ class ProductImageController extends Controller
         return view('admin.products.images.edit', compact('image'));
     }
 
-    public function update($lang, UpdateImageRequest $request, Product $product, Image $image)
+    public function update($lang, Product $product, Image $image, UpdateImageRequest $request)
     {
         ImageService::update($image, $request->validated());
 
