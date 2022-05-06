@@ -34,4 +34,9 @@ class Product extends Model
     {
         return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('position');
     }
+
+    public function images()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

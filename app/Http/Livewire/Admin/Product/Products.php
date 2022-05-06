@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Admin\Product;
 
 use App\Models\Product;
-use App\Services\ProductService;
+use App\Services\Product\ProductService;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -22,7 +22,7 @@ class Products extends Component
     {
         $products = ProductService::all();
 
-        return view('livewire.admin.products', compact('products'));
+        return view('livewire.admin.product.products', compact('products'));
     }
 
     public function updatedImage()

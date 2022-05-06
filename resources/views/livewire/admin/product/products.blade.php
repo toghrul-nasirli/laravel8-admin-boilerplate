@@ -15,6 +15,7 @@
                 <button wire:click="create({{ $product->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal">
                     <i data-id="{{ $product->id }}" class="fas fa-plus"></i>
                 </button>
+                <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $product]) }}" class="btn btn-secondary btn-sm"><i class="fas fa-images"></i></a>
                 <button wire:click="edit({{ $product->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fas fa-edit"></i></button>
                 <button wire:click="deleteConfirm({{ $product->id }})" class="btn btn-secondary btn-sm"><i class="fas fa-trash-alt"></i></button>
 
@@ -34,6 +35,10 @@
                             <button wire:click="create({{ $child->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal">
                                 <i data-id="{{ $child->id }}" class="fas fa-plus"></i>
                             </button>
+                            <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $child]) }}" class="btn btn-secondary btn-sm">
+                                <span class="badge bg-teal">{{ $child->images_count }}</span>
+                                <i class="fas fa-images"></i>
+                            </a>
                             <button wire:click="edit({{ $child->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fas fa-edit"></i></button>
                             <button wire:click="deleteConfirm({{ $child->id }})" class="btn btn-secondary btn-sm"><i class="fas fa-trash-alt"></i></button>
                             
@@ -50,6 +55,7 @@
                                         <button wire:click="changeColumn({{ $subChild->id }}, 'status')" class="btn btn-secondary btn-sm">
                                             <i class="fas fa-eye{{ !$subChild->status ? '-slash' : '' }}"></i>
                                         </button>
+                                        <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $subChild]) }}" class="btn btn-secondary btn-sm"><i class="fas fa-images"></i></a>
                                         <button wire:click="edit({{ $subChild->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fas fa-edit"></i></button>
                                         <button wire:click="deleteConfirm({{ $subChild->id }})" class="btn btn-secondary btn-sm"><i class="fas fa-trash-alt"></i></button>
                                     </div>

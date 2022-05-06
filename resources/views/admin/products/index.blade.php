@@ -21,7 +21,7 @@
     </section>
     <section class="content">
         <div class="container-fluid">
-            @livewire('admin.products')
+            @livewire('admin.product.products')
         </div>
     </section>
 @endsection

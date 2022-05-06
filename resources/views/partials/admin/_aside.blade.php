@@ -34,7 +34,7 @@
                     </ul>
                 </li>
                 <li class="nav-item has-treeview {{ _isRequest('admin/products*') ? 'menu-open' : '' }}">
-                    <a href="{{ route('admin.products') }}" class="nav-link {{ _isRequest('admin/products*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.products.index') }}" class="nav-link {{ _isRequest('admin/products*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-box-open"></i>
                         <p>
                             @lang('admin.products')
