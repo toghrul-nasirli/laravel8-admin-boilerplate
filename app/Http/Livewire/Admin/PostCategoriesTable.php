@@ -47,25 +47,25 @@ class PostCategoriesTable extends Component
 
     public function delete($id)
     {
-        PostCategoryService::delete($id, PostCategory::class, 'images/posts');
+        PostCategoryService::delete($id, 'images/posts');
     }
 
     public function changeColumn($id, $column)
     {
-        PostCategoryService::changeColumn($id, PostCategory::class, $column);
+        PostCategoryService::changeColumn($id, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
      
-        PostCategoryService::changePosition($id, PostCategory::class, 'up');
+        PostCategoryService::changePosition($id, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
      
-        PostCategoryService::changePosition($id, PostCategory::class, 'down');
+        PostCategoryService::changePosition($id, 'down');
     }
 }

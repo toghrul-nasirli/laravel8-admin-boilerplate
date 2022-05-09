@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Translation;
 use App\Services\TranslationService;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -51,6 +50,6 @@ class TranslationsTable extends Component
 
     public function delete($id)
     {
-        TranslationService::delete($id, Translation::class);
+        TranslationService::delete($id);
     }
 }

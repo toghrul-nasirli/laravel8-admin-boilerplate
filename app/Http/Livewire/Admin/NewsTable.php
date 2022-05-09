@@ -47,25 +47,25 @@ class NewsTable extends Component
 
     public function delete($id)
     {
-        NewsService::delete($id, News::class, 'images/news');
+        NewsService::delete($id, 'images/news');
     }
 
     public function changeColumn($id, $column)
     {
-        NewsService::changeColumn($id, News::class, $column);
+        NewsService::changeColumn($id, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
 
-        NewsService::changePosition($id, News::class, 'up');
+        NewsService::changePosition($id, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
         
-        NewsService::changePosition($id, News::class, 'down');
+        NewsService::changePosition($id, 'down');
     }
 }

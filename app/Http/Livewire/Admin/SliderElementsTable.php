@@ -47,25 +47,25 @@ class SliderElementsTable extends Component
 
     public function delete($id)
     {
-        SliderElementService::delete($id, SliderElement::class, 'images/slider-elements');
+        SliderElementService::delete($id, 'images/slider-elements');
     }
 
     public function changeColumn($id, $column)
     {
-        SliderElementService::changeColumn($id, SliderElement::class, $column);
+        SliderElementService::changeColumn($id, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
       
-        SliderElementService::changePosition($id, SliderElement::class, 'up');
+        SliderElementService::changePosition($id, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
       
-        SliderElementService::changePosition($id, SliderElement::class, 'down');
+        SliderElementService::changePosition($id, 'down');
     }
 }
