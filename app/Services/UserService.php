@@ -38,10 +38,4 @@ class UserService extends BaseService
 
         $user->update($data);
     }
-
-    public static function delete($id, $model, $path = null)
-    {
-        $user = User::findOrFail($id);
-        $user->delete();
-    }
 }

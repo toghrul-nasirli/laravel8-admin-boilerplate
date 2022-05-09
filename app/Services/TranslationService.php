@@ -44,10 +44,4 @@ class TranslationService extends BaseService
 
         $translation->update($data);
     }
-
-    public static function delete($id, $model, $path = null)
-    {
-        $translation = Translation::findOrFail($id);
-        $translation->delete();
-    }
 }

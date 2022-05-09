@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\User;
 use App\Services\UserService;
 use Livewire\Component;
 use Livewire\WithPagination;

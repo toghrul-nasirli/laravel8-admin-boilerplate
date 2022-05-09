@@ -12,9 +12,11 @@ class BaseService
     
         if($path !== null) _deleteFile($path, $data->image);
     
-        $model::where('position', '>', $data->position)->update([
-            'position' => DB::raw('position - 1'),
-        ]);
+        if($data->position) {
+            $model::where('position', '>', $data->position)->update([
+                'position' => DB::raw('position - 1'),
+            ]);
+        }
     
         $data->delete();
     }
