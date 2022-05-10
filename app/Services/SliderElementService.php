@@ -28,13 +28,13 @@ class SliderElementService extends BaseService
         SliderElement::create($data);
     }
 
-    public static function update($sliderItem, $data)
+    public static function update($sliderElement, $data)
     {
         if (request()->has('image')) {
-            _deleteFile('images/slider-elements', $sliderItem->image);
+            _deleteFile('images/slider-elements', $sliderElement->image);
             $data['image'] = _storeImage('slider-elements', $data['image']);
         }
 
-        $sliderItem->update($data);
+        $sliderElement->update($data);
     }
 }

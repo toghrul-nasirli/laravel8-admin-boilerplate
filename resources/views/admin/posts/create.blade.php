@@ -31,7 +31,7 @@
                                 <div class="row">
                                     <div class="col-md-2 mb-4">
                                         <div class="text-center">
-                                            <img id="previewImage" src="{{ _asset() }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
+                                            <img id="previewImage" src="{{ _asset() }}" class="profile-user-img img-circle" height="100px" width="100px">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -51,7 +51,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="title">@lang('admin.title')</label>
-                                            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="@lang('admin.posts-placeholder-title')">
+                                            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="@lang('admin.title')">
                                             @error('title')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>
@@ -63,7 +63,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="text">@lang('admin.text')</label>
-                                            <textarea class="form-control editor" rows="4" id="text" name="text" placeholder="@lang('admin.posts-placeholder-text')">{{ old('text') }}</textarea>
+                                            <textarea class="form-control editor" rows="4" id="text" name="text" placeholder="@lang('admin.text')">{{ old('text') }}</textarea>
                                             @error('text')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="description">@lang('admin.meta-description')</label>
-                                            <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}" placeholder="@lang('admin.meta-description-placeholder')">
+                                            <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}" placeholder="@lang('admin.meta-description')">
                                             @error('description')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>
@@ -81,7 +81,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="keywords">@lang('admin.meta-keywords')</label>
-                                            <input type="text" class="form-control" id="keywords" name="keywords" value="{{ old('keywords') }}" placeholder="@lang('admin.meta-keywords-placeholder')">
+                                            <input type="text" class="form-control" id="keywords" name="keywords" value="{{ old('keywords') }}" placeholder="@lang('admin.meta-keywords')">
                                             @error('keywords')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>
@@ -93,8 +93,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary btn-sm">@lang('admin.add')</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">@lang('admin.back')</a>
+                            <button type="submit" class="btn btn-outline-primary btn-sm">@lang('admin.add')</button>
                         </div>
                     </div>
                 </form>

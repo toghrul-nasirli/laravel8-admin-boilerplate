@@ -31,7 +31,7 @@
                                 <div class="row">
                                     <div class="col-md-2 mb-4">
                                         <div class="text-center">
-                                            <img id="previewImage" src="{{ _asset() }}" class="profile-user-img img-circle" height="100px" width="100px" style="object-fit: contain;">
+                                            <img id="previewImage" src="{{ _asset() }}" class="profile-user-img img-circle" height="100px" width="100px">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -51,7 +51,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="title">@lang('admin.title')</label>
-                                            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="@lang('admin.slider-elements-placeholder-title')">
+                                            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="@lang('admin.title')">
                                             @error('title')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>
@@ -61,8 +61,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="minitext">@lang('admin.mini-text')</label>
-                                            <input type="text" class="form-control" id="minitext" name="minitext" value="{{ old('minitext') }}" placeholder="@lang('admin.slider-elements-placeholder-minitext')">
+                                            <label for="minitext">@lang('admin.minitext')</label>
+                                            <input type="text" class="form-control" id="minitext" name="minitext" value="{{ old('minitext') }}" placeholder="@lang('admin.minitext')">
                                             @error('minitext')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>
@@ -73,7 +73,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="link">@lang('admin.link')</label>
-                                            <input type="text" class="form-control" id="link" name="link" value="{{ old('link') }}" placeholder="@lang('admin.slider-elements-placeholder-link')">
+                                            <input type="text" class="form-control" id="link" name="link" value="{{ old('link') }}" placeholder="@lang('admin.link')">
                                             @error('link')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>
@@ -85,8 +85,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary btn-sm">@lang('admin.add')</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">@lang('admin.back')</a>
+                            <button type="submit" class="btn btn-outline-primary btn-sm">@lang('admin.add')</button>
                         </div>
                     </div>
                 </form>

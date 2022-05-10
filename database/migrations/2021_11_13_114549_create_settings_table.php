@@ -15,6 +15,7 @@ class CreateSettingsTable extends Migration
             $table->string('favicon');
             $table->string('title');
             $table->string('email');
+            $table->string('phone');
             $table->text('about');
             $table->string('description')->nullable();
             $table->string('keywords')->nullable();

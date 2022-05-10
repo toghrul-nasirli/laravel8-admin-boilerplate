@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Traits\CacheRemovable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Settings extends Model
 {
-    use HasFactory, CacheRemovable;
+    use HasFactory, HasTranslations, CacheRemovable;
 
     protected $fillable = [
         'logo',
@@ -16,14 +17,17 @@ class Settings extends Model
         'sitemap',
         'title',
         'email',
-        'career_email',
         'phone',
-        'career_phone',
         'about',
-        'privacy_policy',
-        'terms_and_conditions',
         'description',
         'keywords',
-        'theme'
+    ];
+
+    public $translatable = [
+        'slug',
+        'title',
+        'about',
+        'description',
+        'keywords',
     ];
 }

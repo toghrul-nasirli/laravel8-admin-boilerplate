@@ -17,7 +17,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'category_id' => ['required', 'integer'],
-            'image' => ['required', 'image', 'max:2048'],
+            'image' => ['required', 'image', 'max:2048', 'unique:posts'],
             'title' => ['required', 'string', 'max:255', new UniqueSlug(Post::class)],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],

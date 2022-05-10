@@ -34,7 +34,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="name">@lang('admin.name')</label>
-                                            <input type="text" class="form-control" id="name" name="name" value="{{ $postCategory->name }}" placeholder="@lang('admin.post-categories-placeholder-name')">
+                                            <input type="text" class="form-control" id="name" name="name" value="{{ $postCategory->name }}" placeholder="@lang('admin.name')">
                                             @error('name')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>
@@ -46,8 +46,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-success btn-sm">@lang('admin.save')</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">@lang('admin.back')</a>
+                            <button type="submit" class="btn btn-outline-success btn-sm">@lang('admin.save')</button>
                         </div>
                     </div>
                 </form>

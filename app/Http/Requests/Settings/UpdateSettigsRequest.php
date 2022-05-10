@@ -20,8 +20,6 @@ class UpdateSettigsRequest extends FormRequest
             'email' => ['required', 'string', 'max:255', 'email:dns'],
             'phone' => ['required', 'string', 'max:255'],
             'about' => ['required', 'string'],
-            'privacy_policy' => ['required', 'string'],
-            'terms_and_conditions' => ['required', 'string'],
         ];
     }
     
@@ -32,10 +30,8 @@ class UpdateSettigsRequest extends FormRequest
             'favicon' => __('attributes.favicon'),
             'title' => __('attributes.title'),
             'email' => __('attributes.email'),
-            'phone' => __('attributes.career_email'),
+            'phone' => __('attributes.phone'),
             'about' => __('attributes.about'),
-            'privacy_policy' => __('attributes.privacy_policy'),
-            'terms_and_conditions' => __('attributes.terms_and_conditions'),
         ];
     }
 }

@@ -53,7 +53,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="link">@lang('admin.link')</label>
-                                                <input type="text" class="form-control" id="link" name="link" value="{{ old('link') }}" placeholder="@lang('admin.socials-placeholder-link')">
+                                                <input type="text" class="form-control" id="link" name="link" value="{{ old('link') }}" placeholder="@lang('admin.link')">
                                                 @error('link')
                                                     <small class="text-danger">
                                                         <b>{{ $message }}</b>
@@ -65,8 +65,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary btn-sm">@lang('admin.add')</button>
-                                <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">@lang('admin.back')</a>
+                                <button type="submit" class="btn btn-outline-primary btn-sm">@lang('admin.add')</button>
                             </div>
                         </div>
                     </form>

@@ -42,22 +42,21 @@
                                         </div>
                                     </div>
                                     @foreach ($locales as $locale)
-                                    <div class="form-group col-md-6">
-                                        <label for="{{ $locale->key }}" class="text-uppercase">{{ $locale->key }}</label>
-                                        <textarea class="form-control editor" id="{{ $locale->key }}" name="{{ $locale->key }}" placeholder="@lang('admin.locale-placeholder', ['locale' => $locale->lang])">{{ $translation->text[$locale->key] }}</textarea>
-                                        @error($locale->key)
-                                            <small class="text-danger">
-                                                <b>{{ $message }}</b>
-                                            </small>
-                                        @enderror
-                                    </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="{{ $locale->key }}" class="text-uppercase">{{ $locale->key }}</label>
+                                            <textarea class="form-control editor" id="{{ $locale->key }}" name="{{ $locale->key }}" placeholder="@lang('admin.locale-placeholder', ['locale' => $locale->lang])">{{ $translation->text[$locale->key] }}</textarea>
+                                            @error($locale->key)
+                                                <small class="text-danger">
+                                                    <b>{{ $message }}</b>
+                                                </small>
+                                            @enderror
+                                        </div>
                                     @endforeach
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-success btn-sm">@lang('admin.save')</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">@lang('admin.back')</a>
+                            <button type="submit" class="btn btn-outline-success btn-sm">@lang('admin.save')</button>
                         </div>
                     </div>
                 </form>

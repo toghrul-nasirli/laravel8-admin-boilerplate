@@ -14,6 +14,7 @@ class SettingsSeeder extends Seeder
             'favicon' => 'favicon',
             'title' => 'title',
             'email' => 'example@email.com',
+            'phone' => 'phone',
             'about' => 'about',
         ]);
     }

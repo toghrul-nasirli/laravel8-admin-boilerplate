@@ -16,7 +16,7 @@ class UpdateNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => ['nullable', 'image', 'max:2048'],
+            'image' => ['nullable', 'image', 'max:2048', 'unique:posts'],
             'title' => ['required', 'string', 'max:255', new UniqueSlug(News::class, $this->news->id)],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],

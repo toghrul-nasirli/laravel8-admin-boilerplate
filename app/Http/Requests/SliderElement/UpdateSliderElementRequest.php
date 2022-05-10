@@ -14,8 +14,8 @@ class UpdateSliderElementRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => ['nullable', 'image', 'max:2048'],
-            'title' => ['required', 'string', 'max:255', 'unique:slider_elements,title->' . _lang() . ',' . $this->slider_element->id],
+            'image' => ['nullable', 'image', 'max:2048', 'unique:slider_elements'],
+            'title' => ['required', 'string', 'max:255'],
             'minitext' => ['nullable', 'string', 'max:255'],
             'link' => ['nullable', 'string', 'max:255'],
         ];

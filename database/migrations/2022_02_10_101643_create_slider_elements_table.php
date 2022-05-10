@@ -13,7 +13,7 @@ class CreateSliderElementsTable extends Migration
             $table->unsignedBigInteger('position');
             $table->boolean('status')->default(true);
             $table->string('image')->unique();
-            $table->string('title')->unique();
+            $table->string('title');
             $table->string('minitext')->nullable();
             $table->string('link')->nullable();
             $table->timestamps();

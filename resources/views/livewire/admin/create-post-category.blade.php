@@ -16,11 +16,11 @@
         </div>
     </div>
     <div class="col-md-6">
-        <label for="name">@lang('admin.new')</label>
+        <label for="name">@lang('admin.new-category')</label>
         <div class="row">
             <div class="col-md-9">
                 <div class="form-group">
-                    <input wire:model="name" type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="@lang('admin.post-categories-placeholder-name')">
+                    <input wire:model="name" type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="@lang('admin.name')">
                     @error('name')
                         <small class="text-danger">
                             <b>{{ $message }}</b>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <button wire:click.prevent="store" type="submit" class="btn btn-primary">@lang('admin.add')</button>
+                <button wire:click.prevent="store" type="submit" class="btn btn-outline-primary">@lang('admin.add')</button>
             </div>
         </div>
     </div>

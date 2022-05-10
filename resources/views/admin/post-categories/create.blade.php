@@ -33,7 +33,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="name">@lang('admin.name')</label>
-                                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="@lang('admin.post-categories-placeholder-name')">
+                                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="@lang('admin.name')">
                                             @error('name')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>
@@ -45,8 +45,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary btn-sm">@lang('admin.add')</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">@lang('admin.back')</a>
+                            <button type="submit" class="btn btn-outline-primary btn-sm">@lang('admin.add')</button>
                         </div>
                     </div>
                 </form>

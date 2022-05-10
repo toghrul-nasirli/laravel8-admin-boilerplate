@@ -155,9 +155,9 @@
                         </div>
                         <div class="modal-footer">
                             @if ($product_id)
-                                <button type="submit" class="btn btn-success btn-sm">@lang('admin.save')</button>
+                                <button type="submit" class="btn btn-outline-success btn-sm">@lang('admin.save')</button>
                             @else
-                                <button type="submit" class="btn btn-primary btn-sm">@lang('admin.add')</button>
+                                <button type="submit" class="btn btn-outline-primary btn-sm">@lang('admin.add')</button>
                             @endif
                         </div>
                     </div>

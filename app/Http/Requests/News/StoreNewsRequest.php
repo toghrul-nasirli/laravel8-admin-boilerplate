@@ -16,7 +16,7 @@ class StoreNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => ['required', 'image', 'max:2048'],
+            'image' => ['required', 'image', 'max:2048', 'unique:posts'],
             'title' => ['required', 'string', 'max:255', new UniqueSlug(News::class)],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],

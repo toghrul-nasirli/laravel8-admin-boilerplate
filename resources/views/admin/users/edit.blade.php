@@ -93,8 +93,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-success btn-sm">@lang('admin.save')</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">@lang('admin.back')</a>
+                            <button type="submit" class="btn btn-outline-success btn-sm">@lang('admin.save')</button>
                         </div>
                     </div>
                 </form>

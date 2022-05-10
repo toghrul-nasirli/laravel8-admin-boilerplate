@@ -47,7 +47,7 @@ class PostCategoriesTable extends Component
 
     public function delete($id)
     {
-        PostCategoryService::delete($id, 'images/posts');
+        PostCategoryService::delete($id);
     }
 
     public function changeColumn($id, $column)
