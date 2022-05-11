@@ -7,7 +7,7 @@ use App\Http\Requests\Image\StoreImageRequest;
 use App\Http\Requests\Image\UpdateImageRequest;
 use App\Models\Image;
 use App\Models\Product;
-use App\Services\Product\ImageService;
+use App\Services\ImageService;
 
 class ProductImageController extends Controller
 {

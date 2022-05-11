@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin\Product;
 
 use App\Models\Image;
-use App\Services\Product\ImageService;
+use App\Services\ImageService;
 use Livewire\Component;
 use Livewire\WithPagination;
 

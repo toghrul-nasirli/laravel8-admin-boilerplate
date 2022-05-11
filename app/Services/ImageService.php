@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Services\Product;
+namespace App\Services;
 
 use App\Services\BaseService;
 
 class ImageService extends BaseService
 {
-    public static function all($product)
+    public static function all($imageable)
     {
-        return $product->images()->with('imageable');
+        return $imageable->images()->with('imageable');
     }
 
-    public static function withFilter($product, $search, $orderBy, $orderDirection, $perPage, $status)
+    public static function withFilter($imageable, $search, $orderBy, $orderDirection, $perPage, $status)
     {
-        return $product->images()->search([
+        return $imageable->images()->search([
             'position',
             'filename',
         ], $search)
@@ -24,12 +24,12 @@ class ImageService extends BaseService
             ->paginate($perPage);
     }
 
-    public static function create($product, $data)
+    public static function create($imageable, $data)
     {
-        $data['position'] = $product->images()->max('position') + 1;
+        $data['position'] = $imageable->images()->max('position') + 1;
         $data['filename'] = _storeImage('imageables', $data['filename']);
         
-        $product->images()->create($data);
+        $imageable->images()->create($data);
     }
 
     public static function update($image, $data)
