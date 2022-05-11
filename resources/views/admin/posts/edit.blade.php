@@ -52,7 +52,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="title">@lang('admin.title')</label>
-                                            <input type="text" class="form-control" id="title" name="title" value="{{ $post->title }}" placeholder="@lang('admin.name')">
+                                            <input type="text" class="form-control" id="title" name="title" value="{{ $post->title }}" placeholder="@lang('admin.title')">
                                             @error('title')
                                                 <small class="text-danger">
                                                     <b>{{ $message }}</b>

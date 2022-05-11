@@ -32,8 +32,8 @@
         <thead>
             <tr>
                 <th>№</th>
-                <th>@lang('admin.title')</th>
                 <th>@lang('admin.image')</th>
+                <th>@lang('admin.title')</th>
                 <th>@lang('admin.category')</th>
                 <th>@lang('admin.mainpage')</th>
                 <th>@lang('admin.status')</th>
