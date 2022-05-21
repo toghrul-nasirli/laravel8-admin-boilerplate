@@ -120,7 +120,7 @@
                 </li>
                 <li class="nav-item has-treeview {{ _isRequest('admin/socials*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ _isRequest('admin/socials*') ? 'active' : '' }}">
-                        <i class="nav-icon fa-solid fa-share-alt"></i>
+                        <i class="nav-icon fa-solid fa-icons"></i>
                         <p>
                             @lang('admin.socials')
                             <i class="right fa-solid fa-angle-left"></i>
@@ -129,7 +129,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.socials.index') }}" class="nav-link {{ _isRoute('admin.socials.index') ? 'active' : '' }}">
-                                <i class="nav-icon fa-solid fa-share-alt"></i>
+                                <i class="nav-icon fa-solid fa-icons"></i>
                                 <p>@lang('admin.all-socials')</p>
                             </a>
                         </li>

@@ -57,7 +57,7 @@
                     @if ($maxPosition > 1)
                         <td>
                             @if ($postCategory->position > 1)
-                                <a wire:click="up({{ $postzCategory->id }})" href="javascript:void(0)" class="px-1">&uarr;</a>
+                                <a wire:click="up({{ $postCategory->id }})" href="javascript:void(0)" class="px-1">&uarr;</a>
                             @endif
                             @if ($postCategory->position < $maxPosition)
                                 <a wire:click="down({{ $postCategory->id }})" href="javascript:void(0)" class="px-1">&darr;</a>

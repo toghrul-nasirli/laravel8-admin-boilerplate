@@ -4,7 +4,7 @@ namespace App\Http\Requests\Settings;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSettigsRequest extends FormRequest
+class UpdateSettingsRequest extends FormRequest
 {
     public function authorize()
     {

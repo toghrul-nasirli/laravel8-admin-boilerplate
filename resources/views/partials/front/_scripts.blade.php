@@ -1,2 +1,2 @@
-<script src="{{ asset('js/front.js') }}"></script>
+<script src="{{ _asset('js/front.js') }}"></script>
 @yield('scripts')

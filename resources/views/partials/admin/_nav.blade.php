@@ -7,13 +7,15 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <div class="dropdown">
-                @if(count($locales) > 1)
+                @if (count($locales) > 1)
                     <div class="nav-link user-select-none dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="false">
                         {{ _lang() }}
                     </div>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu">
                         @foreach ($locales as $locale)
-                            @if (_lang() == $locale->key) @continue @endif
+                            @if (_lang() == $locale->key)
+                                @continue
+                            @endif
                             <a href="{{ route(_currentRoute(), array_merge(_currentRouteParameters(), ['lang' => $locale->key])) }}" class="dropdown-item">{{ $locale->key }}</a>
                         @endforeach
                     </div>

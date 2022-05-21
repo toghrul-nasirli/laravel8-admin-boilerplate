@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->boolean('mainpage')->default(false);
             $table->string('image')->unique();
             $table->string('title')->unique();
-            $table->text('text');
+            $table->mediumText('text');
             $table->string('description')->nullable();
             $table->string('keywords')->nullable();
             $table->timestamps();

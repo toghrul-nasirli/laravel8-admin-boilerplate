@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Settings\UpdateSeoSettingsRequest;
-use App\Http\Requests\Settings\UpdateSettigsRequest;
+use App\Http\Requests\Settings\UpdateSettingsRequest;
 use App\Services\SettingsService;
 
 class SettingsController extends Controller
@@ -17,7 +17,7 @@ class SettingsController extends Controller
         return view('admin.settings.index', compact('settings', 'robots'));
     }
 
-    public function update(UpdateSettigsRequest $request)
+    public function update(UpdateSettingsRequest $request)
     {
         SettingsService::update($request->validated());
 

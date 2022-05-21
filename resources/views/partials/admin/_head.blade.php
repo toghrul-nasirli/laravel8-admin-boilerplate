@@ -5,8 +5,8 @@
 <title>@yield('title') {{ config('app.name') }} | Admin panel</title>
 
 @livewireStyles
-<link rel="shortcut icon" href="{{ asset('backend/img/avatar.png') }}" type="image/x-icon">
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-<link rel="stylesheet" href="{{ asset('backend/css/adminlte.min.css') }}">
+<link rel="shortcut icon" href="{{ _asset('backend/img/avatar.png') }}" type="image/x-icon">
+<link rel="stylesheet" href="{{ _asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ _asset('backend/css/adminlte.min.css') }}">
 @yield('styles')
 @yield('head-scripts')

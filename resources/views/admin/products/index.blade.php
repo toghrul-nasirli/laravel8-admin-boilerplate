@@ -1,4 +1,3 @@
-
 @extends('layouts.admin')
 
 @section('title', __('admin.products') . ' |')

@@ -4,6 +4,6 @@
 
 <title>@yield('title') {{ config('app.name') }}</title>
 
-<link rel="stylesheet" href="{{ asset('css/front.css') }}">
+<link rel="stylesheet" href="{{ _asset('css/front.css') }}">
 @yield('styles')
 @yield('head-scripts')

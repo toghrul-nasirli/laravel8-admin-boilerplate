@@ -9,6 +9,7 @@
             a {
                 color: #fff;
             }
+
         </style>
     @endif
 </head>
