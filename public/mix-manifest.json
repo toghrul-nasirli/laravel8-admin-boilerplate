@@ -1,8 +1,8 @@
 {
     "/js/admin.js": "/js/admin.js",
     "/js/front.js": "/js/front.js",
-    "/css/front.css": "/css/front.css",
     "/css/admin.css": "/css/admin.css",
+    "/css/front.css": "/css/front.css",
     "/js/CHANGELOG.md": "/js/CHANGELOG.md",
     "/js/README.md": "/js/README.md",
     "/js/bower.json": "/js/bower.json",
