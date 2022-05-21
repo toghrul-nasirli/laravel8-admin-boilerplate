@@ -25,7 +25,7 @@
             </select>
         </div>
         <a href="{{ route('admin.post-categories.create', _lang()) }}" class="btn btn-primary btn-lg plus-btn">
-            <i class="fas fa-plus fa-xs text-center"></i>
+            <i class="fa-solid fa-plus fa-xs text-center"></i>
         </a>
     </div>
     <table class="table table-bordered table-hover text-center">
@@ -34,9 +34,9 @@
                 <th>№</th>
                 <th>@lang('admin.name')</th>
                 <th>@lang('admin.status')</th>
-                <th><i class="fas fa-tools"></i></th>
+                <th><i class="fa-solid fa-fascrewdriver-wrench"></i></th>
                 @if ($maxPosition > 1)
-                    <th><i class="fas fa-sort"></i></th>
+                    <th><i class="fa-solid fa-sort"></i></th>
                 @endif
             </tr>
         </thead>
@@ -47,17 +47,17 @@
                     <td>{{ $postCategory->name }}</td>
                     <td>
                         <a wire:click="changeColumn({{ $postCategory->id }}, 'status')" href="javascript:void(0)" class="px-1">
-                            <i class="fas fa-eye{{ !$postCategory->status ? '-slash' : '' }}"></i>
+                            <i class="fa-solid fa-eye{{ !$postCategory->status ? '-slash' : '' }}"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.post-categories.edit', ['lang' => _lang(), 'post_category' => $postCategory]) }}" class="px-1"><i class="fas fa-edit"></i></a>
-                        <a wire:click="deleteConfirm({{ $postCategory->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{{ route('admin.post-categories.edit', ['lang' => _lang(), 'post_category' => $postCategory]) }}" class="px-1"><i class="fa-solid fa-edit"></i></a>
+                        <a wire:click="deleteConfirm({{ $postCategory->id }})" href="javascript:void(0)" class="px-1"><i class="fa-solid fa-trash-alt"></i></a>
                     </td>
                     @if ($maxPosition > 1)
                         <td>
                             @if ($postCategory->position > 1)
-                                <a wire:click="up({{ $postCategory->id }})" href="javascript:void(0)" class="px-1">&uarr;</a>
+                                <a wire:click="up({{ $postzCategory->id }})" href="javascript:void(0)" class="px-1">&uarr;</a>
                             @endif
                             @if ($postCategory->position < $maxPosition)
                                 <a wire:click="down({{ $postCategory->id }})" href="javascript:void(0)" class="px-1">&darr;</a>

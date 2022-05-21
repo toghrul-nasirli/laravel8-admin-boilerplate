@@ -33,7 +33,7 @@
             </select>
         </div>
         <a href="{{ route('admin.users.create', _lang()) }}" class="btn btn-primary btn-lg plus-btn">
-            <i class="fas fa-plus fa-xs text-center"></i>
+            <i class="fa-solid fa-plus fa-xs text-center"></i>
         </a>
     </div>
     <table class="table table-bordered table-hover text-center">
@@ -43,7 +43,7 @@
                 <th>@lang('admin.username')</th>
                 <th>@lang('admin.email')</th>
                 <th>@lang('admin.role')</th>
-                <th><i class="fas fa-tools"></i></th>
+                <th><i class="fa-solid fa-fascrewdriver-wrench"></i></th>
             </tr>
         </thead>
         <tbody>
@@ -54,8 +54,8 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->is_admin ? 'Admin' : 'İstifadəçi' }}</td>
                     <td>
-                        <a href="{{ route('admin.users.edit', ['lang' => _lang(), 'user' => $user]) }}" class="px-1"><i class="fas fa-edit"></i></a>
-                        <a wire:click="deleteConfirm({{ $user->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{{ route('admin.users.edit', ['lang' => _lang(), 'user' => $user]) }}" class="px-1"><i class="fa-solid fa-edit"></i></a>
+                        <a wire:click="deleteConfirm({{ $user->id }})" href="javascript:void(0)" class="px-1"><i class="fa-solid fa-trash-alt"></i></a>
                     </td>
                 </tr>
             @endforeach

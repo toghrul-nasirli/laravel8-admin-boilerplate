@@ -10,14 +10,14 @@
                 @endif
                 <button class="btn btn-secondary btn-sm px-5 cursor-default">{{ $product->name }}</button>
                 <button wire:click="changeColumn({{ $product->id }}, 'status')" class="btn btn-secondary btn-sm">
-                    <i class="fas fa-eye{{ !$product->status ? '-slash' : '' }}"></i>
+                    <i class="fa-solid fa-eye{{ !$product->status ? '-slash' : '' }}"></i>
                 </button>
                 <button wire:click="create({{ $product->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal">
-                    <i data-id="{{ $product->id }}" class="fas fa-plus"></i>
+                    <i data-id="{{ $product->id }}" class="fa-solid fa-plus"></i>
                 </button>
-                <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $product]) }}" class="btn btn-secondary btn-sm"><i class="fas fa-images"></i></a>
-                <button wire:click="edit({{ $product->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fas fa-edit"></i></button>
-                <button wire:click="deleteConfirm({{ $product->id }})" class="btn btn-secondary btn-sm"><i class="fas fa-trash-alt"></i></button>
+                <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $product]) }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-images"></i></a>
+                <button wire:click="edit({{ $product->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fa-solid fa-edit"></i></button>
+                <button wire:click="deleteConfirm({{ $product->id }})" class="btn btn-secondary btn-sm"><i class="fa-solid fa-trash-alt"></i></button>
 
                 @if ($product->children_count > 0)
                     @foreach ($product->children as $child)
@@ -30,17 +30,17 @@
                             @endif
                             <button class="btn btn-secondary btn-sm px-5 cursor-default">{{ $child->name }}</button>
                             <button wire:click="changeColumn({{ $child->id }}, 'status')" class="btn btn-secondary btn-sm">
-                                <i class="fas fa-eye{{ !$child->status ? '-slash' : '' }}"></i>
+                                <i class="fa-solid fa-eye{{ !$child->status ? '-slash' : '' }}"></i>
                             </button>
                             <button wire:click="create({{ $child->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal">
-                                <i data-id="{{ $child->id }}" class="fas fa-plus"></i>
+                                <i data-id="{{ $child->id }}" class="fa-solid fa-plus"></i>
                             </button>
                             <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $child]) }}" class="btn btn-secondary btn-sm">
                                 <span class="badge bg-teal">{{ $child->images_count }}</span>
-                                <i class="fas fa-images"></i>
+                                <i class="fa-solid fa-images"></i>
                             </a>
-                            <button wire:click="edit({{ $child->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fas fa-edit"></i></button>
-                            <button wire:click="deleteConfirm({{ $child->id }})" class="btn btn-secondary btn-sm"><i class="fas fa-trash-alt"></i></button>
+                            <button wire:click="edit({{ $child->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fa-solid fa-edit"></i></button>
+                            <button wire:click="deleteConfirm({{ $child->id }})" class="btn btn-secondary btn-sm"><i class="fa-solid fa-trash-alt"></i></button>
                             
                             @if ($child->children_count > 0)
                                 @foreach ($child->children as $subChild)
@@ -53,11 +53,11 @@
                                         @endif
                                         <button class="btn btn-secondary btn-sm px-5 cursor-default">{{ $subChild->name }}</button>
                                         <button wire:click="changeColumn({{ $subChild->id }}, 'status')" class="btn btn-secondary btn-sm">
-                                            <i class="fas fa-eye{{ !$subChild->status ? '-slash' : '' }}"></i>
+                                            <i class="fa-solid fa-eye{{ !$subChild->status ? '-slash' : '' }}"></i>
                                         </button>
-                                        <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $subChild]) }}" class="btn btn-secondary btn-sm"><i class="fas fa-images"></i></a>
-                                        <button wire:click="edit({{ $subChild->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fas fa-edit"></i></button>
-                                        <button wire:click="deleteConfirm({{ $subChild->id }})" class="btn btn-secondary btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                        <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $subChild]) }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-images"></i></a>
+                                        <button wire:click="edit({{ $subChild->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fa-solid fa-edit"></i></button>
+                                        <button wire:click="deleteConfirm({{ $subChild->id }})" class="btn btn-secondary btn-sm"><i class="fa-solid fa-trash-alt"></i></button>
                                     </div>
                                 @endforeach
                             @endif
@@ -68,7 +68,7 @@
         @endforeach
     </div>
     <button wire:click="create(null)" class="btn btn-primary btn-lg plus-btn" data-toggle="modal" data-target="#modal">
-        <i class="fas fa-plus fa-xs text-center"></i>
+        <i class="fa-solid fa-plus fa-xs text-center"></i>
     </button>
     <div wire:ignore.self class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">

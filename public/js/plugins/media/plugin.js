@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 6.0.0 (2020-03-03)
+ * TinyMCE version 6.0.2 (2022-04-27)
  */
 
 (function () {
@@ -357,7 +357,7 @@
                 }
                 break;
               case 'iframe':
-                node.attr('src', data.src);
+                node.attr('src', data.source);
                 break;
               case 'object':
                 const hasImage = node.getAll('img').length > 0;

@@ -25,7 +25,7 @@
             </select>
         </div>
         <a href="{{ route('admin.news.create', _lang()) }}" class="btn btn-primary btn-lg plus-btn">
-            <i class="fas fa-plus fa-xs text-center"></i>
+            <i class="fa-solid fa-plus fa-xs text-center"></i>
         </a>
     </div>
     <table class="table table-bordered table-hover text-center">
@@ -35,9 +35,9 @@
                 <th>@lang('admin.image')</th>
                 <th>@lang('admin.title')</th>
                 <th>@lang('admin.status')</th>
-                <th><i class="fas fa-tools"></i></th>
+                <th><i class="fa-solid fa-fascrewdriver-wrench"></i></th>
                 @if ($maxPosition > 1)
-                    <th><i class="fas fa-sort"></i></th>
+                    <th><i class="fa-solid fa-sort"></i></th>
                 @endif
             </tr>
         </thead>
@@ -49,12 +49,12 @@
                     <td>{{ $news->title }}</td>
                     <td>
                         <a wire:click="changeColumn({{ $news->id }}, 'status')" href="javascript:void(0)" class="px-1">
-                            <i class="fas fa-eye{{ !$news->status ? '-slash' : '' }}"></i>
+                            <i class="fa-solid fa-eye{{ !$news->status ? '-slash' : '' }}"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.news.edit', ['lang' => _lang(), 'news' => $news]) }}" class="px-1"><i class="fas fa-edit"></i></a>
-                        <a wire:click="deleteConfirm({{ $news->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{{ route('admin.news.edit', ['lang' => _lang(), 'news' => $news]) }}" class="px-1"><i class="fa-solid fa-edit"></i></a>
+                        <a wire:click="deleteConfirm({{ $news->id }})" href="javascript:void(0)" class="px-1"><i class="fa-solid fa-trash-alt"></i></a>
                     </td>
                     @if ($maxPosition > 1)
                         <td>

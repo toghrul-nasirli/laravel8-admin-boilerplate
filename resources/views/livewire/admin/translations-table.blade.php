@@ -25,7 +25,7 @@
             </select>
         </div>
         <a href="{{ route('admin.translations.create', ['lang' => _lang(), 'group' => $group]) }}" class="btn btn-primary btn-lg plus-btn">
-            <i class="fas fa-plus fa-xs text-center"></i>
+            <i class="fa-solid fa-plus fa-xs text-center"></i>
         </a>
     </div>
     <table class="table table-bordered table-hover text-center">
@@ -33,7 +33,7 @@
             <tr>
                 <th>@lang('admin.key')</th>
                 <th>@lang('admin.text')</th>
-                <th><i class="fas fa-tools"></i></th>
+                <th><i class="fa-solid fa-fascrewdriver-wrench"></i></th>
             </tr>
         </thead>
         <tbody>
@@ -42,8 +42,8 @@
                     <td>{{ $translation->key }}</td>
                     <td>@lang($translation->group . '.' . $translation->key)</td>
                     <td>
-                        <a href="{{ route('admin.translations.edit', ['lang' => _lang(), 'translation' => $translation]) }}" class="px-1"><i class="fas fa-edit"></i></a>
-                        <a wire:click="deleteConfirm({{ $translation->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{{ route('admin.translations.edit', ['lang' => _lang(), 'translation' => $translation]) }}" class="px-1"><i class="fa-solid fa-edit"></i></a>
+                        <a wire:click="deleteConfirm({{ $translation->id }})" href="javascript:void(0)" class="px-1"><i class="fa-solid fa-trash-alt"></i></a>
                     </td>
                 </tr>
             @endforeach

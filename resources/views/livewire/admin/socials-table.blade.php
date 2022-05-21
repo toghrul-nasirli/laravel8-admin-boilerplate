@@ -32,7 +32,7 @@
             </select>
         </div>
         <a href="{{ route('admin.socials.create', _lang()) }}" class="btn btn-primary btn-lg plus-btn">
-            <i class="fas fa-plus fa-xs text-center"></i>
+            <i class="fa-solid fa-plus fa-xs text-center"></i>
         </a>
     </div>
     <table class="table table-bordered table-hover text-center">
@@ -42,9 +42,9 @@
                 <th>@lang('admin.icon')</th>
                 <th>@lang('admin.link')</th>
                 <th>@lang('admin.status')</th>
-                <th><i class="fas fa-tools"></i></th>
+                <th><i class="fa-solid fa-fascrewdriver-wrench"></i></th>
                 @if ($maxPosition > 1)
-                    <th><i class="fas fa-sort"></i></th>
+                    <th><i class="fa-solid fa-sort"></i></th>
                 @endif
             </tr>
         </thead>
@@ -60,12 +60,12 @@
                     </td>
                     <td>
                         <a wire:click="changeColumn({{ $social->id }}, 'status')" href="javascript:void(0)" class="px-1">
-                            <i class="fas fa-eye{{ !$social->status ? '-slash' : '' }}"></i>
+                            <i class="fa-solid fa-eye{{ !$social->status ? '-slash' : '' }}"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.socials.edit', ['lang' => _lang(), 'social' => $social]) }}" class="px-1"><i class="fas fa-edit"></i></a>
-                        <a wire:click="deleteConfirm({{ $social->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{{ route('admin.socials.edit', ['lang' => _lang(), 'social' => $social]) }}" class="px-1"><i class="fa-solid fa-edit"></i></a>
+                        <a wire:click="deleteConfirm({{ $social->id }})" href="javascript:void(0)" class="px-1"><i class="fa-solid fa-trash-alt"></i></a>
                     </td>
                     @if ($maxPosition > 1)
                         <td>

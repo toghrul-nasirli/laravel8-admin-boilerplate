@@ -25,7 +25,7 @@
             </select>
         </div>
         <a href="{{ route('admin.posts.create', _lang()) }}" class="btn btn-primary btn-lg plus-btn">
-            <i class="fas fa-plus fa-xs text-center"></i>
+            <i class="fa-solid fa-plus fa-xs text-center"></i>
         </a>
     </div>
     <table class="table table-bordered table-hover text-center">
@@ -37,9 +37,9 @@
                 <th>@lang('admin.category')</th>
                 <th>@lang('admin.mainpage')</th>
                 <th>@lang('admin.status')</th>
-                <th><i class="fas fa-tools"></i></th>
+                <th><i class="fa-solid fa-screwdriver-wrench"></i></th>
                 @if ($maxPosition > 1)
-                    <th><i class="fas fa-sort"></i></th>
+                    <th><i class="fa-solid fa-sort"></i></th>
                 @endif
             </tr>
         </thead>
@@ -52,17 +52,17 @@
                     <td>{{ $post->category->name }}</td>
                     <td>
                         <a wire:click="changeColumn({{ $post->id }}, 'mainpage')" href="javascript:void(0)" class="px-1">
-                            <i class="fas fa-{{ $post->mainpage ? 'check' : 'times' }}"></i>
+                            <i class="fa-solid fa-circle-{{ $post->mainpage ? 'check' : 'xmark' }}"></i>
                         </a>
                     </td>
                     <td>
                         <a wire:click="changeColumn({{ $post->id }}, 'status')" href="javascript:void(0)" class="px-1">
-                            <i class="fas fa-eye{{ !$post->status ? '-slash' : '' }}"></i>
+                            <i class="fa-solid fa-eye{{ !$post->status ? '-slash' : '' }}"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.posts.edit', ['lang' => _lang(), 'post' => $post]) }}" class="px-1"><i class="fas fa-edit"></i></a>
-                        <a wire:click="deleteConfirm({{ $post->id }})" href="javascript:void(0)" class="px-1"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{{ route('admin.posts.edit', ['lang' => _lang(), 'post' => $post]) }}" class="px-1"><i class="fa-solid fa-edit"></i></a>
+                        <a wire:click="deleteConfirm({{ $post->id }})" href="javascript:void(0)" class="px-1"><i class="fa-solid fa-trash-alt"></i></a>
                     </td>
                     @if ($maxPosition > 1)
                         <td>

@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 6.0.0 (2020-03-03)
+ * TinyMCE version 6.0.2 (2022-04-27)
  */
 
 (function () {
@@ -603,12 +603,7 @@
       },
       {
         key: 'editimage',
-        name: 'Edit Image',
-        type: 'premium'
-      },
-      {
-        key: 'export',
-        name: 'Export',
+        name: 'Enhanced Image Editing',
         type: 'premium'
       },
       {
@@ -616,6 +611,11 @@
         name: 'Enhanced Media Embed',
         type: 'premium',
         slug: 'introduction-to-mediaembed'
+      },
+      {
+        key: 'export',
+        name: 'Export',
+        type: 'premium'
       },
       {
         key: 'formatpainter',
@@ -701,7 +701,7 @@
         const name = x.type === 'premium' ? `${ x.name }*` : x.name;
         return makeLink({
           name,
-          url: `https://www.tiny.cloud/docs/tinymce/6/${ x.slug }.html`
+          url: `https://www.tiny.cloud/docs/tinymce/6/${ x.slug }/`
         });
       });
       const getPluginKeys = editor => {
@@ -748,7 +748,7 @@
     const tab = () => {
       const getVersion = (major, minor) => major.indexOf('@') === 0 ? 'X.X.X' : major + '.' + minor;
       const version = getVersion(global.majorVersion, global.minorVersion);
-      const changeLogLink = '<a href="https://www.tiny.cloud/docs/tinymce/6/changelog.html?utm_campaign=editor_referral&utm_medium=help_dialog&utm_source=tinymce" target="_blank">TinyMCE ' + version + '</a>';
+      const changeLogLink = '<a href="https://www.tiny.cloud/docs/tinymce/6/changelog/?utm_campaign=editor_referral&utm_medium=help_dialog&utm_source=tinymce" target="_blank">TinyMCE ' + version + '</a>';
       const htmlPanel = {
         type: 'htmlpanel',
         html: '<p>' + global$1.translate([

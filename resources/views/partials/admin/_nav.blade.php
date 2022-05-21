@@ -1,7 +1,7 @@
 <nav class="main-header navbar navbar-expand {{ $darkmode ? 'navbar-dark' : 'navbar-light navbar-white' }}">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa-solid fa-bars"></i></a>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -22,17 +22,17 @@
         </li>
         <li class="nav-item">
             <a href="{{ route('admin.settings.change-theme') }}" class="nav-link">
-                <i class="fas fa-{{ $darkmode ? 'moon' : 'sun' }}"></i>
+                <i class="fa-solid fa-{{ $darkmode ? 'moon' : 'sun' }}"></i>
             </a>
         </li>
         <li class="nav-item">
             <a href="{{ route('admin.settings') }}" class="nav-link {{ _isRoute('admin.settings') ? 'bg-secondary rounded-lg' : '' }}">
-                <i class="fas fa-cog"></i>
+                <i class="fa-solid fa-cog"></i>
             </a>
         </li>
         <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fas fa-sign-out-alt"></i>
+                <i class="fa-solid fa-sign-out-alt"></i>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
