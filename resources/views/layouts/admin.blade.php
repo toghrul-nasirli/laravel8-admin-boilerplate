@@ -3,15 +3,6 @@
 
 <head>
     @include('partials.admin._head')
-
-    @if ($darkmode)
-        <style>
-            a {
-                color: #fff;
-            }
-
-        </style>
-    @endif
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed {{ $darkmode ? 'dark-mode' : '' }}">
