@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+if (!function_exists('_dda')) {
+    function _dd($data)
+    {
+        return dd($data)->toArray();
+    }
+}
+
 if (!function_exists('_lang')) {
     function _lang()
     {
