@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
+        App\Providers\BladeServiceProvider::class,
 
     ],
 
