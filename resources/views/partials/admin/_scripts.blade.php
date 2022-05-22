@@ -41,4 +41,5 @@
         });
     </script>
 @endrouteisnot
+
 @yield('scripts')

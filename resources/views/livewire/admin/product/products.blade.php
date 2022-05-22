@@ -191,7 +191,7 @@
                 title: event.detail.title,
                 text: event.detail.text,
                 showCancelButton: true,
-                confirmButtonText: '{{ __('admin.yes-delete-it') }}',
+                confirmButtonText: "{{ __('admin.yes-delete-it') }}",
                 confirmButtonColor: '#3085d6',
                 cancelButtonText: '@lang('admin.cancel')',
                 cancelButtonColor: '#d33',
@@ -201,7 +201,7 @@
                     Swal.fire({
                         toast: true,
                         icon: 'success',
-                        title: '{{ __('admin.deleted') }}',
+                        title: "{{ __('admin.deleted') }}",
                         position: 'top-right',
                         showConfirmButton: false,
                         timerProgressBar: true,
