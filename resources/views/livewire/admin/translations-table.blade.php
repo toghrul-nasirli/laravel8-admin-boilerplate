@@ -24,9 +24,11 @@
                 <option>100</option>
             </select>
         </div>
-        <a href="{{ route('admin.translations.create', ['lang' => _lang(), 'group' => $group]) }}" class="btn btn-primary btn-lg plus-btn">
-            <i class="fa-solid fa-plus fa-xs text-center"></i>
-        </a>
+        @can('superable')
+            <a href="{{ route('admin.translations.create', ['lang' => _lang(), 'group' => $group]) }}" class="btn btn-primary btn-lg plus-btn">
+                <i class="fa-solid fa-plus fa-xs text-center"></i>
+            </a>
+        @endcan
     </div>
     <table class="table table-bordered table-hover text-center">
         <thead>
@@ -43,7 +45,9 @@
                     <td>@lang($translation->group . '.' . $translation->key)</td>
                     <td>
                         <a href="{{ route('admin.translations.edit', ['lang' => _lang(), 'translation' => $translation]) }}" class="px-1"><i class="fa-solid fa-edit"></i></a>
-                        <a wire:click="deleteConfirm({{ $translation->id }})" href="javascript:void(0)" class="px-1"><i class="fa-solid fa-trash-alt"></i></a>
+                        @can('superable')
+                            <a wire:click="deleteConfirm({{ $translation->id }})" href="javascript:void(0)" class="px-1"><i class="fa-solid fa-trash-alt"></i></a>
+                        @endcan
                     </td>
                 </tr>
             @endforeach

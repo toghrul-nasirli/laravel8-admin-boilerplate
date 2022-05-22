@@ -177,6 +177,7 @@ return [
         App\Providers\ViewServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
         App\Providers\BladeServiceProvider::class,
+        App\Providers\GateServiceProvider::class,
 
     ],
 
