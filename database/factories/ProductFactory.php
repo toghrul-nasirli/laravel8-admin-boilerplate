@@ -15,16 +15,18 @@ class ProductFactory extends Factory
     public function definition()
     {
         $this->num++;
-
+        
+        $uniqueWord = $this->faker->unique()->word;
+        
         Storage::makeDirectory($this->imagePath);
 
         return [
             'position' => $this->num,
             'status' => $this->faker->boolean,
-            'slug' => $this->faker->unique()->word,
+            'slug' => _slugify($uniqueWord),
             'parent_id' => 1,
             'image' => $this->faker->unique()->image(storage_path('app/public/' . $this->imagePath), $this->imageWidth, $this->imageHeight, null, false),
-            'name' => $this->faker->unique()->word,
+            'name' => $uniqueWord,
             'text' => $this->faker->paragraph,
         ];
     }

@@ -44,7 +44,7 @@
                                         @foreach ($locales as $locale)
                                             <div class="form-group col-md-6">
                                                 <label for="{{ $locale->key }}" class="text-uppercase">{{ $locale->key }}</label>
-                                                <textarea class="form-control editor" id="{{ $locale->key }}" name="{{ $locale->key }}" placeholder="@lang('admin.locale-placeholder', ['locale' => $locale->lang])">{{ $translation->text[$locale->key] }}</textarea>
+                                                <textarea class="form-control" id="{{ $locale->key }}" name="{{ $locale->key }}" placeholder="@lang('admin.locale-placeholder', ['locale' => $locale->lang])">{{ $translation->text[$locale->key] }}</textarea>
                                                 @error($locale->key)
                                                     <small class="text-danger">
                                                         <b>{{ $message }}</b>

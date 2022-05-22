@@ -21,7 +21,7 @@ class SliderElementFactory extends Factory
         return [
             'position' => $this->num,
             'status' => $this->faker->boolean,
-            'image' => $this->faker->image(storage_path('app/public/' . $this->imagePath), $this->imageWidth, $this->imageHeight, null, false),
+            'image' => $this->faker->unique()->image(storage_path('app/public/' . $this->imagePath), $this->imageWidth, $this->imageHeight, null, false),
             'title' => $this->faker->unique()->word,
             'minitext' => $this->faker->word,
             'link' => $this->faker->url,

@@ -3,21 +3,21 @@
         @foreach ($products as $product)
             <div class="ml-4 mt-1 buttons">
                 @if (!$loop->first)
-                    <button wire:click.prevent="up({{ $product->id }})" class="btn btn-secondary btn-sm">&uarr;</button>
+                    <button wire:click.prevent="up({{ $product->id }})" class="btn btn-primary btn-sm">&uarr;</button>
                 @endif
                 @if (!$loop->last)
-                    <button wire:click.prevent="down({{ $product->id }})" class="btn btn-secondary btn-sm">&darr;</button>
+                    <button wire:click.prevent="down({{ $product->id }})" class="btn btn-primary btn-sm">&darr;</button>
                 @endif
-                <button class="btn btn-secondary btn-sm px-5 cursor-default">{{ $product->name }}</button>
-                <button wire:click="changeColumn({{ $product->id }}, 'status')" class="btn btn-secondary btn-sm">
+                <button class="btn btn-primary btn-sm px-5 cursor-default">{{ $product->name }}</button>
+                <button wire:click="changeColumn({{ $product->id }}, 'status')" class="btn btn-primary btn-sm">
                     <i class="fa-solid fa-eye{{ !$product->status ? '-slash' : '' }}"></i>
                 </button>
-                <button wire:click="create({{ $product->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal">
+                <button wire:click="create({{ $product->id }})" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal">
                     <i data-id="{{ $product->id }}" class="fa-solid fa-plus"></i>
                 </button>
-                <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $product]) }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-images"></i></a>
-                <button wire:click="edit({{ $product->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fa-solid fa-edit"></i></button>
-                <button wire:click="deleteConfirm({{ $product->id }})" class="btn btn-secondary btn-sm"><i class="fa-solid fa-trash-alt"></i></button>
+                <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $product]) }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-images"></i></a>
+                <button wire:click="edit({{ $product->id }})" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal"><i class="fa-solid fa-edit"></i></button>
+                <button wire:click="deleteConfirm({{ $product->id }})" class="btn btn-primary btn-sm"><i class="fa-solid fa-trash-alt"></i></button>
 
                 @if ($product->children_count > 0)
                     @foreach ($product->children as $child)
@@ -46,18 +46,18 @@
                                 @foreach ($child->children as $subChild)
                                     <div class="ml-4 mt-1 buttons">
                                         @if (!$loop->first)
-                                            <button wire:click="up({{ $subChild->id }})" class="btn btn-primary btn-sm">&uarr;</button>
+                                            <button wire:click="up({{ $subChild->id }})" class="btn btn-secondary btn-sm">&uarr;</button>
                                         @endif
                                         @if (!$loop->last)
-                                            <button wire:click="down({{ $subChild->id }})" class="btn btn-primary btn-sm">&darr;</button>
+                                            <button wire:click="down({{ $subChild->id }})" class="btn btn-secondary btn-sm">&darr;</button>
                                         @endif
-                                        <button class="btn btn-primary btn-sm px-5 cursor-default">{{ $subChild->name }}</button>
-                                        <button wire:click="changeColumn({{ $subChild->id }}, 'status')" class="btn btn-primary btn-sm">
+                                        <button class="btn btn-secondary btn-sm px-5 cursor-default">{{ $subChild->name }}</button>
+                                        <button wire:click="changeColumn({{ $subChild->id }}, 'status')" class="btn btn-secondary btn-sm">
                                             <i class="fa-solid fa-eye{{ !$subChild->status ? '-slash' : '' }}"></i>
                                         </button>
                                         <a href="{{ route('admin.products.images.index', ['lang' => _lang(), 'product' => $subChild]) }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-images"></i></a>
-                                        <button wire:click="edit({{ $subChild->id }})" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal"><i class="fa-solid fa-edit"></i></button>
-                                        <button wire:click="deleteConfirm({{ $subChild->id }})" class="btn btn-primary btn-sm"><i class="fa-solid fa-trash-alt"></i></button>
+                                        <button wire:click="edit({{ $subChild->id }})" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal"><i class="fa-solid fa-edit"></i></button>
+                                        <button wire:click="deleteConfirm({{ $subChild->id }})" class="btn btn-secondary btn-sm"><i class="fa-solid fa-trash-alt"></i></button>
                                     </div>
                                 @endforeach
                             @endif
@@ -221,8 +221,8 @@
 
         tinymce.init({
             selector: ".editor",
-            plugins: "advlist autolink lists link image charmap print preview hr anchor pagebreak code lists fullscreen",
-            toolbar_mode: "scrolling",
+            plugins: "advlist autolink lists link image charmap preview anchor pagebreak code lists fullscreen",
+            toolbar_mode: "floating",
             toolbar1: "undo redo | forecolor backcolor | bold italic | numlist bullist | alignleft aligncenter alignright alignjustify | outdent indent | link image | fullscreen code",
             toolbar2: " styles | fontfamily | fontsize",
             content_style: "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); body { font-family: inter, sans-serif; }",
