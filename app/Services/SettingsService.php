@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\Settings;
 use Spatie\Sitemap\SitemapGenerator;
-use Illuminate\Support\Facades\URL;
+use Spatie\Sitemap\Tags\Url;
 
 class SettingsService
 {
