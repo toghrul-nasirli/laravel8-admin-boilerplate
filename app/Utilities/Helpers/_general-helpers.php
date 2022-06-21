@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-if (!function_exists('_dda')) {
+if (!function_exists('_dd')) {
     function _dd($data)
     {
-        return dd($data)->toArray();
+        return dd($data->toArray());
     }
 }
 
