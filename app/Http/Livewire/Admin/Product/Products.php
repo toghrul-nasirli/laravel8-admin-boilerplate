@@ -147,15 +147,31 @@ class Products extends Component
 
     public function up($id)
     {
-        $this->orderBy = 'position';
+        $data = Product::find($id);
 
-        ProductService::changePosition($id, Product::class, 'up');
+        Product::where('parent_id', $data->parent_id)
+            ->where('position', $data->position - 1)
+            ->update([
+                'position' => $data->position,
+            ]);
+
+        $data->update([
+            'position' => $data->position - 1,
+        ]);
     }
 
     public function down($id)
     {
-        $this->orderBy = 'position';
-    
-        ProductService::changePosition($id, Product::class, 'down');
+        $data = Product::find($id);
+
+        Product::where('parent_id', $data->parent_id)
+            ->where('position', $data->position + 1)
+            ->update([
+                'position' => $data->position,
+            ]);
+
+        $data->update([
+            'position' => $data->position + 1,
+        ]);
     }
 }
