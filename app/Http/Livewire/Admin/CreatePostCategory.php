@@ -18,7 +18,7 @@ class CreatePostCategory extends Component
     {
         $categories = PostCategoryService::all();
 
-        return view('livewire.admin.create-post-category', compact('categories'));
+        return view('livewire.admin.create-post-category', ['categories' => $categories]);
     }
 
     public function mount($post = null)

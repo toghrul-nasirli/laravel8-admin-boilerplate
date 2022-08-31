@@ -28,8 +28,8 @@ class ImagesTable extends Component
     {
         $images = ImageService::withFilter($this->product, $this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = $this->product->images()->max('position');
-        
-        return view('livewire.admin.product.images-table', compact('images', 'maxPosition'));
+
+        return view('livewire.admin.product.images-table', ['images' => $images, 'maxPosition' => $maxPosition]);
     }
 
     public function mount($product)
@@ -41,7 +41,7 @@ class ImagesTable extends Component
     {
         $this->gotoPage(1);
     }
-    
+
     public function deleteConfirm($id)
     {
         $this->dispatchBrowserEvent('Swal:confirm', [
@@ -53,25 +53,25 @@ class ImagesTable extends Component
 
     public function delete($id)
     {
-        ImageService::delete($id, Image::class, 'images/imageables');
+        ImageService::delete($id, Image::class);
     }
 
     public function changeColumn($id, $column)
     {
-        ImageService::changeColumn($id, Image::class, $column);
+        ImageService::changeColumn(Image::class, $id, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
-     
-        ImageService::changePosition($id, Image::class, 'up');
+
+        ImageService::changePosition(Image::class, $id, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
-     
-        ImageService::changePosition($id, Image::class, 'down');
+
+        ImageService::changePosition(Image::class, $id, 'down');
     }
 }

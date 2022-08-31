@@ -19,7 +19,7 @@ class SocialController extends Controller
     {
         $icons = SocialService::ICONS;
         
-        return view('admin.socials.create', compact('icons'));
+        return view('admin.socials.create', ['icons' => $icons]);
     }
 
     public function store(StoreSocialRequest $request)
@@ -33,7 +33,7 @@ class SocialController extends Controller
     {
         $icons = SocialService::ICONS;
 
-        return view('admin.socials.edit', compact('social', 'icons'));
+        return view('admin.socials.edit', ['social' => $social, 'icons' => $icons]);
     }
 
     public function update($lang, Social $social, UpdateSocialRequest $request)

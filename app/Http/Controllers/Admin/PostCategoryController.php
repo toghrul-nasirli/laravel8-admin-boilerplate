@@ -29,7 +29,7 @@ class PostCategoryController extends Controller
 
     public function edit($lang, PostCategory $postCategory)
     {
-        return view('admin.post-categories.edit', compact('postCategory'));
+        return view('admin.post-categories.edit', ['postCategory' => $postCategory]);
     }
 
     public function update($lang, PostCategory $postCategory, UpdatePostCategoryRequest $request)

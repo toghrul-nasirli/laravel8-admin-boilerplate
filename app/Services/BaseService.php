@@ -6,36 +6,46 @@ use Illuminate\Support\Facades\DB;
 
 class BaseService
 {
-    public static function delete($id, $path = null)
+    public static function delete($model, $id)
     {
-        $model = "\\App\\Models\\" . explode("Service", explode("\\", get_called_class())[2])[0];
-
         $data = $model::findOrFail($id);
-    
-        if($path !== null) _deleteFile($path, $data->image);
-    
-        if($data->position) {
+
+        if ($data->position) {
             $model::where('position', '>', $data->position)->update([
                 'position' => DB::raw('position - 1'),
             ]);
         }
-    
+
         $data->delete();
     }
-    
-    public static function changeColumn($id, $column)
-    {
-        $model = "\\App\\Models\\" . explode("Service", explode("\\", get_called_class())[2])[0];
 
+    public static function detach($model, $id, ...$relations)
+    {
+        $data = $model::findOrFail($id);
+
+        foreach ($relations as $relation) {
+            $data->$relation()->detach();
+        }
+    }
+
+    public static function deleteFiles($model, $id, $path, ...$columns)
+    {
+        $data = $model::findOrFail($id);
+        
+        foreach ($columns as $column) {
+            _deleteFile($path, $data->$column);
+        }
+    }
+
+    public static function changeColumn($model, $id, $column)
+    {
         $data = $model::find($id);
         $data->$column ? $data->$column = false : $data->$column = true;
         $data->save();
     }
 
-    public static function changePosition($id, $direction)
+    public static function changePosition($model, $id, $direction)
     {
-        $model = "\\App\\Models\\" . explode("Service", explode("\\", get_called_class())[2])[0];
-
         $data = $model::find($id);
 
         if ($data) {
@@ -46,7 +56,7 @@ class BaseService
                 $data->update([
                     'position' => $data->position - 1,
                 ]);
-            } else if ($direction === 'down') {
+            } elseif ($direction === 'down') {
                 $model::where('position', $data->position + 1)->update([
                     'position' => $data->position,
                 ]);

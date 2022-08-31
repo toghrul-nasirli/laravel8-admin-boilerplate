@@ -28,7 +28,7 @@ class NewsTable extends Component
         $allNews = NewsService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = News::max('position');
         
-        return view('livewire.admin.news-table', compact('allNews', 'maxPosition'));
+        return view('livewire.admin.news-table', ['allNews' => $allNews, 'maxPosition' => $maxPosition]);
     }
 
     public function updating()
@@ -47,25 +47,26 @@ class NewsTable extends Component
 
     public function delete($id)
     {
-        NewsService::delete($id, 'images/news');
+        NewsService::deleteFiles(News::class, $id, 'images/news', 'image');
+        NewsService::delete(News::class, $id);
     }
 
     public function changeColumn($id, $column)
     {
-        NewsService::changeColumn($id, $column);
+        NewsService::changeColumn(News::class, $id, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
 
-        NewsService::changePosition($id, 'up');
+        NewsService::changePosition(News::class, $id, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
         
-        NewsService::changePosition($id, 'down');
+        NewsService::changePosition(News::class, $id, 'down');
     }
 }

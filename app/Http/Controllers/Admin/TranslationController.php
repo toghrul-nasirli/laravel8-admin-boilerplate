@@ -13,14 +13,14 @@ class TranslationController extends Controller
 {
     public function index($lang, $group)
     {
-        return view('admin.translations.index', compact('group'));
+        return view('admin.translations.index', ['group' => $group]);
     }
 
     public function create($lang, $group)
     {
         $locales = LocaleService::all();
 
-        return view('admin.translations.create', compact('group', 'locales'));
+        return view('admin.translations.create', ['group' => $group, 'locales' => $locales]);
     }
 
     public function store($lang, $group, StoreTranslationRequest $request)
@@ -34,7 +34,7 @@ class TranslationController extends Controller
     {
         $locales = LocaleService::all();
 
-        return view('admin.translations.edit', compact('translation', 'locales'));
+        return view('admin.translations.edit', ['translation' => $translation, 'locales' => $locales]);
     }
 
     public function update($lang, Translation $translation, UpdateTranslationRequest $request)

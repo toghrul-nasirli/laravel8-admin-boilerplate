@@ -13,12 +13,12 @@ class ProductImageController extends Controller
 {
     public function index($lang, Product $product)
     {   
-        return view('admin.products.images.index', compact('product'));
+        return view('admin.products.images.index', ['product' => $product]);
     }
 
     public function create($lang, Product $product)
     {
-        return view('admin.products.images.create', compact('product'));
+        return view('admin.products.images.create', ['product' => $product]);
     }
 
     public function store($lang, Product $product, StoreImageRequest $request)
@@ -32,7 +32,7 @@ class ProductImageController extends Controller
     {
         $image->load('imageable');
 
-        return view('admin.products.images.edit', compact('image'));
+        return view('admin.products.images.edit', ['image' => $image]);
     }
 
     public function update($lang, Product $product, Image $image, UpdateImageRequest $request)

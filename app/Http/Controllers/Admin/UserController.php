@@ -31,7 +31,7 @@ class UserController extends Controller
     {
         abort_if($user->id === 1, 401);
 
-        return view('admin.users.edit', compact('user'));
+        return view('admin.users.edit', ['user' => $user]);
     }
 
     public function update($lang, User $user, UpdateUserRequest $request)

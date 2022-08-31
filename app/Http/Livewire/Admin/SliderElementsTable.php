@@ -28,7 +28,7 @@ class SliderElementsTable extends Component
         $sliderElements = SliderElementService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = SliderElement::max('position');
         
-        return view('livewire.admin.slider-elements-table', compact('sliderElements', 'maxPosition'));
+        return view('livewire.admin.slider-elements-table', ['sliderElements' => $sliderElements, 'maxPosition' => $maxPosition]);
     }
 
     public function updating()
@@ -47,25 +47,26 @@ class SliderElementsTable extends Component
 
     public function delete($id)
     {
-        SliderElementService::delete($id, 'images/slider-elements');
+        SliderElementService::deleteFiles(SliderElement::class, $id, 'images/slider-elements', 'image');
+        SliderElementService::delete(SliderElement::class, $id);
     }
 
     public function changeColumn($id, $column)
     {
-        SliderElementService::changeColumn($id, $column);
+        SliderElementService::changeColumn(SliderElement::class, $id, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
-      
-        SliderElementService::changePosition($id, 'up');
+
+        SliderElementService::changePosition(SliderElement::class, $id, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
-      
-        SliderElementService::changePosition($id, 'down');
+        
+        SliderElementService::changePosition(SliderElement::class, $id, 'down');
     }
 }

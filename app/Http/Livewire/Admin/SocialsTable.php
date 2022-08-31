@@ -28,7 +28,7 @@ class SocialsTable extends Component
         $socials = SocialService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = Social::max('position');
 
-        return view('livewire.admin.socials-table', compact('socials', 'maxPosition'));
+        return view('livewire.admin.socials-table', ['socials' => $socials, 'maxPosition' => $maxPosition]);
     }
 
     public function updating()
@@ -47,25 +47,26 @@ class SocialsTable extends Component
 
     public function delete($id)
     {
-        SocialService::delete($id, 'images/socials');
+        SocialService::deleteFiles(Social::class, $id, 'images/socials', 'image');
+        SocialService::delete(Social::class, $id);
     }
 
     public function changeColumn($id, $column)
     {
-        SocialService::changeColumn($id, $column);
+        SocialService::changeColumn(Social::class, $id, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
-        
-        SocialService::changePosition($id, 'up');
+
+        SocialService::changePosition(Social::class, $id, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
         
-        SocialService::changePosition($id, 'down');
+        SocialService::changePosition(Social::class, $id, 'down');
     }
 }

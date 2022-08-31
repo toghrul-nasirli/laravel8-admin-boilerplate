@@ -14,7 +14,7 @@ class SettingsController extends Controller
         $settings = SettingsService::all();
         $robots = SettingsService::getRobotsTxt();
 
-        return view('admin.settings.index', compact('settings', 'robots'));
+        return view('admin.settings.index', ['settings' => $settings, 'robots' => $robots]);
     }
 
     public function update(UpdateSettingsRequest $request)

@@ -23,7 +23,7 @@ class Products extends Component
     {
         $products = ProductService::all();
 
-        return view('livewire.admin.product.products', compact('products'));
+        return view('livewire.admin.product.products', ['products' => $products]);
     }
 
     public function updatedImage()
@@ -108,11 +108,9 @@ class Products extends Component
             $data['parent_id'] = $this->parent_id;
 
             if ($this->is_uploaded) _deleteFile('images/products', $data['image']);
-            
         }
 
         if ($this->is_uploaded) $data['image'] = _storeImage('products', $data['image']);
-        
 
         $data['slug'] = _slugify($data['name']);
 
@@ -137,12 +135,13 @@ class Products extends Component
 
     public function delete($id)
     {
-        ProductService::delete($id, Product::class, 'images/products');
+        ProductService::deleteFiles(Product::class, $id, 'images/products', 'image');
+        ProductService::delete(Product::class, $id);
     }
 
     public function changeColumn($id, $column)
     {
-        ProductService::changeColumn($id, Product::class, $column);
+        ProductService::changeColumn(Product::class, $id, $column);
     }
 
     public function up($id)

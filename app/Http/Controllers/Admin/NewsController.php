@@ -29,7 +29,7 @@ class NewsController extends Controller
 
     public function edit($lang, News $news)
     {
-        return view('admin.news.edit', compact('news'));
+        return view('admin.news.edit', ['news' => $news]);
     }
 
     public function update($lang, News $news, UpdateNewsRequest $request)

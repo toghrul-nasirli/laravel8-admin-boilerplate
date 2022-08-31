@@ -28,7 +28,7 @@ class PostsTable extends Component
         $posts = PostService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = Post::max('position');
         
-        return view('livewire.admin.posts-table', compact('posts', 'maxPosition'));
+        return view('livewire.admin.posts-table', ['posts' => $posts, 'maxPosition' => $maxPosition]);
     }
 
     public function updating()
@@ -47,25 +47,26 @@ class PostsTable extends Component
 
     public function delete($id)
     {
-        PostService::delete($id, 'images/posts');
+        PostService::deleteFiles(Post::class, $id, 'images/posts', 'image');
+        PostService::delete(Post::class, $id);
     }
 
     public function changeColumn($id, $column)
     {
-        PostService::changeColumn($id, $column);
+        PostService::changeColumn(Post::class, $id, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
-     
-        PostService::changePosition($id, 'up');
+
+        PostService::changePosition(Post::class, $id, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
-     
-        PostService::changePosition($id, 'down');
+        
+        PostService::changePosition(Post::class, $id, 'down');
     }
 }

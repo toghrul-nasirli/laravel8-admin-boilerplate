@@ -29,7 +29,7 @@ class SliderElementController extends Controller
 
     public function edit($lang, SliderElement $sliderElement)
     {
-        return view('admin.slider-elements.edit', compact('sliderElement'));
+        return view('admin.slider-elements.edit', ['sliderElement' => $sliderElement]);
     }
 
     public function update($lang, SliderElement $sliderElement, UpdateSliderElementRequest $request)

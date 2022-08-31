@@ -28,7 +28,7 @@ class PostCategoriesTable extends Component
         $postCategories = PostCategoryService::withFilter($this->search, $this->orderBy, $this->orderDirection, $this->perPage, $this->status);
         $maxPosition = PostCategory::max('position');
         
-        return view('livewire.admin.post-categories-table', compact('postCategories', 'maxPosition'));
+        return view('livewire.admin.post-categories-table', ['postCategories' => $postCategories, 'maxPosition' => $maxPosition]);
     }
 
     public function updating()
@@ -44,28 +44,28 @@ class PostCategoriesTable extends Component
             'id' => $id,
         ]);
     }
-
+    
     public function delete($id)
     {
-        PostCategoryService::delete($id);
+        PostCategoryService::delete(PostCategory::class, $id);
     }
 
     public function changeColumn($id, $column)
     {
-        PostCategoryService::changeColumn($id, $column);
+        PostCategoryService::changeColumn(PostCategory::class, $id, $column);
     }
 
     public function up($id)
     {
         $this->orderBy = 'position';
-     
-        PostCategoryService::changePosition($id, 'up');
+
+        PostCategoryService::changePosition(PostCategory::class, $id, 'up');
     }
 
     public function down($id)
     {
         $this->orderBy = 'position';
-     
-        PostCategoryService::changePosition($id, 'down');
+        
+        PostCategoryService::changePosition(PostCategory::class, $id, 'down');
     }
 }
