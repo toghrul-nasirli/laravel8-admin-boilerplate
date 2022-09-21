@@ -13,8 +13,8 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('position');
             $table->boolean('status')->default(true);
             $table->foreignId('parent_id')->nullable()->constrained('products')->onDelete('cascade');
-            $table->string('image')->nullable();
-            $table->string('name')->unique();
+            $table->string('image');
+            $table->string('name');
             $table->text('text');
             $table->string('description')->nullable();
             $table->string('keywords')->nullable();

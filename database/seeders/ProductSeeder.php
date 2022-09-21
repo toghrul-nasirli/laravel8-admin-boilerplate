@@ -13,6 +13,7 @@ class ProductSeeder extends Seeder
             'position' => 1,
             'status' => 1,
             'parent_id' => null,
+            'image' => 'iamge',
             'name' => 'Product 1',
             'text' => 'Lorem ipsum dolor sit amet',
         ]);

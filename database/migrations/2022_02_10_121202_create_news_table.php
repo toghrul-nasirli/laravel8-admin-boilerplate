@@ -12,8 +12,8 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('position');
             $table->boolean('status')->default(true);
-            $table->string('image')->unique();
-            $table->string('title')->unique();
+            $table->string('image');
+            $table->string('title');
             $table->text('text');
             $table->string('description')->nullable();
             $table->string('keywords')->nullable();
