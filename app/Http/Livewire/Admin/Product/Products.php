@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Admin\Product;
 
 use App\Models\Product;
-use App\Rules\UniqueSlug;
 use App\Services\ProductService;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -79,6 +78,7 @@ class Products extends Component
     public function store()
     {
         $rules = [
+            'name' => ['required', 'string', 'max:255'],
             'text' => ['required', 'string'],
             'description' => ['nullable', 'string', 'max:255'],
             'keywords' => ['nullable', 'string', 'max:255']
@@ -95,12 +95,6 @@ class Products extends Component
 
         if ($this->is_uploaded) $rules['image'] = ['nullable', 'image', 'max:2048'];
 
-        if ($this->product_id) {
-            $rules['name'] = ['required', 'string', 'max:255', new UniqueSlug(Product::class, $this->product_id)];
-        } else {
-            $rules['name'] = ['required', 'string', 'max:255', new UniqueSlug(Product::class)];
-        }
-
         $data = $this->validate($rules, null, $attributes);
 
         if (!$this->product_id) {
@@ -111,8 +105,6 @@ class Products extends Component
         }
 
         if ($this->is_uploaded) $data['image'] = _storeImage('products', $data['image']);
-
-        $data['slug'] = _slugify($data['name']);
 
         Product::updateOrCreate(['id' => $this->product_id], $data);
 

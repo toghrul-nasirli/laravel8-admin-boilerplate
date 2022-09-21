@@ -14,7 +14,6 @@ class News extends Model
 
     protected $fillable = [
         'position',
-        'slug',
         'image',
         'title',
         'text',
@@ -23,20 +22,14 @@ class News extends Model
     ];
 
     public $translatable = [
-        'slug',
         'title',
         'text',
         'description',
         'keywords',
     ];
 
-    public function getCreatedAtAttribute($date)
+    public function getSlugAttribute(): string
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m/d/Y');
-    }
-
-    public function getUpdatedAtAttribute($date)
-    {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m/d/Y');
+        return _slugify($this->title);
     }
 }

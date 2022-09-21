@@ -13,7 +13,6 @@ class Post extends Model
 
     protected $fillable = [
         'position',
-        'slug',
         'category_id',
         'image',
         'title',
@@ -23,7 +22,6 @@ class Post extends Model
     ];
 
     public $translatable = [
-        'slug',
         'title',
         'text',
         'description',
@@ -33,5 +31,10 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(PostCategory::class);
+    }
+
+    public function getSlugAttribute(): string
+    {
+        return _slugify($this->title);
     }
 }

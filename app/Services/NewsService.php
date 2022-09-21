@@ -21,7 +21,6 @@ class NewsService extends BaseService
     public static function create($data)
     {
         $data['position'] = News::max('position') + 1;
-        $data['slug'] = _slugify($data['title']);
         $data['image'] = _storeImage('news', $data['image']);
 
         News::create($data);
@@ -29,7 +28,6 @@ class NewsService extends BaseService
 
     public static function update($news, $data)
     {
-        $data['slug'] = _slugify($data['title']);
         if (request()->has('image')) {
             _deleteFile('images/news', $news->image);
             $data['image'] = _storeImage('news', $data['image']);

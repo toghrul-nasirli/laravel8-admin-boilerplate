@@ -13,7 +13,7 @@ if (!function_exists('_slugify')) {
     function _slugify($text, $delimiter = '-'): string
     {
         $options = [];
-        $text = mb_convert_encoding((string)$text, 'UTF-8', mb_list_encodings());
+
         $defaults = [
             'delimiter' => $delimiter,
             'limit' => null,

@@ -16,16 +16,13 @@ class NewsFactory extends Factory
     {
         $this->num++;
         
-        $uniqueWord = $this->faker->unique()->word;
-        
         Storage::makeDirectory($this->imagePath);
         
         return [
             'position' => $this->num,
             'status' => $this->faker->boolean,
-            'slug' => _slugify($uniqueWord),
-            'image' => $this->faker->unique()->image(storage_path('app/public/' . $this->imagePath), $this->imageWidth, $this->imageHeight, null, false),
-            'title' => $uniqueWord,
+            'image' => $this->faker->image(storage_path('app/public/' . $this->imagePath), $this->imageWidth, $this->imageHeight, null, false),
+            'title' => $this->faker->word,
             'text' => $this->faker->paragraph,
         ];
     }

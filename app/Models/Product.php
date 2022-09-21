@@ -13,7 +13,6 @@ class Product extends Model
 
     protected $fillable = [
         'position',
-        'slug',
         'parent_id',
         'image',
         'name',
@@ -23,7 +22,6 @@ class Product extends Model
     ];
 
     public $translatable = [
-        'slug',
         'name',
         'text',
         'description',
@@ -38,5 +36,10 @@ class Product extends Model
     public function images()
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function getSlugAttribute(): string
+    {
+        return _slugify($this->title);
     }
 }

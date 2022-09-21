@@ -24,7 +24,6 @@ class Settings extends Model
     ];
 
     public $translatable = [
-        'slug',
         'title',
         'about',
         'description',
